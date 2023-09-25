@@ -1,0 +1,4 @@
+{
+    "html.customData": ["./node_modules/vidstack/vscode.html-data.json"],
+    "typescript.tsdk": "node_modules\\typescript\\lib"
+}

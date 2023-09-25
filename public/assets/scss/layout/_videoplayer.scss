@@ -1,0 +1,146 @@
+.video-player-container video {
+   width: 100vw; /* Set width to 100vw to fill the viewport */
+   height: 100vh; /* Set height to 100vh to fill the viewport */
+   object-fit: fill; /* Change object-fit to contain */
+   opacity: 1;
+   transition: opacity 0.3s ease;
+   border-radius: 12px;
+   border: 6px solid #3f3f3fe5;
+   box-shadow: 0 4px 10px rgba(73, 73, 73, 0.123);
+}
+
+.video-player-container {
+   position: relative;
+   width: 100vw; /* Set width to 100vw for viewport width */
+   height: 100vh; /* Set height to 100vh for viewport height */
+   overflow: hidden; /* Hide any overflowing content */
+}
+
+// Video Div Stylings
+
+.video-wrapper {
+   position: relative; /* Change position to relative */
+   width: 100%;
+   height: 100%;
+   z-index: -1;
+}
+// Game Div Stylings
+.game-wrapper {
+   position: absolute;
+   bottom: 1rem;
+   width: 100vw;
+   z-index: 1;
+   opacity: 0;
+   transform: translateY(20px);
+   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.game-wrapper.show {
+   z-index: 1;
+   opacity: 1;
+   transform: translateY(0);
+}
+
+.toggle-fullscreen-button {
+   position: absolute;
+   bottom: 10px;
+   right: 10px;
+   background-color: #f0be85;
+   border: none;
+   border-radius: 50%;
+   padding: 8px;
+   cursor: pointer;
+   z-index: 1;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   transition: background-color 0.3s ease;
+}
+// LessonPath Button
+.lesson-path-button {
+   position: absolute;
+   top: 10px;
+   left: 10px;
+   cursor: pointer;
+   z-index: 1;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   transition: background-color 0.3s ease;
+}
+
+.toggle-fullscreen-button:hover {
+   background-color: darkslategray;
+   svg {
+      color: #f0be85;
+   }
+}
+
+.toggle-fullscreen-button svg {
+   color: darkslategray;
+}
+.ahooks-page-fullscreen {
+   position: fixed;
+   left: 0;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   width: 100% !important;
+   height: 100% !important;
+   z-index: 500 !important; /* Adjust the z-index value to 1000 or any lower number as needed */
+}
+
+// CustomPlayIcon.css
+.play-icon-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: darkslategray;
+   border-radius: 50%;
+   width: 64px;
+   height: 64px;
+   cursor: pointer;
+   transition: transform 0.2s ease-in-out;
+}
+
+.play-icon-container:hover {
+   transform: scale(1.2);
+}
+
+.play-icon-container svg {
+   fill: #f0be85;
+   width: 50px;
+   height: 50px;
+}
+
+/* LoadingComponent.css */
+@keyframes blink {
+   0%,
+   50%,
+   100% {
+      opacity: 0;
+   }
+   25%,
+   75% {
+      opacity: 1;
+   }
+}
+
+.blinking-dots {
+   font-size: 3.5rem;
+   margin-top: 10px;
+   animation: blink 1s infinite;
+}
+
+.dot1,
+.dot2,
+.dot3 {
+   animation: blink 1s infinite;
+   animation-delay: 0.2s; /* Delay each dot's animation */
+}
+.dot2 {
+   animation-delay: 0.4s;
+}
+.dot3 {
+   animation-delay: 0.6s;
+}

@@ -1,0 +1,61 @@
+@use '../utils' as *;
+
+.parent {
+    display: grid;
+    place-content: center;
+    // grid-gap: 1rem;
+    // grid-template-columns: repeat(3, minmax(200px, 1fr));
+    // grid-template-rows: repeat(3, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(3, 200px);
+}
+.parent-memory-game {
+    display: grid;
+    place-content: center;
+    grid-gap: 1rem;
+    // grid-template-columns: repeat(3, minmax(200px, 1fr));
+    // grid-template-rows: repeat(3, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, 300px);
+    grid-template-rows: repeat(3, 300px);
+}
+
+@media (max-width: 767px) {
+    .parent {
+        grid-template-columns: repeat(3, minmax(100px, 1fr));
+        grid-template-rows: repeat(3, minmax(100px, 1fr));
+    }
+    .parent-memory-game {
+        grid-template-columns: repeat(3, minmax(150px, 1fr));
+        grid-template-rows: repeat(3, minmax(150px, 1fr));
+    }
+}
+
+.parent > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.border-primary {
+    transition: border-color 0.5s ease-in-out;
+}
+
+// .parent {
+//     display: grid;
+//     place-content: center;
+//     grid-gap: 1rem;
+//     grid-template-columns: repeat(3, 200px);
+//     grid-template-rows: repeat(3, 200px);
+// }
+// .parent > div {
+//     padding: 5px;
+//     border-radius: 5px;
+//     display: grid;
+//     place-items: center;
+// }
+
+// .parent > div {
+//     font-family: sans-serif;
+//     font-size: 24px;
+//     font-weight: bold;
+// }
