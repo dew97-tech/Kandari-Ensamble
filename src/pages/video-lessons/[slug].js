@@ -5,7 +5,7 @@ const lessonData = [
    {
       id: 1,
       title: "LEÇON 1",
-      link: "/dialogue-animation-video",
+      link: "/video-lessons/dialogue-animation-video",
       has_dropdown: true,
       onlySideBar: false,
       sub_menus: [
@@ -145,6 +145,7 @@ export async function getStaticPaths() {
          { params: { slug: "video-lesson-8" } },
          { params: { slug: "video-lesson-9" } },
          { params: { slug: "video-lesson-10" } },
+         { params: { slug: "dialogue-animation-video" } },
       ],
       fallback: false,
    };
