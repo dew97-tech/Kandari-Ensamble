@@ -128,7 +128,7 @@ export async function getStaticProps({ params }) {
          title: lesson?.title,
          exercise_id: lesson?.exercise_id,
       },
-      revalidate: 30,
+      revalidate: 60,
    };
 }
 // getStaticPaths is needed here, but it is not needed in the other pages

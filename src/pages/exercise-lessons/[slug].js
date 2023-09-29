@@ -87,7 +87,7 @@ export async function getStaticProps({ params }) {
          link: lesson?.link,
          exercise_id: lesson?.exercise_id,
       },
-      revalidate: 30,
+      revalidate: 60,
    };
 }
 // getStaticPaths is needed here, but it is not needed in the other pages
@@ -102,7 +102,7 @@ export async function getStaticPaths() {
          { params: { slug: "sound-library-exercise" } },
          { params: { slug: "sound-library" } },
       ],
-      fallback: "blocking",
+      fallback: false,
    };
 }
 
