@@ -1,11 +1,15 @@
 import { NextResponse } from "next/server";
 export function middleware(request) {
-   // Add redirect flag
-   let isRedirecting = false;
+   let isLoggedIn = false;
 
    // Get the cookie value from the request
-   const url = request.nextUrl.clone();
-   const isLoggedIn = request.cookies.get("loggedIn");
+
+   const loggedInCookie = request.cookies.get("loggedIn");
+   if (loggedInCookie) {
+      const { value } = loggedInCookie;
+      isLoggedIn = value === "true";
+   }
+   // console.log("isLoggedIn", isLoggedIn);
 
    // List of routes that require authentication
    const protectedRoutes = [
@@ -29,25 +33,13 @@ export function middleware(request) {
       "/exercise-lessons/sound-library-exercise",
    ];
 
-   // Check if already redirecting or on redirect destination
-   if (isRedirecting || url.pathname === "/" || url.pathname === "/sign-in") {
-      return NextResponse.next();
-   }
-
    // Check if user is not logged in and trying to access protected route
    if (!isLoggedIn && protectedRoutes.includes(request.nextUrl.pathname)) {
-      // Set redirect flag
-      isRedirecting = true;
-      // url.pathname = request.nextUrl.pathname;
       return NextResponse.redirect(new URL("/sign-in", request.url));
    }
 
    // Redirect signed-in users trying to access sign-in back to home
    if (isLoggedIn && request.nextUrl.pathname === "/sign-in") {
-      // Set redirect flag
-      isRedirecting = true;
-
-      url.pathname = "/";
       return NextResponse.redirect(new URL("/", request.url));
    }
 
@@ -55,6 +47,10 @@ export function middleware(request) {
 }
 export const config = {
    matcher: [
+      "/",
+      "/sign-in",
+      "/register",
+      "/forgot-password",
       "/instructor-profile",
       "/exercise-lessons/memory-game",
       "/exercise-lessons/right-order-game",

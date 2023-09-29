@@ -81,13 +81,12 @@ const HeaderThree = () => {
                            )}
                            <div className="d-flex justify-content-end">
                               <li>
-                                 <Link
-                                    href="#"
+                                 <button
                                     onClick={() => setIsActive(true)}
                                     className="tp-menu-toggle d-xl-none"
                                  >
                                     <i className="fa-solid fa-bars fa-xl"></i>
-                                 </Link>
+                                 </button>
                               </li>
                            </div>
                         </div>
@@ -96,7 +95,7 @@ const HeaderThree = () => {
                </div>
             </div>
          </header>
-         <Sidebar isActive={isActive} setIsActive={setIsActive} />
+         <Sidebar isActive={isActive} setIsActive={setIsActive} handleLogout={handleLogout}/>
       </>
    );
 };
