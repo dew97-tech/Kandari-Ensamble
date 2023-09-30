@@ -8,7 +8,7 @@ const memory_game_data = [
 			dutch: 'de jongen',
 			english: 'the boy',
 		},
-		img: '/assets/img/course/course-thumb-01.jpg',
+		img: '/assets/exercises/memory-game/the_boy.jpg',
 		no_img: '/assets/img/blur_img.jpg',
 		audioUrl: '/assets/audio/sample_1.mp3',
 
@@ -24,7 +24,7 @@ const memory_game_data = [
 			dutch: 'hoi',
 			english: 'hi',
 		},
-		img: '/assets/img/course/course-thumb-02.jpg',
+		img: '/assets/exercises/memory-game/hi.jpg',
 		no_img: '/assets/img/blur_img.jpg',
 		audioUrl: '/assets/audio/sample_2.mp3',
 
@@ -40,7 +40,7 @@ const memory_game_data = [
 			dutch: 'ik heet',
 			english: 'my name is',
 		},
-		img: '/assets/img/course/course-thumb-03.jpg',
+		img: '/assets/exercises/memory-game/my_name_is.jpg',
 		no_img: '/assets/img/blur_img.jpg',
 		audioUrl: '/assets/audio/sample_3.mp3',
 
@@ -56,7 +56,7 @@ const memory_game_data = [
 			dutch: 'het gaat goed',
 			english: 'it is going well',
 		},
-		img: '/assets/img/course/course-thumb-04.jpg',
+		img: '/assets/exercises/memory-game/it_is_going_well.jpg',
 		no_img: '/assets/img/blur_img.jpg',
 		audioUrl: '/assets/audio/sample_4.mp3',
 
@@ -72,7 +72,7 @@ const memory_game_data = [
 			dutch: 'de ouders',
 			english: 'the parents',
 		},
-		img: '/assets/img/course/course-thumb-05.jpg',
+		img: '/assets/exercises/memory-game/the_parents.jpg',
 		no_img: '/assets/img/blur_img.jpg',
 		audioUrl: '/assets/audio/sample_5.mp3',
 
@@ -88,7 +88,7 @@ const memory_game_data = [
 			dutch: 'wonen',
 			english: 'to live',
 		},
-		img: '/assets/img/course/course-thumb-06.jpg',
+		img: '/assets/exercises/memory-game/to_live.jpg',
 		no_img: '/assets/img/blur_img.jpg',
 		audioUrl: '/assets/audio/sample_6.mp3',
 
@@ -104,7 +104,7 @@ const memory_game_data = [
 			dutch: 'hier',
 			english: 'here',
 		},
-		img: '/assets/img/course/course-thumb-03.jpg',
+		img: '/assets/exercises/memory-game/here.jpg',
 		no_img: '/assets/img/blur_img.jpg',
 		audioUrl: '/assets/audio/sample_3.mp3',
 
@@ -120,7 +120,7 @@ const memory_game_data = [
 			dutch: 'vertrekken',
 			english: 'to leave',
 		},
-		img: '/assets/img/course/course-thumb-05.jpg',
+		img: '/assets/exercises/memory-game/To_leave.jpg',
 		no_img: '/assets/img/blur_img.jpg',
 		audioUrl: '/assets/audio/sample_3.mp3',
 
@@ -136,7 +136,7 @@ const memory_game_data = [
 			dutch: 'tot ziens',
 			english: 'goodbye',
 		},
-		img: '/assets/img/course/course-thumb-05.jpg',
+		img: '/assets/exercises/memory-game/good_bye.jpg',
 		no_img: '/assets/img/blur_img.jpg',
 		audioUrl: '/assets/audio/sample_5.mp3',
 

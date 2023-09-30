@@ -24,25 +24,24 @@ const GameResult = ({ index, result, answers, audioUrl, guessedWord }) => {
                         <p
                            id="guessword"
                            name="guessword"
-                           className="buff-text-color h5 text-center mb-0 py-1"
+                           className="buff-text-color h5 text-center mb-1"
                         >
                            Your answer was right !
                         </p>
-                        <div className="d-flex align-items-center justify-content-evenly mt-0 pt-0">
-                           <li
-                              type="button"
-                              className="btn light-green ml-10 py-2 px-2 my-1 border border- border-success rounded-1 shadow-sm "
-                           >
+                        <div className="text-center">
+                           <li className="text-success text-center h4 px-2">
                               {/* &#10003; {answers} */}
-                              <MdOutlineCheck className="mr-1 mt-0 mb-1" />
+                              <MdOutlineCheck className="mx-1 mt-0 mb-1" />
                               {frame === 2 &&
-                                 guessedWord.charAt(0).toUpperCase()}
-                              {answers.toLowerCase()}
-                              {/* {guessedWord.charAt(0).toUpperCase()}{answers} */}
+                                 guessedWord?.charAt(0).toUpperCase()}
+                              {answers?.toLowerCase()}
+                              <hr className="mt-1 mb-0 mx-4 rounded-2 border-2 light-green" />
                            </li>
+                        </div>
+                        <div className="d-flex align-items-center justify-content-center mt-0 pt-0">
                            {frame === 4 && (
                               <>
-                                 <div className="d-flex justify-content-end">
+                                 <div className="d-flex align-items-center justify-content-end">
                                     <AudioPlayer
                                        audioUrl={"/assets/audio/sample_1.mp3"}
                                        context={GameContext}
@@ -62,21 +61,22 @@ const GameResult = ({ index, result, answers, audioUrl, guessedWord }) => {
                         <p
                            id="guessword"
                            name="guessword "
-                           className="buff-text-color h5 text-center mb-0 py-1"
+                           className="buff-text-color h5 text-center mb-1"
                         >
                            Your answer was wrong !
                         </p>
-                        <div className="memory-game-color  d-flex align-items-center justify-content-evenly">
-                           <li
-                              type="button"
-                              className="btn bittersweet ml-10 py-2 my-1 border border-1 border-danger rounded-1 shadow-sm"
-                           >
+                        <div className="text-center">
+                           <li className="text-danger text-center h4 px-2">
                               {/* &#10003; {answers} */}
                               <MdClose className="mx-1 mt-0 mb-1" />
                               {frame === 2 &&
-                                 guessedWord.charAt(0).toUpperCase()}
+                                 guessedWord?.charAt(0).toUpperCase()}
                               {answers?.toLowerCase()}
+                              <hr className="mt-1 mb-0 mx-4 rounded-2 border-2 text-danger" />
                            </li>
+                        </div>
+                        <div className="memory-game-color  d-flex align-items-center justify-content-evenly">
+                           
                            {frame === 4 && (
                               <>
                                  <div className="d-flex justify-content-end">

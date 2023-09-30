@@ -46,6 +46,7 @@ const Game = () => {
                                              key={index}
                                              index={index}
                                              img={card.img}
+                                             imgText={card.img_data}
                                           />
                                        ))}
                                     </div>

@@ -69,7 +69,7 @@ const VoiceRecorder = ({ micHandler, isAudioPlaying }) => {
       }
    }, [isRecording]);
    return (
-      <div>
+      <div className="d-flex justify-content-center align-items-center">
          <button
             className={`btn btn-md buff-text-color buff py-2 px-1 mx-1 ${
                isPlaying || isAudioPlaying ? "disabled" : ""
