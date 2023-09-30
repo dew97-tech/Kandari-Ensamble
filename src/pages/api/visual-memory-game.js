@@ -36,7 +36,7 @@ const visual_memory_game_data = [
    },
    {
       id: 8,
-      img: "/assets/exercises/memory-game/To_leave.jpg",
+      img: "/assets/exercises/memory-game/to_leave.jpg",
       img_data: "partir",
    },
    {
