@@ -7,6 +7,7 @@ import ProfileMenu from "./profile-menu";
 import useSticky from "@/hooks/use-sticky";
 import Sidebar from "./sidebar";
 import Image from "next/image";
+import HomeMenu from "./home-menu";
 
 const HeaderThree = () => {
    const router = useRouter();
@@ -29,73 +30,77 @@ const HeaderThree = () => {
    };
    return (
       <>
-         <header className="header_white_area bone">
-            <div className="header__area">
-               <div
-                  className="main-header third-header header-xy-spacing"
-                  id="header-sticky"
-               >
-                  <div className="container">
-                     <div className="d-flex align-items-center">
-                        <div className="col-xxl-3 col-xl-3 col-lg-5 col-md-6 col-6">
-                           <div className="logo-area d-flex align-items-center">
-                              <div className="logo">
-                                 <Link href="/">
-                                    <Image
-                                       src="/assets/img/logo/brand_logo_2.png"
-                                       alt="Maison Ensamble"
-                                       width={150}
-                                       height={50}
-                                    />
-                                 </Link>
-                              </div>
+         <header className='bone '>
+            <div className='py-3' id='header-sticky'>
+               <div className='container col-lg-10'>
+                  <div className='d-flex justify-content-between align-items-center'>
+                     <div className='text-center'>
+                        <div className='logo-area d-flex align-items-center'>
+                           <div className='logo'>
+                              <Link href='/'>
+                                 <Image
+                                    src='/assets/img/logo/brand_logo_2.png'
+                                    alt='Maison Ensamble'
+                                    width={150}
+                                    height={50}
+                                 />
+                              </Link>
                            </div>
                         </div>
-                        <div className="col-xxl-9 col-xl-9 col-lg-7 col-md-6 col-6 d-flex align-items-center justify-content-end">
-                           {isLoggedIn ? (
-                              <div className="main-menu main-menu-black d-flex justify-content-end">
-                                 <nav
-                                    id="mobile-menu"
-                                    className="d-none d-xl-block"
-                                 >
-                                    <div className="d-flex align-items-center">
-                                       <NavMenu />
-                                       <ProfileMenu
-                                          handleLogout={handleLogout}
-                                       />
-                                    </div>
-                                 </nav>
+                     </div>
+                     <div className='d-flex align-items-center justify-content-center'>
+                        <div className='main-menu main-menu-black'>
+                           <nav id='mobile-menu' className='d-none d-xl-block'>
+                              <div className='d-flex align-items-center'>
+                                 <HomeMenu />
                               </div>
-                           ) : (
-                              <div className="d-flex justify-content-end">
-                                 <Link
-                                    href="/sign-in"
-                                    className="btn btn-md light-blue my-0 px-3 py-2 d-none d-sm-block shadow-sm"
-                                    onClick={() => {
-                                       router.push("/sign-in");
-                                    }}
-                                 >
-                                    Login
-                                 </Link>
-                              </div>
-                           )}
-                           <div className="d-flex justify-content-end">
-                              <li>
-                                 <button
-                                    onClick={() => setIsActive(true)}
-                                    className="tp-menu-toggle d-xl-none"
-                                 >
-                                    <i className="fa-solid fa-bars fa-xl"></i>
-                                 </button>
-                              </li>
+                           </nav>
+                        </div>
+                        {isLoggedIn ? (
+                           <div className='main-menu main-menu-black'>
+                              <nav
+                                 id='mobile-menu'
+                                 className='d-none d-xl-block'
+                              >
+                                 <div className='d-flex '>
+                                    <NavMenu />
+                                    <ProfileMenu handleLogout={handleLogout} />
+                                 </div>
+                              </nav>
                            </div>
+                        ) : (
+                           <div className='d-flex justify-content-end'>
+                              <Link
+                                 href='/sign-in'
+                                 className='btn btn-md light-blue my-0 px-3 py-2 d-none d-sm-block shadow-sm'
+                                 onClick={() => {
+                                    router.push("/sign-in");
+                                 }}
+                              >
+                                 Login
+                              </Link>
+                           </div>
+                        )}
+                        <div className='d-flex justify-content-end'>
+                           <li>
+                              <button
+                                 onClick={() => setIsActive(true)}
+                                 className='tp-menu-toggle d-xl-none'
+                              >
+                                 <i className='fa-solid fa-bars fa-xl'></i>
+                              </button>
+                           </li>
                         </div>
                      </div>
                   </div>
                </div>
             </div>
          </header>
-         <Sidebar isActive={isActive} setIsActive={setIsActive} handleLogout={handleLogout}/>
+         <Sidebar
+            isActive={isActive}
+            setIsActive={setIsActive}
+            handleLogout={handleLogout}
+         />
       </>
    );
 };

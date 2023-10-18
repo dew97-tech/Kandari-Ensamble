@@ -86,7 +86,7 @@ const VideoLessonsContainer = ({ slug, title, exercise_id }) => {
    }
 
    return (
-      <Suspense fallback={<LoadingComponent />}>
+      // <Suspense fallback={<LoadingComponent />}>
          <VideoWrapper>
             <SEO pageTitle={title} />
             {LessonComponent && (
@@ -98,7 +98,7 @@ const VideoLessonsContainer = ({ slug, title, exercise_id }) => {
             )}
             {/* {getLessonComponent(slug)} */}
          </VideoWrapper>
-      </Suspense>
+      // </Suspense>
    );
 };
 export default VideoLessonsContainer;

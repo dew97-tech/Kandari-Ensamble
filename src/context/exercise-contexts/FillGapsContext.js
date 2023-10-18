@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
+import { useLocalStorage } from '@/hooks/useLocalStorage';
 // Create a context for the Fill Gaps game
 const FillGapsExerciseContext = React.createContext();
 
 // Define a provider component for the Fill Gaps game
 const FillGapsExerciseProvider = ({ children, exerciseTitle, exerciseId }) => {
+	const { getItem, setItem } = useLocalStorage('lessons_exercises');
 	// Define state variables for the Fill Gaps game
 	const [sentences, setSentences] = useState([]);
 	const [currentExerciseId, setCurrentExerciseId] = useState(exerciseId);
@@ -84,11 +86,11 @@ const FillGapsExerciseProvider = ({ children, exerciseTitle, exerciseId }) => {
 	// Exercise Progress Checker
 	useEffect(() => {
 		if (isFinished) {
-			const storedExercises = JSON.parse(localStorage.getItem('lessons_exercises'));
+			const storedExercises = getItem();
 			const updatedExercises = [...storedExercises];
 			const index = updatedExercises.findIndex((exercise) => exercise.name === exerciseTitle);
 			updatedExercises[index].isFinished = true;
-			localStorage.setItem('lessons_exercises', JSON.stringify(updatedExercises));
+			setItem(updatedExercises);
 		}
 	}, [isFinished]);
 

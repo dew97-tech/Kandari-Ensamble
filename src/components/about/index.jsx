@@ -9,12 +9,12 @@ import InstructorArea from "./instructor-area";
 import SuitableArea from "@/src/common/suitable-area";
 import CounterArea from "../homes/home-3/counter-area";
 import Breadcrumb from "../bredcrumb/breadcrumb";
-
+import AboutSection from "./AboutSection";
 const About = () => {
-  return (
-    <>
-      <Breadcrumb title="About Us" subtitle="About Us" isDbbl="Pages"  />
-      <FeatureArea style_about={true} />
+   return (
+      <>
+         <Breadcrumb title='OVER' subtitle='OVER' />
+         {/* <FeatureArea style_about={true} />
       <AboutArea style_about={true} />
       <BrandArea style_about={true} />
       <VideoArea style_2={true} />
@@ -22,9 +22,10 @@ const About = () => {
       <TestimonialAreaThree style_about={true} />
       <InstructorArea />
       <SuitableArea style_2={true} />
-      <CounterArea />
-    </>
-  );
+      <CounterArea /> */}
+         <AboutSection />
+      </>
+   );
 };
 
 export default About;

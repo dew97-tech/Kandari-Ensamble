@@ -107,7 +107,7 @@ const FooterThree = () => {
 					className="footer-bg theme-bg bg-bottom"
 					style={{ backgroundImage: `url(/assets/img/bg/shape-bg-02.png)` }}
 				>
-					<div className="f-border pt-115 pb-70">
+					{/* <div className="f-border pt-115 pb-165">
 						<div className="container">
 							<div className="row">
 								{footer_three_content.map((item, i) => (
@@ -130,7 +130,7 @@ const FooterThree = () => {
 								))}
 							</div>
 						</div>
-					</div>
+					</div> */}
 					<div className="f-copyright pt-60 pb-40">
 						<div className="container">
 							<div className="row text-center text-lg-start">

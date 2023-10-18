@@ -8,6 +8,7 @@ import LoadingComponent from "../../games/components/LoadingComponent";
 import OffCanvas from "../../wrapper-components/off-canvas";
 // import NavLinks from "../../wrapper-components/navlinks";
 import CustomPlayIcon from "./CustomPlayIcon";
+import ErrorComponent from "../../games/components/ErrorComponent";
 
 const CommonVideoPlayer = ({
    context,
@@ -41,6 +42,7 @@ const CommonVideoPlayer = ({
    const videoRef = useRef(null);
    const intervalRef = useRef(null);
    const [isLoading, setIsLoading] = useState(true);
+   const [showError, setShowError] = useState(false);
    const [isFullscreen, { enterFullscreen, exitFullscreen }] = useFullscreen(
       videoPlayerContainerRef,
       {
@@ -66,6 +68,12 @@ const CommonVideoPlayer = ({
    const handlePlay = () => {
       setPlaying(true);
       setIsLoading(false);
+   };
+
+   const handleError = () => {
+      setPlaying(false);
+      setIsLoading(false);
+      setShowError(true);
    };
 
    // Pause the video at the given time stamp and show the game component
@@ -111,9 +119,12 @@ const CommonVideoPlayer = ({
       };
    }, [showVideo, playing, timeStamp]);
 
+   // Check if videoSRC is loaded if not fire the ErrorComponent after sometime
+
    return (
       <>
          {isLoading && <LoadingComponent />}
+         {showError && <ErrorComponent />}
          <div ref={videoPlayerContainerRef} className="video-player-container">
             <div className="video-wrapper">
                {showVideo && isFullscreen && (
@@ -137,6 +148,9 @@ const CommonVideoPlayer = ({
                         }}
                         onEnded={() => {
                            handleFinish();
+                        }}
+                        onError={() => {
+                           handleError();
                         }}
                         fallback={<LoadingComponent />}
                      />

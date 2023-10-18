@@ -120,7 +120,7 @@ const memory_game_data = [
 			dutch: 'vertrekken',
 			english: 'to leave',
 		},
-		img: '/assets/exercises/memory-game/to_leave.jpg',
+		img: '/assets/exercises/memory-game/To_leave.jpg',
 		no_img: '/assets/img/blur_img.jpg',
 		audioUrl: '/assets/audio/sample_3.mp3',
 

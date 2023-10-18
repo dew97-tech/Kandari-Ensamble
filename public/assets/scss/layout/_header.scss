@@ -340,7 +340,8 @@
                 position: absolute;
                 top: 120%;
                 left: 0;
-                width: 200px;
+                // Previous Width was 200px changed to 160px to prevent text overflow and margin collapse
+                width: 160px;
                 background: var(--tp-common-white);
                 z-index: 99;
                 @include transition(0.3s);

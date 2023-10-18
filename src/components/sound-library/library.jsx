@@ -141,8 +141,8 @@ const Library = ({ selectedGameLevel }) => {
                         </span>
                      </CustomToggle>
                      <Accordion.Collapse eventKey={index.toString()}>
-                        <Card.Body>
-                           <table className="table table-bordered text-center ">
+                        <Card.Body className="table-responsive">
+                           <table className="table table-bordered text-center">
                               <thead>
                                  <tr>
                                     <th

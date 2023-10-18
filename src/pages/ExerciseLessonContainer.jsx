@@ -82,7 +82,7 @@ const ExerciseLessonContainer = ({ slug, title, exercise_id, link }) => {
    }
 
    return (
-      <Suspense fallback={<LoadingComponent />}>
+      // <Suspense fallback={<LoadingComponent />}>
          <NavLinkWrapper>
             <SEO pageTitle={title} />
             {LessonComponent && (
@@ -93,7 +93,7 @@ const ExerciseLessonContainer = ({ slug, title, exercise_id, link }) => {
                />
             )}
          </NavLinkWrapper>
-      </Suspense>
+      // </Suspense>
    );
 };
 export default ExerciseLessonContainer;

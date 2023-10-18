@@ -1,0 +1,74 @@
+{
+   "registeredUser": [
+      {
+         "id": 1,
+         "name": "David Dew Mallick",
+         "email": "dewmallick@gmail.com",
+         "password": "$2b$10$Z5jUBuRgj2qsEeqzkO9aEe5g.3S6a23K7Md2sAFviUFNz145Qbf8K",
+         "whyJoin": "learn-french-at-beginner's-level-executive",
+         "role": "user",
+         "createdAt": "2023-10-08T06:22:59.952Z",
+         "updatedAt": "2023-10-08T06:22:59.952Z"
+      },
+      {
+         "id": 2,
+         "name": "Qazi Taskin Rahat",
+         "email": "qazi@gmail.com",
+         "password": "$2b$10$ZIt97H8iPafD7su0mnzAuOuPizNnBTGJybTt1Gc5NLOyqT1V4c8KG",
+         "whyJoin": "want-to-integrate-this-course",
+         "role": "user",
+         "createdAt": "2023-10-08T06:23:40.023Z",
+         "updatedAt": "2023-10-08T06:23:40.023Z"
+      },
+      {
+         "id": 3,
+         "name": "Likhan",
+         "email": "likhan@gmail.com",
+         "password": "$2b$10$gKkeLtb6zsw9OR9PEsUJgO/GmdbOX4Hx7WT/zjcyFyp6AkRR5db5C",
+         "whyJoin": "learn-french-at-beginner's-level-executive",
+         "role": "user",
+         "createdAt": "2023-10-08T12:46:19.391Z",
+         "updatedAt": "2023-10-08T12:46:19.391Z"
+      },
+      {
+         "id": 4,
+         "name": "Lusanta",
+         "email": "lusanta@gmail.com",
+         "password": "$2b$10$wnUOddK4t/OGaIK.9LkQmuCUFDnNYiWMdeLhMeyBPG1n2ut8UXtWe",
+         "whyJoin": "want-to-integrate-this-course",
+         "role": "user",
+         "createdAt": "2023-10-12T13:44:57.623Z",
+         "updatedAt": "2023-10-12T13:44:57.623Z"
+      }
+   ],
+   "loggedUser": [
+      {
+         "id": 1,
+         "name": "David Dew Mallick",
+         "email": "dewmallick@gmail.com",
+         "role": "user",
+         "lastLogin": "2023-10-18T07:18:11.681Z"
+      },
+      {
+         "id": 3,
+         "name": "Likhan",
+         "email": "likhan@gmail.com",
+         "role": "user",
+         "lastLogin": "2023-10-08T12:46:48.013Z"
+      },
+      {
+         "id": 2,
+         "name": "Qazi Taskin Rahat",
+         "email": "qazi@gmail.com",
+         "role": "user",
+         "lastLogin": "2023-10-08T12:48:15.088Z"
+      },
+      {
+         "id": 4,
+         "name": "Lusanta",
+         "email": "lusanta@gmail.com",
+         "role": "user",
+         "lastLogin": "2023-10-12T13:45:16.349Z"
+      }
+   ]
+}

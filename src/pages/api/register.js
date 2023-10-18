@@ -1,34 +1,52 @@
-import bcrypt from 'bcrypt';
+// pages/api/register.js
 
-export default (req, res) => {
-    if (req.method === 'POST') {
-        const { name, email, password, whyJoin } = req.body;
+import { readFileSync, writeFileSync } from "fs";
+import bcrypt from "bcrypt";
 
-        // Hashing the Password Using Bcrypt
-        bcrypt.hash(password, 10, (err, hash) => {
-            if (err) {
-                console.error(err);
-                res.status(500).end();
-            } else {
-                // Log the hashed password in the console
-                // Validate the data as needed
-                const userData = {
-                    name: name,
-                    email: email,
-                    password: password,
-                    whyJoin: whyJoin,
-                    role: 'user',
-                };
-                console.log('User Registered in Successfully:', userData);
+export default async (req, res) => {
+   if (req.method === "POST") {
+      const { name, email, password, whyJoin } = req.body;
 
-                // Return success message with user data and status code 200
-                res.status(200).json(userData);
-                // console.log(`Hashed Password is: ${hash}`);
-            }
-        });
-    } else {
-        // Handle other HTTP methods and return appropriate response
-        res.setHeader('Allow', ['POST']);
-        res.status(401).json({ message: `Method ${req.method} not allowed` });
-    }
+      // Hash password
+      const hashedPassword = await bcrypt.hash(password, 10);
+
+      // Read existing user data
+      let registeredUsers = [];
+      try {
+         const data = readFileSync("./db.json");
+         registeredUsers = JSON.parse(data).registeredUser;
+         // console.log(registeredUsers);
+      } catch (err) {
+         res.status(404).json({ message: "Can not read the file" });
+         console.error(err);
+      }
+
+      // Create new user
+      const newUser = {
+         id: registeredUsers.length + 1,
+         name,
+         email,
+         password: hashedPassword,
+         whyJoin,
+         role: "user",
+         createdAt: new Date().toISOString(),
+         updatedAt: new Date().toISOString(),
+      };
+      // Spread existing users and add new user
+      const updatedUsers = [...registeredUsers, newUser];
+
+      // Write updated data
+      const dbData = {
+         ...JSON.parse(readFileSync("./db.json")),
+         registeredUser: updatedUsers,
+      };
+      // console.log(dbData);
+      writeFileSync("./db.json", JSON.stringify(dbData));
+
+      // Rest of logic...
+
+      res.status(200).json({ message: "Registered successfully" });
+   } else {
+      res.status(405).json({ message: `Method ${req.method} not allowed` });
+   }
 };

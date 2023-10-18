@@ -22,8 +22,8 @@ const HomeThree = () => {
             <VideoArea style_2={true} />
             <CategoryArea />
             <OurCourse />
-            <ChooseArea />
-            <TestimonialArea />
+            {/* <ChooseArea /> */}
+            {/* <TestimonialArea /> */}
             <BrandArea style_3={true} />
             <BlogArea />
             <CounterArea style_3={true} />

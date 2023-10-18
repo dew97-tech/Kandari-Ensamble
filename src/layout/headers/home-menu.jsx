@@ -1,13 +1,12 @@
 import Link from "next/link";
 import React from "react";
-import menu_data from './menu-data';
+import home_data from "./home-data";
 
-
-const NavMenu = () => {
+const HomeMenu = () => {
    return (
       <>
          <ul>
-            {menu_data.map((item) => (
+            {home_data.map((item) => (
                <li
                   key={item.id}
                   className={`${item?.has_dropdown ? "has-dropdown" : ""}`}
@@ -36,4 +35,4 @@ const NavMenu = () => {
    );
 };
 
-export default NavMenu;
+export default HomeMenu;

@@ -24,7 +24,6 @@ const VideoGame = () => {
       revalidateOnFocus: false,
       revalidateOnReconnect: false,
       revalidateOnMount: true,
-      revalidateOnReconnect: false,
    });
    if (error) {
       return <ErrorComponent />;

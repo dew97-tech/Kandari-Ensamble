@@ -13,7 +13,7 @@ const Breadcrumb = ({ title, subtitle, isDbbl = '' }) => {
                     <div className="col-xxl-12">
                         <div className="breadcrumb__content p-relative z-index-1">
                             <h3 className="breadcrumb__title mb-20">{title}</h3>
-                            <div className="breadcrumb__list">
+                            {/* <div className="breadcrumb__list">
                                 <span>
                                     <Link href="/">Home</Link>
                                 </span>
@@ -29,7 +29,7 @@ const Breadcrumb = ({ title, subtitle, isDbbl = '' }) => {
                                     </>
                                 )}
                                 <span className="sub-page-black">{subtitle}</span>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

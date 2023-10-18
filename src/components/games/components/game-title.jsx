@@ -2,7 +2,7 @@ import React from 'react';
 
 const GameTitle = ({ title, gameLanguage }) => {
     return (
-        <div className="row">
+        <div className="">
             <div className="d-flex justify-content-center">
                 <div className="text-center mb-20 mt-5">
                     <h2 className="tp-section-title px-3 rounded buff-text-color mb-0 pb-5">

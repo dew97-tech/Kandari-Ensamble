@@ -7,13 +7,13 @@ import LocationArea from './location-area';
 
 const Contact = () => {
     return (
-        <>
-            <Breadcrumb title="Contact Us" subtitle="contact" />
+        <div className='bone'>
+            {/* <Breadcrumb title="Contact Us" subtitle="contact" /> */}
             <LocationArea />
             <ContactForm />
-            <MapArea />
-            <CounterArea />
-        </>
+            {/* <MapArea /> */}
+            {/* <CounterArea /> */}
+        </div>
     );
 };
 

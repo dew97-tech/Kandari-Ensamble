@@ -6,7 +6,8 @@
 
 .banner-bg {
     @include background;
-    height: 1005px;
+    // Previous Height was 1050px now it is 850px
+    height: 850px;
     @media #{$xl,$lg,$md} {
         height: 768px;
     }
