@@ -114,19 +114,28 @@ const RegisterForm = () => {
                }),
             });
 
-            setError(null);
-            const data = await response.json();
-            // console.log(data);
-            // console.log(whyJoin);
-            if (response.ok) {
+            if (response.status === 400) {
+               // Check the response body to see if the error is due to a duplicate username or email.
+               const errorBody = await response.json();
+               if (
+                  errorBody.message === "User with this email already exists"
+               ) {
+                  // Show an error message to the user.
+                  setError("User with this email already exists");
+               } else if (errorBody.message === "Username is already taken") {
+                  // Show an error message to the user.
+                  setError("Username is already taken");
+               }
+            } else if (response.ok) {
                // user is authenticated, redirect or show success message
                setTimeout(() => {
                   // Navigate to /sign-in using the Link component
                   handlePrompt("LoginPage");
                }, 1000);
             }
-         } catch (error) {}
-         console.error(error);
+         } catch (error) {
+            console.error(error);
+         }
       } else {
          setFormFilled(false);
          setError("You must select one of the above choices");
@@ -136,70 +145,70 @@ const RegisterForm = () => {
    const renderStepOne = () => {
       return (
          <>
-            <section className="login-area">
+            <section className='login-area'>
                {/* <h3 className="text-center mb-40 buff-text-color">
                         Sign up From Here
                     </h3> */}
-               <div className="row">
-                  <div className="d-flex justify-content-center">
-                     <div className="text-center">
-                        <h3 className="tp-section-title px-2 buff-text-color">
+               <div className='row'>
+                  <div className='d-flex justify-content-center'>
+                     <div className='text-center'>
+                        <h3 className='tp-section-title px-2 buff-text-color'>
                            Sign-up From Here
                         </h3>
-                        <hr className="shadow-sm border border-1 border-secondary opacity-25 rounded mt-0 mx-2" />
+                        <hr className='shadow-sm border border-1 border-secondary opacity-25 rounded mt-0 mx-2' />
                      </div>
                   </div>
                </div>
-               <h5 className="text-left mt-30 mb-10 text-center buff-text-color">
+               <h5 className='text-left mt-30 mb-10 text-center buff-text-color'>
                   Personal Information
                </h5>
-               <label htmlFor="name" className="buff-text-color mx-0">
+               <label htmlFor='name' className='buff-text-color mx-0'>
                   Your Name <span>*</span>
                </label>
                <input
-                  id="name"
-                  className="border border-secondary border-1 rounded-2 buff-text-color"
-                  type="text"
-                  placeholder="Enter your name"
+                  id='name'
+                  className='border border-secondary border-1 rounded-2 buff-text-color'
+                  type='text'
+                  placeholder='Enter your name'
                   value={name}
                   onChange={handleChange}
                   required
                />
-               <label htmlFor="email" className="buff-text-color mx-0">
+               <label htmlFor='email' className='buff-text-color mx-0'>
                   Email Address <span>*</span>
                </label>
                <input
-                  id="email"
-                  className="border border-secondary border-1 rounded-2 buff-text-color"
-                  type="email"
-                  placeholder="Enter your email address"
+                  id='email'
+                  className='border border-secondary border-1 rounded-2 buff-text-color'
+                  type='email'
+                  placeholder='Enter your email address'
                   value={email}
                   onChange={handleChange}
                   required
                />
-               <label htmlFor="password" className="buff-text-color mx-0">
+               <label htmlFor='password' className='buff-text-color mx-0'>
                   Password <span>*</span>
                </label>
                <input
-                  id="password"
-                  className="border border-secondary border-1 rounded-2 buff-text-color"
-                  type="password"
-                  placeholder="Enter a password"
+                  id='password'
+                  className='border border-secondary border-1 rounded-2 buff-text-color'
+                  type='password'
+                  placeholder='Enter a password'
                   value={password}
                   onChange={handleChange}
                   required
                />
                <label
-                  htmlFor="confirm-password"
-                  className="buff-text-color mx-0"
+                  htmlFor='confirm-password'
+                  className='buff-text-color mx-0'
                >
                   Confirm Password <span>*</span>
                </label>
                <input
-                  id="confirm-password"
-                  className="border border-secondary border-1 rounded-2 buff-text-color"
-                  type="password"
-                  placeholder="Confirm your password"
+                  id='confirm-password'
+                  className='border border-secondary border-1 rounded-2 buff-text-color'
+                  type='password'
+                  placeholder='Confirm your password'
                   value={confirmPassword}
                   onChange={handleChange}
                   required
@@ -207,18 +216,18 @@ const RegisterForm = () => {
 
                {formFilled ? (
                   <button
-                     className="text-white btn btn-lg w-100 light-blue"
-                     type="submit"
+                     className='text-white btn btn-lg w-100 light-blue'
+                     type='submit'
                      onClick={performCheck}
                   >
                      Next
                   </button>
                ) : (
                   <>
-                     <div className="my-1 text-danger text-center">{error}</div>
+                     <div className='my-1 text-danger text-center'>{error}</div>
                      <button
-                        className="text-white btn btn-lg w-100 light-blue"
-                        type="submit"
+                        className='text-white btn btn-lg w-100 light-blue'
+                        type='submit'
                         onClick={performCheck}
                      >
                         Next
@@ -233,25 +242,25 @@ const RegisterForm = () => {
    const renderStepTwo = () => {
       return (
          <>
-            <section className="login-area">
-               <h3 className="text-center mb-30">Why do you Want to Join ?</h3>
-               <div className="row mb-10">
-                  <div className="col-lg-5 col-md-12 courser-list-width-register mb-10">
-                     <div className="course-sidebar-register">
-                        <div className="course-sidebar__widget mb-20">
-                           <div className="course-sidebar__info c-info-list">
-                              <div className="form-check form-check-inline mb-10">
+            <section className='login-area'>
+               <h3 className='text-center mb-30'>Why do you Want to Join ?</h3>
+               <div className='row mb-10'>
+                  <div className='col-lg-5 col-md-12 courser-list-width-register mb-10'>
+                     <div className='course-sidebar-register'>
+                        <div className='course-sidebar__widget mb-20'>
+                           <div className='course-sidebar__info c-info-list'>
+                              <div className='form-check form-check-inline mb-10'>
                                  <input
-                                    className="form-check-input custom-radio mt-0 pt-0"
-                                    name="userPreference"
-                                    type="radio"
-                                    id="why-join"
+                                    className='form-check-input custom-radio mt-0 pt-0'
+                                    name='userPreference'
+                                    type='radio'
+                                    id='why-join'
                                     value="learn-french-at-beginner's-level-psychological"
                                     onClick={handleChange}
                                  />
                                  <label
-                                    className="form-check-label ml-3 mb-4 d-block custom-label"
-                                    htmlFor="level1"
+                                    className='form-check-label ml-3 mb-4 d-block custom-label'
+                                    htmlFor='level1'
                                  >
                                     I want to learn French at a beginner's level
                                     and use a method that integrates
@@ -259,36 +268,36 @@ const RegisterForm = () => {
                                     learning process.
                                  </label>
                               </div>
-                              <div className="form-check form-check-inline mb-10">
+                              <div className='form-check form-check-inline mb-10'>
                                  <input
-                                    className="form-check-input custom-radio mt-0 pt-0"
-                                    name="userPreference"
-                                    type="radio"
-                                    id="why-join"
+                                    className='form-check-input custom-radio mt-0 pt-0'
+                                    name='userPreference'
+                                    type='radio'
+                                    id='why-join'
                                     value="learn-french-at-beginner's-level-executive"
                                     onClick={handleChange}
                                  />
                                  <label
-                                    className="form-check-label ml-3 mb-4 d-block"
-                                    htmlFor="level2"
+                                    className='form-check-label ml-3 mb-4 d-block'
+                                    htmlFor='level2'
                                  >
                                     I want to learn French at a beginners’ level
                                     and improve my executive functions (advised
                                     until 14 y.o.).
                                  </label>
                               </div>
-                              <div className="form-check form-check-inline">
+                              <div className='form-check form-check-inline'>
                                  <input
-                                    className="form-check-input custom-radio mt-0"
-                                    name="userPreference"
-                                    type="radio"
-                                    id="why-join"
-                                    value="want-to-integrate-this-course"
+                                    className='form-check-input custom-radio mt-0'
+                                    name='userPreference'
+                                    type='radio'
+                                    id='why-join'
+                                    value='want-to-integrate-this-course'
                                     onClick={handleChange}
                                  />
                                  <label
-                                    className="form-check-label ml-3 mb-4 d-block"
-                                    htmlFor="level3"
+                                    className='form-check-label ml-3 mb-4 d-block'
+                                    htmlFor='level3'
                                  >
                                     We are a school and we want to integrate
                                     this course in our curriculum activities
@@ -297,7 +306,7 @@ const RegisterForm = () => {
                            </div>
                         </div>
                         {error && (
-                           <div className="mt-0 text-danger text-center">
+                           <div className='mt-0 text-danger text-center'>
                               {error}
                            </div>
                         )}
@@ -305,18 +314,18 @@ const RegisterForm = () => {
                   </div>
                </div>
             </section>
-            <div className="d-flex justify-content-between">
+            <div className='d-flex justify-content-between'>
                <button
-                  className="btn btn-lg buff shadow px-5 py-2 h3 pt-0"
+                  className='btn btn-lg buff shadow px-5 py-2 h3 pt-0'
                   onClick={() => setStep(1)}
                >
-                  <span className="text-white h5">Back</span>
+                  <span className='text-white h5'>Back</span>
                </button>
                <button
-                  className="btn btn-lg light-blue shadow px-5 py-2 h3 pt-0"
+                  className='btn btn-lg light-blue shadow px-5 py-2 h3 pt-0'
                   onClick={handleSubmit}
                >
-                  <span className="text-white h5">Proceed</span>
+                  <span className='text-white h5'>Proceed</span>
                </button>
             </div>
          </>
@@ -324,15 +333,15 @@ const RegisterForm = () => {
    };
 
    return (
-      <section className="login-area pt-50 pb-50 bone">
-         <div className="container">
-            <div className="row">
-               <div className="col-lg-8 offset-lg-2 ">
-                  <div className="basic-login card-color border border-secondary border-1 rounded-4">
+      <section className='login-area pt-50 pb-110 bone'>
+         <div className='container'>
+            <div className='row'>
+               <div className='col-lg-8 offset-lg-2 '>
+                  <div className='basic-login card-color border border-secondary border-1 rounded-4'>
                      {step === 1 && (
                         <motion.div
-                           key="step1"
-                           className="step-wrapper"
+                           key='step1'
+                           className='step-wrapper'
                            // we can use initial opacity 0.5 and y 0% in both motion div for better subtleness
                            initial={{ opacity: 0, y: "0%" }}
                            animate={{ opacity: 1, x: 0 }}
@@ -344,8 +353,8 @@ const RegisterForm = () => {
                      )}
                      {step === 2 && (
                         <motion.div
-                           key="step2"
-                           className="step-wrapper"
+                           key='step2'
+                           className='step-wrapper'
                            // we can use initial opacity 0.5 and y 0% in both motion div for better subtleness
                            initial={{ opacity: 0, y: "0%" }}
                            animate={{ opacity: 1, x: 0 }}

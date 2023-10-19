@@ -1,82 +1,46 @@
-import { readFileSync, writeFileSync } from "fs";
+import { connectToDatabase } from "@/src/dbConfig/dbConfig";
+import User from "@/src/models/userModel";
 import bcrypt from "bcrypt";
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
    if (req.method === "POST") {
       const { username, password } = req.body;
 
-      let registeredUsers = [];
-      let loggedUsers = [];
-
       try {
-         const data = readFileSync("./db.json");
-         registeredUsers = JSON.parse(data).registeredUser;
-         loggedUsers = JSON.parse(data).loggedUser;
+         // Connect to the database
+         const db = await connectToDatabase();
+
+         // Find the user by email
+         const user = await User.findOne({ username });
+
+         // If the user is not found, return an error
+         if (!user) {
+            return res
+               .status(401)
+               .json({ message: "Invalid username or password" });
+         }
+
+         // Validate the password
+         const isValidPassword = await bcrypt.compare(password, user.password);
+
+         // If the password is invalid, return an error
+         if (!isValidPassword) {
+            return res
+               .status(401)
+               .json({ message: "Invalid username or password" });
+         }
+         console.log("User LoggedIn Successfully", user);
+         // Close the database connection
+         db.disconnect();
+
+         // Return the logged-in user
+         return res.status(200).json(user);
       } catch (err) {
          console.error(err);
          return res.status(500).json({ message: "Internal server error" });
       }
 
-      const registeredUser = registeredUsers.find(
-         (user) => user.name === username
-      );
-      if (registeredUser) {
-         bcrypt.compare(password, registeredUser.password, (err, result) => {
-            if (err) {
-               console.error(err);
-               return res
-                  .status(500)
-                  .json({ message: "Internal server error" });
-            }
-
-            if (result) {
-               const existingUser = loggedUsers.find(
-                  (user) => user.name === username
-               );
-
-               let updatedUser;
-
-               if (existingUser) {
-                  existingUser.lastLogin = new Date().toISOString();
-                  const index = loggedUsers.findIndex(
-                     (user) => user.name === username
-                  );
-                  loggedUsers[index] = existingUser;
-               } else {
-                  const { id, name, email, role } = registeredUser;
-                  updatedUser = {
-                     id,
-                     name,
-                     email,
-                     role,
-                     lastLogin: new Date().toISOString(),
-                  };
-                  loggedUsers.push(updatedUser);
-               }
-
-               //    const updatedLoggedUsers = [...loggedUsers, updatedUser];
-
-               const dbData = {
-                  ...JSON.parse(readFileSync("./db.json")),
-                  loggedUser: loggedUsers,
-               };
-
-               writeFileSync("./db.json", JSON.stringify(dbData));
-               // console.log("Logged in successfully", dbData);
-               return res.status(200).json(updatedUser);
-            } else {
-               console.log("Invalid password");
-               return res
-                  .status(401)
-                  .json({ message: "Invalid username or password" });
-            }
-         });
-      } else {
-         console.log("User not found");
-         return res
-            .status(401)
-            .json({ message: "Invalid username or password" });
-      }
+      // If the request method is not POST, return an error
    } else {
       res.setHeader("Allow", ["POST"]);
       return res
