@@ -62,7 +62,7 @@ const LoginForm = () => {
             // user is authenticated, redirect or show success message
             setError(null);
             setCookie("loggedIn", "true", {
-               domain: "localhost", // Set the domain as needed
+               // domain: "localhost", // Set the domain as needed
                path: "/", // Adjust the path as needed
                maxAge: 60 * 60 * 24, // Cookie will expire in 7 days here second multiplied by minutes
                sameSite: "strict", // Adjust as needed

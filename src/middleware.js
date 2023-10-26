@@ -14,6 +14,7 @@ export function middleware(request) {
    // List of routes that require authentication
    const protectedRoutes = [
       "/instructor-profile",
+      "/forgot-password",
       "/exercise-lessons/memory-game",
       "/exercise-lessons/right-order-game",
       "/exercise-lessons/gap-exercise",
