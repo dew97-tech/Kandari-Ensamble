@@ -163,7 +163,7 @@ const RegisterForm = () => {
                   Personal Information
                </h5>
                <label htmlFor='name' className='buff-text-color mx-0'>
-                  Your Name <span>*</span>
+                  User Name <span>*</span>
                </label>
                <input
                   id='name'

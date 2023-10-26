@@ -76,26 +76,22 @@ const instructor_portfolio_data = [
 const InstructorPortfolioArea = () => {
    return (
       <>
-         <section
-            className="instructor-portfolio bone pb-50 wow fadeInUp"
-            data-wow-duration=".8s"
-            data-wow-delay=".2s"
-         >
-            <div className="container ">
-               <div className="row d-flex align-items-center justify-content-center">
-                  <div className="col-xl-4 col-lg-5 col-md-8 col-sm-9 card-color rounded-3">
-                     <div className="instruc-sidebar mb-40">
-                        <div className="isntruc-side-thumb mb-30">
+         <section className='instructor-portfolio bone pb-50'>
+            <div className='container '>
+               <div className='row d-flex align-items-center justify-content-center'>
+                  <div className='col-xl-4 col-lg-5 col-md-8 col-sm-9 card-color rounded-3'>
+                     <div className='instruc-sidebar mb-40'>
+                        <div className='isntruc-side-thumb mb-30'>
                            <Image
-                              src="/assets/img/profile/JohnDoe.png"
-                              alt="instructor"
+                              src='/assets/img/profile/JohnDoe.png'
+                              alt='instructor'
                               width={300}
                               height={300}
                            />
                         </div>
-                        <div className="instructor-sidebar-widget">
-                           <div className="isntruc-side-content text-center">
-                              <h3 className="mb-15 buff-text-color">
+                        <div className='instructor-sidebar-widget'>
+                           <div className='isntruc-side-content text-center'>
+                              <h3 className='mb-15 buff-text-color'>
                                  John Doe
                               </h3>
 
@@ -119,19 +115,19 @@ const InstructorPortfolioArea = () => {
                       Follow +
                     </Link>
                   </div> */}
-                           <div className="cd-information instruc-profile-info mb-35">
+                           <div className='cd-information instruc-profile-info mb-35'>
                               <ul>
                                  {/* <li>
                         <i className="fi fi-rr-briefcase"></i>{" "}
                         <label>Job Title</label> <span>Lead UX Engineer</span>
                       </li> */}
                                  <li>
-                                    <i className="fi fi-rr-phone-call"></i>{" "}
+                                    <i className='fi fi-rr-phone-call'></i>{" "}
                                     <label>Phone</label>{" "}
                                     <span>+00 365 9852 65</span>
                                  </li>
                                  <li>
-                                    <i className="fi fi-rr-envelope"></i>{" "}
+                                    <i className='fi fi-rr-envelope'></i>{" "}
                                     <label>Email</label>{" "}
                                     <span>sacha@maison.ensamble.edu</span>
                                  </li>
@@ -140,12 +136,12 @@ const InstructorPortfolioArea = () => {
                         <label>Experiences</label> <span>12+ Years</span>
                       </li> */}
                                  <li>
-                                    <i className="fi fi-rs-time-check"></i>{" "}
+                                    <i className='fi fi-rs-time-check'></i>{" "}
                                     <label>Skill Level</label>{" "}
                                     <span>Pro Level</span>
                                  </li>
                                  <li>
-                                    <i className="fi fi-br-comments"></i>{" "}
+                                    <i className='fi fi-br-comments'></i>{" "}
                                     <label>Language</label> <span>Dutch</span>
                                  </li>
                               </ul>

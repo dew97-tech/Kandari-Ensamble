@@ -4,20 +4,20 @@ import bcrypt from "bcrypt";
 
 export default async function handler(req, res) {
    if (req.method === "POST") {
-      const { username, password } = req.body;
+      const { email, password } = req.body;
 
       try {
          // Connect to the database
          const db = await connectToDatabase();
 
          // Find the user by email
-         const user = await User.findOne({ username });
+         const user = await User.findOne({ email });
 
          // If the user is not found, return an error
          if (!user) {
             return res
                .status(401)
-               .json({ message: "Invalid username or password" });
+               .json({ message: "Invalid email or password" });
          }
 
          // Validate the password
@@ -27,7 +27,7 @@ export default async function handler(req, res) {
          if (!isValidPassword) {
             return res
                .status(401)
-               .json({ message: "Invalid username or password" });
+               .json({ message: "Invalid email or password" });
          }
          console.log("User LoggedIn Successfully", user);
          // Close the database connection

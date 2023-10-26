@@ -37,7 +37,7 @@ const ForgotForm = () => {
 
 	return (
 		<>
-			<section className="login-area pt-20 pb-50 bone">
+			<section className="login-area pt-55 pb-75 bone">
 				<div className="container">
 					<div className="row">
 						<motion.div

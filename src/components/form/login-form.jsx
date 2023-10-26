@@ -6,8 +6,8 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 const LoginForm = () => {
    const router = useRouter();
-   // Setting the state for FormData with Username and Password
-   const [formData, setFormData] = useState({ username: "", password: "" });
+   // Setting the state for FormData with email and Password
+   const [formData, setFormData] = useState({ email: "", password: "" });
    const [error, setError] = useState(null);
 
    // Updating the FormData as the input Changes
@@ -41,7 +41,7 @@ const LoginForm = () => {
             result.dismiss === Swal.DismissReason.timer &&
             promptType === "HomePage"
          ) {
-            router.push("/").then(() => window.scrollTo(0, 0));
+            router.reload("/");
          }
       });
    };
@@ -62,6 +62,7 @@ const LoginForm = () => {
             // user is authenticated, redirect or show success message
             setError(null);
             setCookie("loggedIn", "true", {
+               domain: "localhost", // Set the domain as needed
                path: "/", // Adjust the path as needed
                maxAge: 60 * 60 * 24, // Cookie will expire in 7 days here second multiplied by minutes
                sameSite: "strict", // Adjust as needed
@@ -71,7 +72,7 @@ const LoginForm = () => {
                handlePrompt("HomePage");
             }, 1000);
          } else {
-            setError("Invalid Username or Password");
+            setError("Invalid Email or Password");
          }
       } catch (error) {
          console.error(error);
@@ -108,18 +109,18 @@ const LoginForm = () => {
 
                            <form onSubmit={handleSubmit}>
                               <label
-                                 htmlFor="username"
+                                 htmlFor="email"
                                  className="buff-text-color mx-0"
                               >
-                                 Username <span>*</span>
+                                 Email <span>*</span>
                               </label>
                               <input
-                                 id="username"
+                                 id="email"
                                  className="border border-secondary border-1 rounded-2 buff-text-color"
-                                 type="text"
-                                 name="username"
-                                 placeholder="Enter Username..."
-                                 value={formData.username}
+                                 type="email"
+                                 name="email"
+                                 placeholder="Enter Email..."
+                                 value={formData.email}
                                  required
                                  onChange={handleInputChange}
                               />
