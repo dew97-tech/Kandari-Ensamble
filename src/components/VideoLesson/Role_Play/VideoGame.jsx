@@ -46,7 +46,7 @@ const VideoGame = () => {
             </>
          ) : (
             <>
-               <div className="d-flex flex-column justify-content-end align-items-end">
+               <div className="d-flex flex-column justify-content-center align-self-center">
                   <PreviousAnswers
                      game={"RolePlayGame"}
                      previousAnswers={userAnswers}

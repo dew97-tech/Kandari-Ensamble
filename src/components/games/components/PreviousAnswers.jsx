@@ -14,8 +14,8 @@ function PreviousAnswers({
 		return correctOption.text;
 	};
 	return (
-		<div className="container mb-10 card-color py-5 px-5 border border-3 border-secondary rounded-4 shadow">
-			<div className="d-flex align-items-center justify-content-between mb-2 mx-2">
+		<div className="row mb-10 card-color p-3 border border-3 border-secondary rounded-4 shadow">
+			<div className="d-flex align-items-center justify-content-between mb-2">
 				<h2 className="text-center mb-4 buff-text-color">
 					Results
 					<hr className="mt-0 mx-1 border border-secondary border-2 opacity-25 rounded-3" />
@@ -27,7 +27,7 @@ function PreviousAnswers({
 				</h5>
 			</div>
 
-			<table className="table table-bordered bone rounded-2 shadow-sm text-center border border-2 border-secondary">
+			<table className="table table-bordered rounded-2 shadow-sm text-center border border-2 border-secondary align-middle">
 				<thead className="buff buff-text-color shadow-sm">
 					<tr>
 						<th>Challenge</th>

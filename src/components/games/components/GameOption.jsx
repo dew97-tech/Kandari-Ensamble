@@ -12,7 +12,7 @@ const GameOption = ({ gameName, optionsArray ,context}) => {
 					<h5 className="buff-text-color mt-10 mb-5" style={{ fontSize: '18px' }}>
 						Word Options :
 					</h5>
-					<div className="d-flex justify-content-center">
+					<div className="d-flex justify-content-center flex-wrap">
 						{optionsArray?.map((option, index) => (
 							<FillGapsOptions key={index} option={option} index={index} context={context}/>
 						))}
@@ -36,7 +36,7 @@ const GameOption = ({ gameName, optionsArray ,context}) => {
 					<h5 className="buff-text-color mt-10 mb-6" style={{ fontSize: '18px' }}>
 						Word Options :
 					</h5>
-					<div className="d-flex justify-content-center">
+					<div className="d-flex justify-content-center flex-wrap">
 						{optionsArray?.map((option, index) => (
 							<WordBox context={context} key={index} word={option} index={index} />
 						))}

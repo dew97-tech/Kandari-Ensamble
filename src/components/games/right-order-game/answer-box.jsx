@@ -17,11 +17,11 @@ function AnswerBox({ context}) {
 	};
 	return (
 		<>
-			<div className="d-flex">
+			<div className="d-flex justify-content-start flex-wrap">
 				{userOrder.map((word, index) => (
 					<div key={index} onClick={() => handleRemoveFromAnswer(word, index)}>
 						<div className="col-12 mx-2">
-							<h3 className="btn py-2 px-4 text-start border border-secondary border-3 rounded buff-text-color buff h3 my-0">
+							<h3 className="btn py-2 px-4 text-start border border-secondary border-3 rounded buff-text-color buff h3 my-1">
 								{word}
 							</h3>
 						</div>

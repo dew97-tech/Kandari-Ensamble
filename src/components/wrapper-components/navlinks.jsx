@@ -8,7 +8,7 @@ const NavLinks = () => {
 		useContext(NavigationContext);
 
 	const currentIndex = lesson_data[0].sub_menus.findIndex(
-		(item) => item.exercise_id === currentExerciseId
+		(item) => item.serialNo === currentExerciseId
 	);
 	console.log('currentIndex', currentIndex);
 	return (

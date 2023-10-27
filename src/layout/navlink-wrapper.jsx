@@ -12,15 +12,13 @@ function NavLinkWrapper({ children }) {
             <section
                className='course-area bone'
                style={{
-                  height: "70vh",
+                  minHeight: "100vh",
                }}
             >
                <div className='d-flex align-items-center justify-content-between mx-5'>
                   <OffCanvas />
                </div>
-               <div className='container text-center'>
-                  <div className=''>{children}</div>
-               </div>
+               <div className='container text-center'>{children}</div>
             </section>
             <FooterThree />
             <BackToTop />

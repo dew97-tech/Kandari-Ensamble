@@ -24,7 +24,7 @@ function WordBox({ word, index, context }) {
 	return (
 		<div key={index} className="d-flex justify-content-center align-items-center">
 			<div
-				className="btn buff d-flex justify-content-start align-items-center flex-wrap card-color py-2 px-4 mx-1 text-center border border-secondary border-3 rounded buff-text-color"
+				className="btn buff d-flex justify-content-start align-items-center flex-wrap card-color py-2 px-4 mx-1 text-center border border-secondary border-3 rounded buff-text-color my-1"
 				onClick={() => handleAddToAnswer(word, index)}
 				data-tooltip-id={tooltipId}
 			>

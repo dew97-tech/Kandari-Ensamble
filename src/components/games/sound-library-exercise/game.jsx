@@ -51,7 +51,7 @@ const SoundLibraryGame = () => {
 
 	return (
 		<>
-			<section className="course-area pt-50 pb-200 bone">
+			<section className="course-area pt-50 pb-50 bone">
 				<div className="container">
 					{!isGameStarted ? (
 						<>

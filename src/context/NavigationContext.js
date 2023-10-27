@@ -11,7 +11,7 @@ const NavigationProvider = ({ children }) => {
 
 	// Function to navigate to a specific exercise
 	const navigateToExercise = (exerciseId) => {
-		const exercise = lesson_data[0].sub_menus.find((item) => item.exercise_id === exerciseId);
+		const exercise = lesson_data[0].sub_menus.find((item) => item.serialNo === exerciseId);
 		if (exercise) {
 			setPreviousExerciseId(currentExerciseId); // Store the previous exerciseId
 			setCurrentExerciseId(exerciseId);
@@ -29,10 +29,10 @@ const NavigationProvider = ({ children }) => {
 	// Function to handle navigation to the previous exercise
 	const handlePrevious = () => {
 		const currentIndex = lesson_data[0].sub_menus.findIndex(
-			(item) => item.exercise_id === currentExerciseId
+			(item) => item.serialNo === currentExerciseId
 		);
 		if (currentIndex > 0) {
-			const previousExerciseId = lesson_data[0].sub_menus[currentIndex - 1].exercise_id;
+			const previousExerciseId = lesson_data[0].sub_menus[currentIndex - 1].serialNo;
 			navigateToExercise(previousExerciseId);
 		}
 	};
@@ -40,10 +40,10 @@ const NavigationProvider = ({ children }) => {
 	// Function to handle navigation to the next exercise
 	const handleNext = () => {
 		const currentIndex = lesson_data[0].sub_menus.findIndex(
-			(item) => item.exercise_id === currentExerciseId
+			(item) => item.serialNo === currentExerciseId
 		);
 		if (currentIndex < lesson_data[0].sub_menus.length - 1) {
-			const nextExerciseId = lesson_data[0].sub_menus[currentIndex + 1].exercise_id;
+			const nextExerciseId = lesson_data[0].sub_menus[currentIndex + 1].serialNo;
 			navigateToExercise(nextExerciseId);
 		}
 	};

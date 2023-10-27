@@ -14,7 +14,7 @@ const SoundLibrary = () => {
    return (
       <>
          <SoundLibraryProvider>
-            <section className="course-area pt-50 pb-200 bone">
+            <section className="course-area pt-50 pb-100">
                <GameTitle title={"Sound Library"} gameLanguage={"Dutch"} />
                <div className="container col-lg-6 col-md-8 col-sm-10">
                   <div

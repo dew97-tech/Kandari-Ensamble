@@ -57,6 +57,7 @@ const GameContainer = () => {
       backgroundColor: "rgba(245, 245, 245)",
       borderRadius: "1.2rem",
       padding: "1rem",
+      minWidth: "50%",
    };
    const renderSubmitButton = () => (
       <CustomButton
@@ -75,25 +76,25 @@ const GameContainer = () => {
          {showConfetti && (
             <Confetti duration={3000} recycle={false} numberOfPieces={800} />
          )}
-         <section className="course-area bone">
-            <div className="container">
+         <section className='course-area bone'>
+            <div className='container'>
                {/* Passing gameTitle as Props */}
-               <GameTitle title="Place in Right Order" />
+               <GameTitle title='Place in Right Order' />
                {isGameStarted ? (
                   <>
                      {!challengesCompleted && !isFinished ? (
-                        <section className="bone pt-10 pb-50 d-flex justify-content-center">
-                           <div className="container">
-                              <div className="d-flex justify-content-center flex-nowrap">
+                        <section className='bone pt-10 pb-50 d-flex justify-content-center'>
+                           <div className='container'>
+                              <div className='d-flex justify-content-center flex-nowrap'>
                                  <div
-                                    className="mx-1 shadow-sm border border-secondary border-2"
+                                    className='mx-1 shadow-sm border border-secondary border-2'
                                     style={cardStyle}
                                  >
-                                    <h3 className="text-start buff-text-color mb-20">
+                                    <h3 className='text-start buff-text-color mb-20'>
                                        Question No : {currentIndex + 1}
                                     </h3>
                                     <DutchSentence {...{ dutchSentence }} />
-                                    <hr className="border border-1 border-secondary opacity-25 mx-2 mt-0 mb-0 rounded" />
+                                    <hr className='border border-1 border-secondary opacity-25 mx-2 mt-0 mb-0 rounded' />
                                     <InstructionSentence
                                        marginTop={"mt-15"}
                                        marginBottom={"mb-15"}
@@ -104,14 +105,14 @@ const GameContainer = () => {
                                     <AnswerBox
                                        context={RightOrderExerciseContext}
                                     />
-                                    <hr className="border border-1 border-secondary opacity-25 mt-10 mx-2 mb-0 rounded" />
+                                    <hr className='border border-1 border-secondary opacity-25 mt-10 mx-2 mb-0 rounded' />
                                     {/* Right Order Options */}
                                     <GameOption
                                        gameName={"right-order-game"}
                                        optionsArray={optionsArray}
                                        context={RightOrderExerciseContext}
                                     />
-                                    <div className="text-center">
+                                    <div className='text-center'>
                                        {renderSubmitButton()}
                                     </div>
                                  </div>
@@ -121,7 +122,7 @@ const GameContainer = () => {
                      ) : (
                         isFinished && (
                            <>
-                              <div className="d-flex flex-column justify-content-end align-items-end">
+                              <div className='d-flex flex-column justify-content-end align-items-end'>
                                  <PreviousAnswers
                                     game={"RightOrderGame"}
                                     {...{
@@ -133,7 +134,7 @@ const GameContainer = () => {
                                     }}
                                  />
                               </div>
-                              <div className="d-flex justify-content-between">
+                              <div className='d-flex justify-content-between'>
                                  <CustomButton
                                     onClick={() => {
                                        handlePrompt(
@@ -158,7 +159,7 @@ const GameContainer = () => {
                      )}
                   </>
                ) : (
-                  <ul className="memory-game-color d-flex align-items-center justify-content-center">
+                  <ul className='memory-game-color d-flex align-items-center justify-content-center'>
                      <CustomButton
                         onClick={handleGameStart}
                         text={"Start Game"}

@@ -45,13 +45,14 @@ const Game = () => {
       backgroundColor: "rgba(245, 245, 245)",
       borderRadius: "1.2rem",
       padding: "1rem",
+      minWidth: "50%",
    };
    return (
       <>
          {isFinished && (
             <Confetti duration={3000} recycle={false} numberOfPieces={800} />
          )}
-         <section className="course-area pb-200 bone">
+         <section className="course-area pb-50 bone">
             <div className="container">
                {/* Passing gameTitle as Props */}
                <GameTitle title="Gaps Exercise" />
@@ -97,7 +98,7 @@ const Game = () => {
                         </section>
                      ) : (
                         <>
-                           <div className="d-flex flex-column justify-content-end align-items-end">
+                           <div className="d-flex flex-column justify-content-end align-self-center">
                               <PreviousAnswers
                                  game={"GapExercise"}
                                  previousAnswers={userAnswers}
