@@ -30,7 +30,7 @@ const Right_Order_Game_Questions = [
                 wrongOrder: ["toi", "et", "va", "ça"],
                 correctOrder: ["Et", "toi", "ça", "va"],
                 video: {
-                    pauseTime: 40.417,
+                    pauseTime: 40.188,
                 },
             },
             {
@@ -60,7 +60,7 @@ const Right_Order_Game_Questions = [
                 wrongOrder: ["plus", " à"],
                 correctOrder: ["à", "plus"],
                 video: {
-                    pauseTime: 78.625,
+                    pauseTime: 91.625,
                 },
             },
         ],
@@ -105,7 +105,7 @@ const Right_Order_Game_Questions = [
                 wrongOrder: ["bien", "va", "ça", "merci"],
                 correctOrder: ["Ça", "va", "bien", "merci"],
                 video: {
-                    pauseTime: 36.125,
+                    pauseTime: 44.458,
                 },
             },
             {
@@ -125,7 +125,7 @@ const Right_Order_Game_Questions = [
                 wrongOrder: ["êtes", "ici", "nés", "vous"],
                 correctOrder: ["Vous", "êtes", "nés", "ici"],
                 video: {
-                    pauseTime: 63.083,
+                    pauseTime: 65.083,
                 },
             },
             {
@@ -135,7 +135,7 @@ const Right_Order_Game_Questions = [
                 wrongOrder: ["belles", "sont", "elles", "wow"],
                 correctOrder: ["Wow", "elles", "sont", "belles"],
                 video: {
-                    pauseTime: 70.225,
+                    pauseTime: 77.250,
                 },
             },
             {
@@ -145,7 +145,7 @@ const Right_Order_Game_Questions = [
                 wrongOrder: ["oh", "partir", "je", "dois"],
                 correctOrder: ["oh", "Je", "dois", "partir"],
                 video: {
-                    pauseTime: 73.225,
+                    pauseTime: 82.250,
                 },
             },
             {
@@ -155,7 +155,7 @@ const Right_Order_Game_Questions = [
                 wrongOrder: ["revoir", "au", "Charlie"],
                 correctOrder: ["Au", "revoir", "Charlie"],
                 video: {
-                    pauseTime: 76.237,
+                    pauseTime: 87.375,
                 },
             },
         ],

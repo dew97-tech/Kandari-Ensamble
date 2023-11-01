@@ -142,7 +142,7 @@ const CommonVideoPlayer = ({
                         previewTabIndex={1}
                         nodownload="true"
                         playIcon={<CustomPlayIcon />}
-                        light="/assets/img/banner/maison.jpg"
+                        light="/assets/img/banner/maison_2.jpg"
                         onReady={() => {
                            handlePlay();
                         }}

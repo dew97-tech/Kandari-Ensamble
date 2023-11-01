@@ -10,7 +10,7 @@ const GamePreview = ({ guessedWord, dutchTranslation, audioUrl }) => {
 	return (
 		<>
 			{isStudying && (
-				<div className="d-flex align-items-center justify-content-center">
+				<div className="text-center">
 					<ul className="memory-game-color d-flex align-items-center justify-content-center">
 						<a
 							className="btn c-color-blue ml-10 py-2 border border-1 border-primary buff-text-color mb-0 shadow-sm"

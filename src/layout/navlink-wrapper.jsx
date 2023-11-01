@@ -18,7 +18,7 @@ function NavLinkWrapper({ children }) {
                <div className='d-flex align-items-center justify-content-between mx-5'>
                   <OffCanvas />
                </div>
-               <div className='container text-center'>{children}</div>
+               <div className='text-center'>{children}</div>
             </section>
             <FooterThree />
             <BackToTop />

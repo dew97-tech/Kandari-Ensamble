@@ -45,8 +45,8 @@ const Game = () => {
 
 	return (
 		<>
-			<section className="course-area bone">
-				<div className="container col-lg-6 col-md-12 col-sm-12">
+			<section className="container bone">
+				<div className="container col-xl-9 col-lg-10 col-md-12 col-sm-12 p-1">
 					{/* Passing gameTitle as Props */}
 					<GameTitle title="Memory Game" />
 					{isFinished && (
@@ -56,7 +56,7 @@ const Game = () => {
 						</>
 					)}
 					{isGameStarted ? (
-						<div className="d-flex align-items-center justify-content-between mb-15">
+						<div className="d-flex align-items-center justify-content-between mx-1 mb-15">
 							{(isStudying || isPlaying) && (
 								<>
 									<GameTime
@@ -86,12 +86,12 @@ const Game = () => {
 					)}
 
 					<GameCardProvider>
-						<Container>
+						<Container className='col-xl-10 col-lg-12 col-md-12 col-sm-12'>
 							<Row>
 								{shuffledGameData.map(
 									(item, index) =>
 										(isStudying || isPlaying) && (
-											<Col xl={4} lg={4} sm={4} md={4} xs={12}>
+											<Col xl={4} lg={4} md={4} sm={4} xs={12}>
 												<GameCard
 													key={item.id}
 													serial={index}

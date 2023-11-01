@@ -25,9 +25,10 @@ const GameCard = ({
    const { handleResult, isPlaying, showAll } = useContext(GameCardContext);
    const { handleStopTimer, isGameFinished, frame } = useContext(GameContext);
    const imageContainerSize = {
-      height: "200px",
-      width: "640px",
       objectFit: "cover",
+      width: "100%",
+      maxHeight: "8rem",
+      minHeight: "8rem",
    };
 
    const renderGameLogic = () => {
@@ -90,42 +91,33 @@ const GameCard = ({
    };
 
    return (
-      <div
-         key={index}
-         className="d-flex justify-content-center align-items-center"
-      >
-         <div
-            className="tpcourse wow fadeInUp"
-            data-wow-duration=".8s"
-            data-wow-delay=".2s"
-         >
-            <div className="">
-               <div className="card pb-0 pt-0 mb-5">
-                  {frame === 4
-                     ? img && (
-                          <Image
-                             src={no_img}
-                             width={640}
-                             height={427}
-                             style={imageContainerSize}
-                             className="card-img-top"
-                             alt={`${img}`}
-                          />
-                       )
-                     : img && (
-                          <Image
-                             src={img}
-                             width={640}
-                             height={427}
-                             style={imageContainerSize}
-                             className="card-img-top"
-                             alt={`${img}`}
-                          />
-                       )}
+      <div key={index} className=' mb-3'>
+         <div className=''>
+            <div className='card pb-0 pt-0 mb-5'>
+               {frame === 4
+                  ? img && (
+                       <Image
+                          src={no_img}
+                          width={640}
+                          height={640}
+                          style={imageContainerSize}
+                          className='card-img-top'
+                          alt={`${img}`}
+                       />
+                    )
+                  : img && (
+                       <Image
+                          src={img}
+                          width={640}
+                          height={640}
+                          style={imageContainerSize}
+                          className='card-img-top'
+                          alt={`${img}`}
+                       />
+                    )}
 
-                  <div className="card-body py-1 pr-0 pl-0">
-                     {renderGameLogic()}
-                  </div>
+               <div className='card-body py-2 pr-0 pl-0 shadow-sm'>
+                  {renderGameLogic()}
                </div>
             </div>
          </div>

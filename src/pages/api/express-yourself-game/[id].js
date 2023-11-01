@@ -47,7 +47,7 @@ const express_yourself_exercise = [
             question: "Ja! Kijk, hier zijn foto`s van Marans.",
             correctAnswer: "Oui ! Regarde, voici des photos de Marans.",
             video: {
-               pauseTime: 65.47,
+               pauseTime: 69.708,
             },
          },
          {
@@ -55,7 +55,7 @@ const express_yourself_exercise = [
             question: "Tot later!",
             correctAnswer: "A plus !",
             video: {
-               pauseTime: 78.625,
+               pauseTime: 91.625,
             },
          },
       ],
@@ -108,7 +108,7 @@ const express_yourself_exercise = [
             question: "Zijn jullie hier geboren?",
             correctAnswer: "Vous êtes nés ici ?",
             video: {
-               pauseTime: 63.083,
+               pauseTime: 65.083,
             },
          },
          {
@@ -116,7 +116,7 @@ const express_yourself_exercise = [
             question: "Wow, ze zijn mooi",
             correctAnswer: "Wow, elles sont belles.",
             video: {
-               pauseTime: 70.225,
+               pauseTime: 77.250,
             },
          },
          {
@@ -124,7 +124,7 @@ const express_yourself_exercise = [
             question: "Ik moet gaan.",
             correctAnswer: "Je dois partir.",
             video: {
-               pauseTime: 73.225,
+               pauseTime: 82.250,
             },
          },
          {
@@ -132,7 +132,7 @@ const express_yourself_exercise = [
             question: "Tot ziens Charlie.",
             correctAnswer: "Au revoir Charlie.",
             video: {
-               pauseTime: 76.237,
+               pauseTime: 87.375,
             },
          },
       ],

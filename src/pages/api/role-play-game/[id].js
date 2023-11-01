@@ -72,7 +72,7 @@ const role_play_game = [
             ],
             correctOptionId: "6B",
             video: {
-               pauseTime: 65.472,
+               pauseTime: 69.708,
             },
          },
          {
@@ -84,7 +84,7 @@ const role_play_game = [
             ],
             correctOptionId: "7A",
             video: {
-               pauseTime: 78.662,
+               pauseTime: 91.625,
             },
          },
       ],
@@ -137,7 +137,7 @@ const role_play_game = [
             ],
             correctOptionId: "4A",
             video: {
-               pauseTime: 36.125,
+               pauseTime: 44.458,
             },
          },
          {
@@ -161,7 +161,7 @@ const role_play_game = [
             ],
             correctOptionId: "6B",
             video: {
-               pauseTime: 63.083,
+               pauseTime: 65.083,
             },
          },
          {
@@ -173,7 +173,7 @@ const role_play_game = [
             ],
             correctOptionId: "7A",
             video: {
-               pauseTime: 70.225,
+               pauseTime: 77.25,
             },
          },
          {
@@ -185,7 +185,7 @@ const role_play_game = [
             ],
             correctOptionId: "8A",
             video: {
-               pauseTime: 73.225,
+               pauseTime: 82.25,
             },
          },
          {
@@ -197,7 +197,7 @@ const role_play_game = [
             ],
             correctOptionId: "9B",
             video: {
-               pauseTime: 76.237,
+               pauseTime: 87.375,
             },
          },
       ],

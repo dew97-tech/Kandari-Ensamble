@@ -22,7 +22,7 @@ function PreviousAnswers({
 				</h2>
 				<h5 className="text-center mb-4 buff-text-color ">
 					<span className="badge light-green buff-text-color px-2 py-2 h4 shadow-sm border border-2 border-success">
-						Your Score : {score} / {sentenceLength}
+						Mistake : {sentenceLength - score}
 					</span>
 				</h5>
 			</div>

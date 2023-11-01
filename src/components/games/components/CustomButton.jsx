@@ -16,10 +16,12 @@ function CustomButton({
 	onRight,
 	width,
 	height,
+	type
 }) {
 	return (
 		<div className={`memory-game-color ${margin ? margin : 'mx-2'} py-2`}>
 			<Button
+				type={type ? type : 'button'}
 				className={`px-4 py-2 rounded ${
 					disabled
 						? 'btn-secondary' // If disabled, don't apply any styling

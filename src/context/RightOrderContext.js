@@ -262,6 +262,7 @@ const RightOrderProvider = ({ children, exerciseId, exerciseTitle }) => {
    };
 
    const timeStamp = currentExerciseData?.video?.pauseTime;
+   
    return (
       <RightOrderContext.Provider
          value={{

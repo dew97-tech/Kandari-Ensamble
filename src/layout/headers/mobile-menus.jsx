@@ -4,6 +4,7 @@ import React, { useState } from "react";
 // internal
 import menu_data from "./menu-data";
 import profile_data from "./profile-data";
+import home_data from "./home-data";
 
 const MobileMenus = ({ handleLogout }) => {
    const [navTitle, setNavTitle] = useState("");
@@ -17,19 +18,30 @@ const MobileMenus = ({ handleLogout }) => {
    };
    return (
       <>
-         <nav className="mean-nav">
+         <nav className='mean-nav'>
             <ul>
+               {home_data.map((profile) => (
+                  <li key={profile.id}>
+                     {profile.title === "Logout" ? (
+                        <Link href={profile.link} onClick={handleLogout}>
+                           {profile.title}
+                        </Link>
+                     ) : (
+                        <Link href={profile.link}>{profile.title}</Link>
+                     )}
+                  </li>
+               ))}
                {menu_data.map((menu, i) => (
                   <React.Fragment key={i}>
                      {menu.has_dropdown && (
-                        <li className="has-dropdown">
+                        <li className='has-dropdown'>
                            {menu.onlySideBar ? (
                               <Link href={menu.link}>{menu.title}</Link>
                            ) : (
                               <>
                                  <Link href={menu.link}>{menu.title}</Link>
                                  <ul
-                                    className="submenu"
+                                    className='submenu'
                                     style={{
                                        display:
                                           navTitle === menu.title
@@ -57,7 +69,7 @@ const MobileMenus = ({ handleLogout }) => {
                                        cursor: "pointer",
                                     }}
                                  >
-                                    <i className="fal fa-add"></i>
+                                    <i className='fal fa-add'></i>
                                  </a>
                               </>
                            )}
@@ -70,6 +82,7 @@ const MobileMenus = ({ handleLogout }) => {
                      )}
                   </React.Fragment>
                ))}
+
                {profile_data.map((profile) => (
                   <li key={profile.id}>
                      {profile.title === "Logout" ? (

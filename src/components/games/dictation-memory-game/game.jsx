@@ -31,6 +31,7 @@ const DictationMemoryGame = () => {
       handlePrompt,
       showResult,
       isSequenceEnd,
+      returnAchievement,
    } = useContext(DictationGameContext);
    // Handles Submit Alert Button Props
    const handleSubmitAll = () => {
@@ -94,14 +95,17 @@ const DictationMemoryGame = () => {
    // Restart Game Section
    const renderGameOverSection = () => {
       return (
-         <section className="tp-category-area bone bg-bottom grey-bg pt-50 pb-50 text-center">
-            <div className="section-title mb-30 memory-game-color">
-               <h3 className="buff-text-color display-4 mb-20">
+         <section className='tp-category-area bone bg-bottom grey-bg pt-50 pb-50 text-center'>
+            <div className='section-title mb-30 memory-game-color'>
+               <h3 className='buff-text-color display-4 mb-20'>
                   {isGameOver
-                     ? "Game Over ! Keep Practicing"
-                     : "Thanks for Playing ! Happy Learning"}
+                     ? `Game Over ! Keep Practicing`
+                     : `Thanks for Playing ! Happy Learning`}
                </h3>
-               <div className="d-flex justify-content-between">
+               <h3 className='buff-text-color display-4 mb-20'>
+                  Your Achievement: {returnAchievement()}
+               </h3>
+               <div className='d-flex justify-content-between'>
                   <CustomButton
                      onClick={handleRestart}
                      text={"Restart"}
@@ -111,7 +115,7 @@ const DictationMemoryGame = () => {
                      borderColor={"danger"}
                      isImageAvailable={true}
                   />
-               <NavLinks />
+                  <NavLinks />
                </div>
             </div>
          </section>
@@ -120,7 +124,7 @@ const DictationMemoryGame = () => {
    // Start Game Section
    const renderGameStartSection = () => {
       return (
-         <ul className="memory-game-color d-flex align-items-center justify-content-center">
+         <ul className='memory-game-color d-flex align-items-center justify-content-center'>
             <CustomButton
                onClick={handleGameStart}
                text={"Start Game"}
@@ -138,16 +142,16 @@ const DictationMemoryGame = () => {
          {showConfetti && (
             <Confetti duration={3000} recycle={false} numberOfPieces={1000} />
          )}
-         <section className="course-area pt-50 pb-200 bone">
-            <div className="container">
-               <GameTitle title="Dictation Memory Game" />
+         <section className='course-area pt-50 pb-200 bone'>
+            <div className='container'>
+               <GameTitle title='Dictation Memory Game' />
                {isGameStarted ? (
                   <>
                      {!challengesCompleted && !isFinished ? (
-                        <section className="bone pt-10 pb-50 text-center">
-                           <div className="container pb-50">
+                        <section className='bone pt-10 pb-50 text-center'>
+                           <div className='container pb-50'>
                               <div
-                                 className="mx-1 shadow-sm border border-secondary border-2"
+                                 className='mx-1 shadow-sm border border-secondary border-2'
                                  style={cardStyle}
                               >
                                  <GameContainer />

@@ -25,7 +25,8 @@ const VoiceRecorder = ({ micHandler, isAudioPlaying }) => {
    );
    const [isPlaying, setIsPlaying] = useState(false);
    const [recordedBlob, setRecordedBlob] = useState(null);
-
+   const [progress, setProgress] = useState(0);
+   const recordDuration = 5000; // 5000 ms is the recording duration
    const handleRecordingComplete = (blob) => {
       setRecordedBlob(blob);
    };
@@ -62,14 +63,19 @@ const VoiceRecorder = ({ micHandler, isAudioPlaying }) => {
 
    useEffect(() => {
       if (isRecording) {
+         // set the timer to stop recording after 5 seconds === 5000 ms
          const timer = setTimeout(() => {
             stopRecording();
-         }, 3000);
+         }, recordDuration);
          return () => clearTimeout(timer);
       }
    }, [isRecording]);
+   // Update the progress based on recordingTime
+   useEffect(() => {
+      setProgress((recordingTime / recordDuration) * 100); // 5000 ms is the recording duration
+   }, [recordingTime]);
    return (
-      <div className="d-flex justify-content-center align-items-center">
+      <div className='d-flex justify-content-center align-items-center'>
          <button
             className={`btn btn-md buff-text-color buff py-2 px-1 mx-1 ${
                isPlaying || isAudioPlaying ? "disabled" : ""
@@ -78,9 +84,12 @@ const VoiceRecorder = ({ micHandler, isAudioPlaying }) => {
             disabled={isAudioPlaying || isPlaying}
          >
             {isRecording ? (
-               <StopIcon className="mx-2" size={20} />
+               <div className="d-flex justify-content-center align-items-center">
+                  <StopIcon className='mx-2 ' size={20} />
+                  <b className="buff-text-color pt-0 pb-0 mt-0 mb-0">{(progress * 100) / 2} sec</b>
+               </div>
             ) : (
-               <MicIcon className="mx-2" size={20} />
+               <MicIcon className='mx-2' size={20} />
             )}
          </button>
          <button
@@ -90,7 +99,7 @@ const VoiceRecorder = ({ micHandler, isAudioPlaying }) => {
             onClick={playRecording}
             disabled={!recordingBlob || isPlaying || isAudioPlaying}
          >
-            <PlayIcon className="mx-2" size={20} />
+            <PlayIcon className='mx-2' size={20} />
          </button>
       </div>
    );

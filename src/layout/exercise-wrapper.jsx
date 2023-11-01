@@ -13,7 +13,7 @@ const ExerciseWrapper = ({ children }) => {
 	return (
 		<>
 			<HeaderThree />
-			<section className="course-area bone" style={{  height: '90vh' }}>
+			<section className="course-area bone" style={{  height: '100vh' }}>
 				<div className="container text-center">
 					<div className="row align-items-center">{children}</div>
 				</div>
