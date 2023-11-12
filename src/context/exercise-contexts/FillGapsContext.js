@@ -26,6 +26,8 @@ const FillGapsExerciseProvider = ({ children, exerciseTitle, exerciseId }) => {
    const [userAnswers, setUserAnswers] = useState([]); // New state to store user answers
    const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
    const [isCorrect, setIsCorrect] = useState(false);
+   const [borderColor, setBorderColor] = useState("border-secondary border-2");
+   const [playingAudio, setPlayingAudio] = useState(null);
 
    // Video source URL
    // const src = 'https://res.cloudinary.com/debhfgo5p/video/upload/v1689683156/maison.mp4';
@@ -63,9 +65,7 @@ const FillGapsExerciseProvider = ({ children, exerciseTitle, exerciseId }) => {
       const fetchData = async () => {
          setIsLoading(true);
          try {
-            const res = await fetch(
-               `/api/gaps-exercise-game/${currentExerciseId}`
-            );
+            const res = await fetch(`/api/gaps-exercise-game/${currentExerciseId}`);
             const data = await res.json();
             setSentences(data);
          } catch (err) {
@@ -90,9 +90,7 @@ const FillGapsExerciseProvider = ({ children, exerciseTitle, exerciseId }) => {
       if (isFinished) {
          const storedExercises = getItem();
          const updatedExercises = [...storedExercises];
-         const index = updatedExercises.findIndex(
-            (exercise) => exercise.name === exerciseTitle
-         );
+         const index = updatedExercises.findIndex((exercise) => exercise.name === exerciseTitle);
          updatedExercises[index].isFinished = true;
          setItem(updatedExercises);
       }
@@ -149,6 +147,10 @@ const FillGapsExerciseProvider = ({ children, exerciseTitle, exerciseId }) => {
 
    // Handle incorrect answer logic
    const handleIncorrectAnswer = () => {
+      setBorderColor("border-danger border-2 wiggle");
+      setTimeout(() => {
+         setBorderColor("border-secondary border-2");
+      }, 1000);
       showFeedbackMessage("Incorrect, Please Try Again !");
    };
    // Inside the FillGapsExerciseProvider component
@@ -160,10 +162,7 @@ const FillGapsExerciseProvider = ({ children, exerciseTitle, exerciseId }) => {
       const actualAnswerSentence = question?.replace("___", actualAnswer);
 
       // Update userAnswers array with the full sentences
-      setUserAnswers((prevUserAnswers) => [
-         ...prevUserAnswers,
-         { userAnswerSentence, actualAnswerSentence },
-      ]);
+      setUserAnswers((prevUserAnswers) => [...prevUserAnswers, { userAnswerSentence, actualAnswerSentence }]);
    };
 
    // Function to move to the next question and update game state
@@ -172,13 +171,13 @@ const FillGapsExerciseProvider = ({ children, exerciseTitle, exerciseId }) => {
       if (currentQuestionIndex >= sentences?.data?.length - 1) {
          setIsFinished(true);
          setPlaying(false);
-         setShowGame(false);
+         // setShowGame(false);
       } else {
          setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
          setPlaying(true);
-         setShowGame(false);
-         setShowCorrectAnswer(false);
       }
+      setShowGame(false);
+      setShowCorrectAnswer(false);
    };
 
    // Handle form submission
@@ -190,17 +189,27 @@ const FillGapsExerciseProvider = ({ children, exerciseTitle, exerciseId }) => {
          handleIncorrectAnswer();
          setIsCorrect(false);
       }
-      updatePreviousAnswer(
-         currentQuestion.question,
-         selectedOption,
-         correctAns
-      );
-      moveToNextQuestion();
+      updatePreviousAnswer(currentQuestion.question, selectedOption, correctAns);
+      // moveToNextQuestion();
       setSelectedOption(null);
+      setShowCorrectAnswer(true);
    };
 
    const timeStamp = currentQuestion?.video?.pauseTime;
 
+   const returnAchievement = () => {
+      const numberOfMistakes = QuestionBankLen - score;
+
+      if (numberOfMistakes === 0) {
+         return "🥇 Gold";
+      } else if (numberOfMistakes === 1) {
+         return "🥈 Silver";
+      } else if (numberOfMistakes === 2) {
+         return "🥉 Bronze";
+      } else {
+         return "No prize 🫡";
+      }
+   };
    // Return the Fill Gaps context provider
    return (
       <FillGapsExerciseContext.Provider
@@ -214,8 +223,7 @@ const FillGapsExerciseProvider = ({ children, exerciseTitle, exerciseId }) => {
             score,
             feedbackMessage,
             isGameStarted,
-            challengesCompleted:
-               currentQuestionIndex === sentences?.data?.length, // Check if all questions have been answered
+            challengesCompleted: currentQuestionIndex === sentences?.data?.length, // Check if all questions have been answered
             sentenceLength: QuestionBankLen, // Length of sentences array
             // src,
             optionsArray: currentQuestion?.options,
@@ -229,12 +237,14 @@ const FillGapsExerciseProvider = ({ children, exerciseTitle, exerciseId }) => {
             timeStamp,
             dutchSentence: currentQuestion?.hintSentence,
             userAnswers,
-            correctAnswer: currentQuestion?.question?.replace(
-               "___",
-               correctAns
-            ),
+            correctAnswer: currentQuestion?.question?.replace("___", correctAns),
             sentences,
+            borderColor,
+            playingAudio,
+            // Setters
+            setPlayingAudio,
             // Functions
+            returnAchievement,
             moveToNextQuestion,
             setPlaying,
             setShowGame,

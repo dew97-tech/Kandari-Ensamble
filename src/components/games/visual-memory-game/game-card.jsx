@@ -2,9 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import { VisualMemoryGameContext } from "@/src/context/VisualContext";
 
-const GameCard = ({ index, img, imgText }) => {
-   const { handleCardClick, glowingCards, isMatch, selectedCards, isGlowing } =
-      useContext(VisualMemoryGameContext);
+const GameCard = ({ index, img, imgText, allImagesLoaded }) => {
+   const { handleCardClick, glowingCards, isMatch, selectedCards, isGlowing } = useContext(VisualMemoryGameContext);
 
    const imageContainerSize = {
       height: "150px",
@@ -24,17 +23,9 @@ const GameCard = ({ index, img, imgText }) => {
 
    // Styling
    const cardClasses = `btn shadow-sm my-1 d-flex flex-column justify-content-center align-items-center
-    ${
-       isGlowing && selectedCards.includes(index)
-          ? "border border-4 border-primary rounded-4"
-          : ""
-    }
+    ${isGlowing && selectedCards.includes(index) && allImagesLoaded ? "border border-4 border-primary rounded-4" : ""}
     ${isClicked ? "border border-4 border-primary rounded-4" : ""}
-    ${
-       isMatch && glowingCards.includes(index)
-          ? "border border-4 border-success rounded-4"
-          : ""
-    }`;
+    ${isMatch && glowingCards.includes(index) ? "border border-4 border-success rounded-4" : ""}`;
 
    const handleClick = () => {
       if (!isGlowing) {
@@ -45,15 +36,8 @@ const GameCard = ({ index, img, imgText }) => {
 
    return (
       <div key={index} className={cardClasses} onClick={handleClick}>
-         <Image
-            src={img}
-            width={640}
-            height={427}
-            style={imageContainerSize}
-            className="card-img-top"
-            alt={imgText}
-         />
-         <span className="text-secondary mt-5">{imgText}</span>
+         <Image src={img} width={640} height={427} style={imageContainerSize} className='card-img-top' alt={imgText} />
+         <span className='text-secondary mt-5'>{imgText}</span>
       </div>
    );
 };

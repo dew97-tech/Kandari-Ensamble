@@ -76,48 +76,55 @@ const CommonVideoPlayer = ({
       setShowError(true);
    };
 
-   // Pause the video at the given time stamp and show the game component
    const pauseVideoAtTime = (time) => {
       const currentTime = videoRef?.current?.getCurrentTime();
       const roundedCurrentTime = Math.round(currentTime * 1000) / 1000; // Round to 3 decimal points
+      // const buffer = 0.001; // Adjust this value as needed
       if (gameName === "study-the-dialogue") {
          if (
-            (videoRef.current && roundedCurrentTime === time) ||
+            (videoRef.current && roundedCurrentTime >= time) ||
             (roundedCurrentTime >= time && !showGame && playing)
          ) {
             console.log("pausing video at time", time);
             console.log("rounded Current Time", roundedCurrentTime);
             setPlaying(false);
             setShowGame(true);
-            clearInterval(intervalRef.current);
+            cancelAnimationFrame(intervalRef.current);
+         } else {
+            intervalRef.current = requestAnimationFrame(() =>
+               pauseVideoAtTime(time)
+            );
          }
       } else {
-         // console.log('pausing video at time', time);
-         // console.log('rounded Current Time', roundedCurrentTime);
          if (
-            (videoRef.current && roundedCurrentTime === time) ||
+            (videoRef.current && roundedCurrentTime >= time) ||
             (roundedCurrentTime >= time && !showGame && playing)
          ) {
             console.log("pausing video at time", time);
             console.log("rounded Current Time", roundedCurrentTime);
             setPlaying(false);
             setShowGame(true);
-            clearInterval(intervalRef.current);
+            cancelAnimationFrame(intervalRef.current);
+         } else {
+            intervalRef.current = requestAnimationFrame(() =>
+               pauseVideoAtTime(time)
+            );
          }
       }
    };
 
    useEffect(() => {
+      console.log("useEffect triggered"); // Added console log
       if (playing || showVideo) {
          enterFullscreen();
-         const interval = setInterval(() => pauseVideoAtTime(timeStamp), 5);
-         intervalRef.current = interval;
-         return () => clearInterval(interval);
+         intervalRef.current = requestAnimationFrame(() =>
+            pauseVideoAtTime(timeStamp)
+         );
       }
       return () => {
-         clearInterval(intervalRef.current);
+         cancelAnimationFrame(intervalRef.current);
       };
-   }, [showVideo, playing, timeStamp]);
+   }, [showVideo, timeStamp]);
 
    // Check if videoSRC is loaded if not fire the ErrorComponent after sometime
 
@@ -125,24 +132,24 @@ const CommonVideoPlayer = ({
       <>
          {isLoading && <LoadingComponent />}
          {showError && <ErrorComponent />}
-         <div ref={videoPlayerContainerRef} className="video-player-container">
-            <div className="video-wrapper">
+         <div ref={videoPlayerContainerRef} className='video-player-container'>
+            <div className='video-wrapper'>
                {showVideo && isFullscreen && (
                   <>
-                     <div className="lesson-path-button">
+                     <div className='lesson-path-button'>
                         <OffCanvas />
                      </div>
                      <ReactPlayer
                         ref={videoRef}
-                        className="video"
+                        className='video'
                         url={videoSrc}
                         playing={playing}
-                        width="100%"
-                        height="100%"
+                        width='100%'
+                        height='100%'
                         previewTabIndex={1}
-                        nodownload="true"
+                        nodownload='true'
                         playIcon={<CustomPlayIcon />}
-                        light="/assets/img/banner/maison_2.jpg"
+                        light='/assets/img/banner/maison_2.jpg'
                         onReady={() => {
                            handlePlay();
                         }}
@@ -182,8 +189,8 @@ const CommonVideoPlayer = ({
                   </>
                )}
             </div>
-            <div className="toggle-fullscreen-button">
-               <Link href="/">
+            <div className='toggle-fullscreen-button'>
+               <Link href='/'>
                   <FaDoorOpen size={30} />
                </Link>
             </div>

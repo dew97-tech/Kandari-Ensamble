@@ -69,10 +69,10 @@ const HeaderThree = () => {
                               </nav>
                            </div>
                         ) : (
-                           <div className='d-flex justify-content-end'>
+                           <div className='d-flex justify-content-end align-items-center mr-10'>
                               <Link
                                  href='/sign-in'
-                                 className='btn btn-md light-blue my-0 px-3 py-2 d-none d-sm-block shadow-sm'
+                                 className='light-blue my-0 px-3 py-2 d-none d-sm-block shadow-sm fs-6 rounded-2'
                                  onClick={() => {
                                     router.push("/sign-in");
                                  }}

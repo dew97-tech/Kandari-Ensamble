@@ -144,13 +144,16 @@ const FillGapsProvider = ({ children, exerciseTitle, exerciseId }) => {
       if (currentQuestionIndex >= sentences?.data?.length - 1) {
          setIsFinished(true);
          setPlaying(false);
-         setShowGame(false);
+         // setShowGame(false);
+         // setShowCorrectAnswer(false);
       } else {
          setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
          setPlaying(true);
-         setShowGame(false);
-         setShowCorrectAnswer(false);
+         // setShowGame(false);
+         // setShowCorrectAnswer(false);
       }
+      setShowGame(false);
+      setShowCorrectAnswer(false);
    };
 
    // Exercise Progress Checker
@@ -192,6 +195,19 @@ const FillGapsProvider = ({ children, exerciseTitle, exerciseId }) => {
    const timeStamp = currentQuestion?.video?.pauseTime;
    // console.log("Options array: ", currentQuestion?.options);
    // Return the Fill Gaps context provider
+   const returnAchievement = () => {
+      const numberOfMistakes = QuestionBankLen - score;
+
+      if (numberOfMistakes === 0) {
+         return "🥇 Gold";
+      } else if (numberOfMistakes === 1) {
+         return "🥈 Silver";
+      } else if (numberOfMistakes === 2) {
+         return "🥉 Bronze";
+      } else {
+         return "No prize 🫡";
+      }
+   };
    return (
       <FillGapsContext.Provider
          value={{
@@ -224,6 +240,7 @@ const FillGapsProvider = ({ children, exerciseTitle, exerciseId }) => {
             ),
             sentences,
             playingAudio,
+            returnAchievement,
             setPlayingAudio,
             // Functions
             fetcher,

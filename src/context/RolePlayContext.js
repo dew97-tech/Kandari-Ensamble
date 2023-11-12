@@ -190,6 +190,19 @@ const RolePlayProvider = ({ children, exerciseId, exerciseTitle }) => {
       (option) => option.id === correctOptionId
    )?.text;
 
+   const returnAchievement = () => {
+      const numberOfMistakes = questions?.data?.length - score;
+
+      if (numberOfMistakes === 0) {
+         return "🥇 Gold";
+      } else if (numberOfMistakes === 1) {
+         return "🥈 Silver";
+      } else if (numberOfMistakes === 2) {
+         return "🥉 Bronze";
+      } else {
+         return "No prize 🫡";
+      }
+   };
    return (
       <RolePlayContext.Provider
          value={{
@@ -213,6 +226,7 @@ const RolePlayProvider = ({ children, exerciseId, exerciseTitle }) => {
             showCorrectAnswer,
             isCorrect,
             playingAudio,
+            returnAchievement,
             setPlayingAudio,
             fetcher,
             moveToNextQuestion,

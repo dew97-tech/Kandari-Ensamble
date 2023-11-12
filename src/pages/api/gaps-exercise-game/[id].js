@@ -71,7 +71,7 @@ const sentences = [
             id: 1,
             hintSentence: "Het gaat heel goed.",
             question: "Ça va ___ bien.",
-            options: ["très", "pas mal", "ne pas", "bien", "mal", "vais"],
+            options: ["très", "pas mal", "ne va pas", "bien", "mal", "vais"],
             correctAns: "très",
             video: {
                pauseTime: 6,
@@ -81,7 +81,7 @@ const sentences = [
             id: 2,
             hintSentence: "Hoe gaat het? Niet slecht.",
             question: "Ça va ? ___ ",
-            options: ["très", "pas mal", "ne pas", "bien", "mal", "vais"],
+            options: ["très", "pas mal", "ne va pas", "bien", "mal", "vais"],
             correctAns: "pas mal",
             video: {
                pauseTime: 16.75,
@@ -90,9 +90,9 @@ const sentences = [
          {
             id: 3,
             hintSentence: "Het gaat niet goed.",
-            question: "Ça ___ va ___ bien.",
-            options: ["très", "pas mal", "ne pas", "bien", "mal", "vais"],
-            correctAns: "ne pas",
+            question: "Ça ___ bien.",
+            options: ["très", "pas mal", "ne va pas", "bien", "mal", "vais"],
+            correctAns: "ne va pas",
             video: {
                pauseTime: 49.417,
             },
@@ -101,7 +101,7 @@ const sentences = [
             id: 4,
             hintSentence: "Hoi, gaat het goed met je?",
             question: "Salut, tu vas ___?",
-            options: ["très", "pas mal", "ne pas", "bien", "mal", "vais"],
+            options: ["très", "pas mal", "ne va pas", "bien", "mal", "vais"],
             correctAns: "bien",
             video: {
                pauseTime: 60.48,
@@ -111,7 +111,7 @@ const sentences = [
             id: 5,
             hintSentence: "Het gaat slecht.",
             question: "Ça va ___.",
-            options: ["très", "pas mal", "ne pas", "bien", "mal", "vais"],
+            options: ["très", "pas mal", "ne va pas", "bien", "mal", "vais"],
             correctAns: "mal",
             video: {
                pauseTime: 60.5,
@@ -121,7 +121,7 @@ const sentences = [
             id: 6,
             hintSentence: "Het gaat heel goed met me. En jij?",
             question: "Je elles ___ très bien.Et toi ?",
-            options: ["très", "pas mal", "ne pas", "bien", "mal", "vais"],
+            options: ["très", "pas mal", "ne va pas", "bien", "mal", "vais"],
             correctAns: "vais",
             video: {
                pauseTime: 70.35,

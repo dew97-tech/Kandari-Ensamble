@@ -17,6 +17,7 @@ const VideoGame = () => {
       score,
       questionLength,
       fetcher,
+      returnAchievement,
    } = useContext(ExpressYourselfContext);
    const { data, error, isLoading } = useSWR("ExpressYourself", fetcher, {
       revalidateIfStale: false,
@@ -39,15 +40,18 @@ const VideoGame = () => {
          )}
          {!isFinished ? (
             <>
-               <section className="course-area bone">
-                  <div className="container">
-                     <VideoPlayer id="video-player" />
+               <section className='course-area bone'>
+                  <div className='container'>
+                     <VideoPlayer id='video-player' />
                   </div>
                </section>
             </>
          ) : (
             <>
-               <div className="d-flex flex-column justify-content-center align-self-center">
+               <div className='d-flex flex-column justify-content-center align-self-center'>
+                  <h3 className='text-start buff-text-color display-6 mb-20'>
+                     Your Achievement: {returnAchievement()}
+                  </h3>
                   <PreviousAnswers
                      game={"ExpressYourself"}
                      previousAnswers={recordUserAnswers}
@@ -56,7 +60,7 @@ const VideoGame = () => {
                      // sentences={questions}
                   />
                </div>
-               <div className="d-flex justify-content-between">
+               <div className='d-flex justify-content-between'>
                   <CustomButton
                      onClick={() => {
                         handlePrompt(

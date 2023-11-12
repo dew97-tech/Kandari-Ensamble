@@ -262,7 +262,20 @@ const RightOrderProvider = ({ children, exerciseId, exerciseTitle }) => {
    };
 
    const timeStamp = currentExerciseData?.video?.pauseTime;
-   
+   const returnAchievement = () => {
+      const numberOfMistakes = currentExercise?.data?.length - score;
+
+      if (numberOfMistakes === 0) {
+         return "🥇 Gold";
+      } else if (numberOfMistakes === 1) {
+         return "🥈 Silver";
+      } else if (numberOfMistakes === 2) {
+         return "🥉 Bronze";
+      } else {
+         return "No prize 🫡";
+      }
+   };
+
    return (
       <RightOrderContext.Provider
          value={{
@@ -294,6 +307,7 @@ const RightOrderProvider = ({ children, exerciseId, exerciseTitle }) => {
             exerciseData,
             playingAudio,
             // handlePlay,
+            returnAchievement,
             setPlayingAudio,
             handleFinish,
             fetcher,

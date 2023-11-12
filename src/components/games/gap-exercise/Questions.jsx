@@ -1,18 +1,16 @@
-import React, { useContext } from 'react';
+import { useContext } from "react";
 
+const Questions = ({ context }) => {
+   const { currentQuestion, selectedOption } = useContext(context);
 
-const Questions = ({context}) => {
-    const { currentQuestion, selectedOption } = useContext(context);
-    return (
-        <div className="mx-2 text-center">
-            {/* <h3 className="text-sm-center text-md-center mb-20 buff-text-color">
-                Fill the Gaps
-            </h3> */}
-            <h2 className="buff-text-color mb-0">
-                {currentQuestion?.question?.replace('___', selectedOption || '______')}
-            </h2>
-        </div>
-    );
+   // Replace the placeholder '___' in the question with the selected option
+   const questionText = currentQuestion?.question?.replace("___", selectedOption || "___");
+
+   return (
+      <div className='mx-2 text-center'>
+         <h2 className='buff-text-color mb-0'>{questionText}</h2>
+      </div>
+   );
 };
 
 export default Questions;

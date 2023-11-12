@@ -160,7 +160,19 @@ const ExpressYourselfProvider = ({ children, exerciseId, exerciseTitle }) => {
 
    const timeStamp = currentQuestion?.video?.pauseTime;
    // ... You can add other necessary functions for game completion, etc.
+   const returnAchievement = () => {
+      const numberOfMistakes = questions?.data?.length - score;
 
+      if (numberOfMistakes === 1) {
+         return "🥇 Gold";
+      } else if (numberOfMistakes === 2) {
+         return "🥈 Silver";
+      } else if (numberOfMistakes === 3) {
+         return "🥉 Bronze";
+      } else {
+         return "No prize 🫡";
+      }
+   };
    return (
       <ExpressYourselfContext.Provider
          value={{
@@ -183,6 +195,7 @@ const ExpressYourselfProvider = ({ children, exerciseId, exerciseTitle }) => {
             recordUserAnswers,
             isCorrect,
             playingAudio,
+            returnAchievement,
             setPlayingAudio,
             fetcher,
             moveToNextQuestion,

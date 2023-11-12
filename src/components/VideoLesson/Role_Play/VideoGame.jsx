@@ -17,6 +17,7 @@ const VideoGame = () => {
       userAnswers,
       questions,
       fetcher,
+      returnAchievement,
    } = useContext(RolePlayContext);
    const { data, error, isLoading } = useSWR("RolePlayGame", fetcher, {
       revalidateIfStale: false,
@@ -38,15 +39,18 @@ const VideoGame = () => {
          )}
          {!isFinished ? (
             <>
-               <section className="course-area bone">
-                  <div className="container">
-                     <VideoPlayer id="video-player" />
+               <section className='course-area bone'>
+                  <div className='container'>
+                     <VideoPlayer id='video-player' />
                   </div>
                </section>
             </>
          ) : (
             <>
-               <div className="d-flex flex-column justify-content-center align-self-center">
+               <div className='d-flex flex-column justify-content-center align-self-center'>
+                  <h1 className='text-start buff-text-color display-6'>
+                     Your Achievement : {returnAchievement()}
+                  </h1>
                   <PreviousAnswers
                      game={"RolePlayGame"}
                      previousAnswers={userAnswers}
@@ -55,7 +59,7 @@ const VideoGame = () => {
                      sentences={questions}
                   />
                </div>
-               <div className="d-flex justify-content-between">
+               <div className='d-flex justify-content-between'>
                   <CustomButton
                      onClick={() => {
                         handlePrompt(
