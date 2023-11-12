@@ -28,7 +28,7 @@ const RightOrderExerciseProvider = ({
    const [playing, setPlaying] = useState(true);
    const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
    const [isCorrect, setIsCorrect] = useState(false);
-   const [borderColor, setBorderColor] = useState("border-secondary border-2 border-2");
+   const [borderColor, setBorderColor] = useState("border-secondary border-2");
    const [playingAudio, setPlayingAudio] = useState(null);
 
    const currentExercise = exerciseData;
