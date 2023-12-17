@@ -98,13 +98,9 @@ const DictationMemoryGame = () => {
          <section className='tp-category-area bone bg-bottom grey-bg pt-50 pb-50 text-center'>
             <div className='section-title mb-30 memory-game-color'>
                <h3 className='buff-text-color display-4 mb-20'>
-                  {isGameOver
-                     ? `Game Over ! Keep Practicing`
-                     : `Thanks for Playing ! Happy Learning`}
+                  {isGameOver ? `Game Over ! Keep Practicing` : `Thanks for Playing ! Happy Learning`}
                </h3>
-               <h3 className='buff-text-color display-4 mb-20'>
-                  Your Achievement: {returnAchievement()}
-               </h3>
+               <h3 className='buff-text-color display-4 mb-20'>Jouw Score: {returnAchievement()}</h3>
                <div className='d-flex justify-content-between'>
                   <CustomButton
                      onClick={handleRestart}
@@ -139,9 +135,7 @@ const DictationMemoryGame = () => {
 
    return (
       <>
-         {showConfetti && (
-            <Confetti duration={3000} recycle={false} numberOfPieces={1000} />
-         )}
+         {showConfetti && <Confetti duration={3000} recycle={false} numberOfPieces={1000} />}
          <section className='course-area pt-50 pb-200 bone'>
             <div className='container'>
                <GameTitle title='Dictation Memory Game' />
@@ -150,15 +144,9 @@ const DictationMemoryGame = () => {
                      {!challengesCompleted && !isFinished ? (
                         <section className='bone pt-10 pb-50 text-center'>
                            <div className='container pb-50'>
-                              <div
-                                 className='mx-1 shadow-sm border border-secondary border-2'
-                                 style={cardStyle}
-                              >
+                              <div className='mx-1 shadow-sm border border-secondary border-2' style={cardStyle}>
                                  <GameContainer />
-                                 {isSequenceEnd &&
-                                    showNextFrame &&
-                                    !showResult &&
-                                    renderSubmitButton()}
+                                 {isSequenceEnd && showNextFrame && !showResult && renderSubmitButton()}
                                  {showResult && renderProceedButton()}
                               </div>
                            </div>

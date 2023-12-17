@@ -11,11 +11,13 @@ import CounterArea from './counter-area';
 import FeatureArea from '../../../common/feature-area';
 import OurCourse from './our-course';
 import TestimonialArea from '../../../common/testimonial-area-2';
+import Calendly from '../../calendly';
 
 const HomeThree = () => {
     return (
         <>
             <BannerArea />
+            {/* <Calendly /> */}
             <FeatureArea />
             <AboutArea />
             <SuitableArea />

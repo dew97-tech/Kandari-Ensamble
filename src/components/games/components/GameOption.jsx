@@ -35,7 +35,7 @@ const GameOption = ({ gameName, optionsArray, context }) => {
                   className='buff-text-color mt-10 mb-5'
                   style={{ fontSize: "18px" }}
                >
-                  Choose the correct option :
+                  Kies de juiste zin :
                </h5>
                {randomizedOptions?.map((option, index) => (
                   <Options key={index} option={option} index={index} />
@@ -45,12 +45,12 @@ const GameOption = ({ gameName, optionsArray, context }) => {
       case "right-order-game":
          return (
             <div className='d-flex flex-column mt-10 mb-20 text-start'>
-               <h5
+               {/* <h5
                   className='buff-text-color mt-10 mb-6'
                   style={{ fontSize: "18px" }}
                >
                   Word Options :
-               </h5>
+               </h5> */}
                <div className='d-flex justify-content-center flex-wrap'>
                   {randomizedOptions?.map((option, index) => (
                      <WordBox

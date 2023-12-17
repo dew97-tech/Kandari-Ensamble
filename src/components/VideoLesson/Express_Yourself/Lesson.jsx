@@ -6,7 +6,7 @@ const Lesson = ({ exerciseId , exerciseTitle}) => {
 		<>
 			<section className="bone">
 				<ExpressYourselfProvider exerciseId={exerciseId} exerciseTitle={exerciseTitle}>
-					<VideoGame />
+					<VideoGame exerciseTitle={exerciseTitle}/>
 				</ExpressYourselfProvider>
 			</section>
 		</>

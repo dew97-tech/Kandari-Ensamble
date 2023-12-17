@@ -18,8 +18,9 @@ import PracticeComponent from "../components/PracticeComponent";
 
 // Contexts
 import { RightOrderExerciseContext } from "@/src/context/exercise-contexts/RightOrderContext";
+import CongratulationsComponent from "../components/Congratulations";
 
-const GameContainer = () => {
+const GameContainer = ({exerciseTitle}) => {
    // Destructuring values from the RightOrderExerciseContext
    const {
       isGameStarted,
@@ -68,7 +69,7 @@ const GameContainer = () => {
    const renderSubmitButton = () => (
       <CustomButton
          onClick={handleSubmit}
-         text={"Submit"}
+         text={"Ga Door"}
          borderColor={"success"}
          placeHolder={"Submit-Icon"}
          margin={"mx-2"}
@@ -78,7 +79,7 @@ const GameContainer = () => {
    // Function to render the question
    const renderQuestion = () => (
       <>
-         <h3 className='text-start buff-text-color mb-20'>Question No : {currentIndex + 1}</h3>
+         {/* <h3 className='text-start buff-text-color mb-20'>Question No : {currentIndex + 1}</h3> */}
          <DutchSentence {...{ dutchSentence }} />
          <hr className='border border-1 border-secondary opacity-25 mx-2 mt-0 mb-0 rounded' />
          <InstructionSentence
@@ -133,8 +134,14 @@ const GameContainer = () => {
    const renderGameFinished = () => (
       <>
          <div className='d-flex flex-column justify-content-center align-self-center'>
-            <h3 className='text-start buff-text-color'>Your Achievement : {returnAchievement()}</h3>
-            <PreviousAnswers
+         <CongratulationsComponent
+                     showOffCanvas={true}
+                     returnAchievement={returnAchievement}
+                     showScore={true}
+                     handlePrompt={handlePrompt}
+                  />
+            {/* <h3 className='text-center buff-text-color'>Jouw Score: {returnAchievement()}</h3> */}
+            {/* <PreviousAnswers
                game={"RightOrderGame"}
                {...{
                   previousAnswers,
@@ -143,9 +150,9 @@ const GameContainer = () => {
                   sentences,
                   currentExercise,
                }}
-            />
+            /> */}
          </div>
-         <div className='d-flex justify-content-between'>
+         {/* <div className='d-flex justify-content-between'>
             <CustomButton
                onClick={() => {
                   handlePrompt(
@@ -164,7 +171,7 @@ const GameContainer = () => {
             />
 
             <NavLinks />
-         </div>
+         </div> */}
       </>
    );
 
@@ -201,7 +208,7 @@ const GameContainer = () => {
          {isFinished && <Confetti duration={3000} recycle={false} numberOfPieces={1000} />}
          <section className='course-area pb-50 bone'>
             <div className='container'>
-               <GameTitle title='Place in Right Order' />
+               <GameTitle title={exerciseTitle} />
                {renderGameContent()}
             </div>
          </section>

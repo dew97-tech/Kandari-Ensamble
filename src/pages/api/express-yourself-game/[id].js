@@ -23,7 +23,7 @@ const express_yourself_exercise = [
             question: "En jij, hoe gaat het ?",
             correctAnswer: "Et toi, ça va ?",
             video: {
-               pauseTime: 40.417,
+               pauseTime: 40.292,
             },
          },
          {
@@ -74,7 +74,7 @@ const express_yourself_exercise = [
          {
             id: 2,
             question: "Hoe heet jij?",
-            correctAnswer: "Comment t`appelles-tu ?",
+            correctAnswer: "Comment t'appelles-tu ?",
             video: {
                pauseTime: 22.458,
             },
@@ -92,7 +92,8 @@ const express_yourself_exercise = [
             question: "Het gaat goed, dank je.",
             correctAnswer: "Ça va bien merci.",
             video: {
-               pauseTime: 36.125,
+               // pauseTime: 36.125,
+               pauseTime: 44.25,
             },
          },
          {
@@ -116,7 +117,7 @@ const express_yourself_exercise = [
             question: "Wow, ze zijn mooi",
             correctAnswer: "Wow, elles sont belles.",
             video: {
-               pauseTime: 77.250,
+               pauseTime: 77.25,
             },
          },
          {
@@ -124,7 +125,7 @@ const express_yourself_exercise = [
             question: "Ik moet gaan.",
             correctAnswer: "Je dois partir.",
             video: {
-               pauseTime: 82.250,
+               pauseTime: 82.25,
             },
          },
          {
@@ -144,9 +145,7 @@ export default function handler(req, res) {
       if (req.method === "GET") {
          const { id } = req.query;
          console.log("Fetching Exprress-Yourself Exercise...");
-         const exercise = express_yourself_exercise.find(
-            (exercise) => exercise.exercise_id === parseInt(id)
-         );
+         const exercise = express_yourself_exercise.find((exercise) => exercise.exercise_id === parseInt(id));
          res.status(200).json(exercise);
       } else {
          // Return an error message for unsupported HTTP methods

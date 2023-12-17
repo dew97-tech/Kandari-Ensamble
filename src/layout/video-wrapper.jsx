@@ -19,15 +19,14 @@ const VideoWrapper = ({ children }) => {
          <NavigationProvider>
             <HeaderThree />
             <section
-               className='bone pt-50'
+               className='bone'
                style={{
                   minHeight: "100vh",
                }}
             >
-               {/* <div className="d-flex align-items-center justify-content-between mx-5">
+               <div className="d-flex align-items-center justify-content-between mx-5">
 						<OffCanvas />
-						
-					</div> */}
+					</div>
                <div className='container text-center'>{children}</div>
             </section>
             <FooterThree />

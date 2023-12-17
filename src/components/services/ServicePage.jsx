@@ -1,6 +1,6 @@
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
+import Calendly from "../calendly";
 const ServicePage = () => {
    const imgStyle = {
       objectFit: "cover",
@@ -28,22 +28,15 @@ const ServicePage = () => {
                   <div className='mb-50'>
                      <div className='d-flex flex-column flex-md-row justify-content-md-between align-items-md-center'>
                         <div className='mr-20' style={{ flex: "0 0 70%" }}>
-                           <h3 className='buff-text-color service-p-text'>
-                              Kinderen (t/m 12 jaar) - particulieren
-                           </h3>
+                           <h3 className='buff-text-color service-p-text'>Kinderen (t/m 12 jaar) - particulieren</h3>
                            <div className='mt-10'>
                               <p className='buff-text-color service-p-text' style={paraStyle}>
-                                 Voor kinderen begint met Maison Ensemble de
-                                 ontdekkingsreis van het Frans. Terwijl ze de
-                                 taal leren, maken ze kennis met diverse
-                                 facetten van de Franse cultuur door een
-                                 denkbeeldige reis naar het charmante stadje
-                                 Marans te maken. Naast het aanleren van de
-                                 taal, ontdekken ze ook hoe ze hun executieve
-                                 functies kunnen inzetten en versterken. Alles
-                                 bij elkaar vormt dit een mooie voorbereiding op
-                                 de middelbare schooltijd en een mogelijkheid
-                                 voor persoonlijke groei in de bredere zin.
+                                 Voor kinderen begint met Maison Ensemble de ontdekkingsreis van het Frans. Terwijl ze
+                                 de taal leren, maken ze kennis met diverse facetten van de Franse cultuur door een
+                                 denkbeeldige reis naar het charmante stadje Marans te maken. Naast het aanleren van de
+                                 taal, ontdekken ze ook hoe ze hun executieve functies kunnen inzetten en versterken.
+                                 Alles bij elkaar vormt dit een mooie voorbereiding op de middelbare schooltijd en een
+                                 mogelijkheid voor persoonlijke groei in de bredere zin.
                               </p>
                            </div>
                         </div>
@@ -78,19 +71,13 @@ const ServicePage = () => {
                            </h3>
                            <div className='mt-10'>
                               <p className='buff-text-color service-p-text' style={paraStyle}>
-                                 Met Maison Ensemble kun je als middelbare
-                                 scholier je mondelinge spreekvaardigheid naar
-                                 een hoger niveau tillen. Door stapsgewijs
-                                 (hardop) te oefenen met diverse dialogen uit
-                                 alledaagse situaties, krijg je meer
-                                 zelfvertrouwen in je spreekvaardigheid. Zo
-                                 voegt de methode een waardevolle dimensie toe
-                                 aan bestaande leermethodes. Naast toegang tot
-                                 de digitale omgeving, heb je de mogelijkheid om
-                                 deel te nemen aan de online community en aan
-                                 videolessen met andere jongeren om je
-                                 leerproces te versterken en al je vragen kwijt
-                                 te kunnen.
+                                 Met Maison Ensemble kun je als middelbare scholier je mondelinge spreekvaardigheid naar
+                                 een hoger niveau tillen. Door stapsgewijs (hardop) te oefenen met diverse dialogen uit
+                                 alledaagse situaties, krijg je meer zelfvertrouwen in je spreekvaardigheid. Zo voegt de
+                                 methode een waardevolle dimensie toe aan bestaande leermethodes. Naast toegang tot de
+                                 digitale omgeving, heb je de mogelijkheid om deel te nemen aan de online community en
+                                 aan videolessen met andere jongeren om je leerproces te versterken en al je vragen
+                                 kwijt te kunnen.
                               </p>
                            </div>
                         </div>
@@ -99,20 +86,14 @@ const ServicePage = () => {
                   <div className='mb-50'>
                      <div className='d-flex flex-column flex-md-row justify-content-md-between align-items-md-center'>
                         <div className='mr-10' style={{ flex: "0 0 70%" }}>
-                           <h3 className='buff-text-color service-p-text'>
-                              Volwassenen - particulieren
-                           </h3>
+                           <h3 className='buff-text-color service-p-text'>Volwassenen - particulieren</h3>
                            <div className='mt-10'>
                               <p className='buff-text-color service-p-text' style={paraStyle}>
-                                 Is het alweer een tijd geleden dat je Frans
-                                 hebt gehad op de middelbare school en is deze
-                                 kennis verwaterd? Bij Maison Ensemble ben je op
-                                 het juiste adres om (weer) je eerste stappen te
-                                 zetten in de Franse taal. Naast toegang tot de
-                                 digitale omgeving, heb je de mogelijkheid om
-                                 deel te nemen aan de online community en aan
-                                 videolessen om je leerproces te versterken en
-                                 al je vragen kwijt te kunnen.
+                                 Is het alweer een tijd geleden dat je Frans hebt gehad op de middelbare school en is
+                                 deze kennis verwaterd? Bij Maison Ensemble ben je op het juiste adres om (weer) je
+                                 eerste stappen te zetten in de Franse taal. Naast toegang tot de digitale omgeving, heb
+                                 je de mogelijkheid om deel te nemen aan de online community en aan videolessen om je
+                                 leerproces te versterken en al je vragen kwijt te kunnen.
                               </p>
                            </div>
                         </div>
@@ -144,19 +125,13 @@ const ServicePage = () => {
                            <h3 className='buff-text-color service-p-text'>Basisscholen</h3>
                            <div className='mt-10'>
                               <p className='buff-text-color service-p-text' style={paraStyle}>
-                                 Voor kinderen begint met Maison Ensemble de
-                                 ontdekkingsreis van het Frans. Terwijl ze de
-                                 taal leren, maken ze kennis met diverse
-                                 facetten van de Franse cultuur door een
-                                 denkbeeldige reis naar het charmante stadje
-                                 Marans te maken. Naast het aanleren van de
-                                 taal, ontdekken ze ook hoe ze hun executieve
-                                 functies kunnen inzetten en versterken. Alles
-                                 bij elkaar vormt dit een mooie voorbereiding op
-                                 de middelbare schooltijd en een mogelijkheid
-                                 voor persoonlijke groei in de bredere zin. Neem
-                                 gerust contact op voor meer informatie over de
-                                 beschikbare licenties.
+                                 Voor kinderen begint met Maison Ensemble de ontdekkingsreis van het Frans. Terwijl ze
+                                 de taal leren, maken ze kennis met diverse facetten van de Franse cultuur door een
+                                 denkbeeldige reis naar het charmante stadje Marans te maken. Naast het aanleren van de
+                                 taal, ontdekken ze ook hoe ze hun executieve functies kunnen inzetten en versterken.
+                                 Alles bij elkaar vormt dit een mooie voorbereiding op de middelbare schooltijd en een
+                                 mogelijkheid voor persoonlijke groei in de bredere zin. Neem gerust contact op voor
+                                 meer informatie over de beschikbare licenties.
                               </p>
                            </div>
                         </div>
@@ -165,21 +140,14 @@ const ServicePage = () => {
                   <div className='mb-50'>
                      <div className='d-flex flex-column flex-md-row justify-content-md-between align-items-md-center'>
                         <div className='mr-10' style={{ flex: "0 0 70%" }}>
-                           <h3 className='buff-text-color service-p-text'>
-                              Middelbare scholen
-                           </h3>
+                           <h3 className='buff-text-color service-p-text'>Middelbare scholen</h3>
                            <div className='mt-10'>
                               <p className='buff-text-color service-p-text' style={paraStyle}>
-                                 Met Maison Ensemble kunnen middelbare
-                                 scholieren hun mondelinge spreekvaardigheid
-                                 naar een hoger niveau tillen. Door stapsgewijs
-                                 (hardop) te oefenen met diverse dialogen uit
-                                 alledaagse situaties, krijgen leerlingen meer
-                                 zelfvertrouwen in hun spreekvaardigheid. Zo
-                                 voegt de methode een waardevolle dimensie toe
-                                 aan bestaande leermethodes. Neem gerust contact
-                                 op voor meer informatie over de beschikbare
-                                 licenties.
+                                 Met Maison Ensemble kunnen middelbare scholieren hun mondelinge spreekvaardigheid naar
+                                 een hoger niveau tillen. Door stapsgewijs (hardop) te oefenen met diverse dialogen uit
+                                 alledaagse situaties, krijgen leerlingen meer zelfvertrouwen in hun spreekvaardigheid.
+                                 Zo voegt de methode een waardevolle dimensie toe aan bestaande leermethodes. Neem
+                                 gerust contact op voor meer informatie over de beschikbare licenties.
                               </p>
                            </div>
                         </div>
@@ -196,6 +164,8 @@ const ServicePage = () => {
                      </div>
                   </div>
                </article>
+               {/* Add Calendly Widget */}
+               <Calendly />
             </div>
          </div>
       </div>

@@ -17,6 +17,8 @@ const RolePlayProvider = ({ children, exerciseId, exerciseTitle }) => {
    const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
    const [isCorrect, setIsCorrect] = useState(false);
    const [playingAudio, setPlayingAudio] = useState(null);
+   const [gameShown, setGameShown] = useState(false);
+   const [attempt, setAttempt] = useState(0);
 
    // Get current question
    const currentQuestion = questions?.data?.[currentQuestionIndex];
@@ -78,18 +80,11 @@ const RolePlayProvider = ({ children, exerciseId, exerciseTitle }) => {
 
    useEffect(() => {
       if (isFinished) {
-         const storedExercises = JSON.parse(
-            localStorage.getItem("lessons_exercises")
-         );
+         const storedExercises = JSON.parse(localStorage.getItem("lessons_exercises"));
          const updatedExercises = [...storedExercises];
-         const index = updatedExercises.findIndex(
-            (exercise) => exercise.name === exerciseTitle
-         );
+         const index = updatedExercises.findIndex((exercise) => exercise.name === exerciseTitle);
          updatedExercises[index].isFinished = true;
-         localStorage.setItem(
-            "lessons_exercises",
-            JSON.stringify(updatedExercises)
-         );
+         localStorage.setItem("lessons_exercises", JSON.stringify(updatedExercises));
       }
    }, [isFinished]);
 
@@ -103,26 +98,35 @@ const RolePlayProvider = ({ children, exerciseId, exerciseTitle }) => {
    // Main function to handle form submission
    const handleSubmit = () => {
       // Check if the selected answer is correct
-      const isCorrect = checkAnswerIsCorrect(
-         currentQuestion.correctOptionId,
-         selectedOptionID
-      );
+      const isCorrect = checkAnswerIsCorrect(currentQuestion.correctOptionId, selectedOptionID);
 
+      // Increment the attempt if the answer is incorrect
+      if (!isCorrect) {
+         setAttempt((prevAttempt) => prevAttempt + 1);
+      }
       // Update the score if the answer is correct
       if (isCorrect) {
          updateScore();
          setIsCorrect(true);
+         setShowCorrectAnswer(true);
       } else {
-         setIsCorrect(false);
+         // Check if the user has exceeded the maximum number of attempts
+         if (attempt >= 0) {
+            // Show correct answer and move to the next question
+            setShowCorrectAnswer(true);
+            setAttempt(0);
+            setIsCorrect(false);
+         } else {
+            // Shuffle options for a new attempt
+            shuffleOptions();
+         }
       }
 
       // Get the selected option and add the user's answer to the userAnswers array
-      const selectedOption = getSelectedOption(
-         currentQuestion.options,
-         selectedOptionID
-      );
+      const selectedOption = getSelectedOption(currentQuestion.options, selectedOptionID);
       addUserAnswer(selectedOption);
-      setShowCorrectAnswer(true);
+      setSelectedOptionID(null);
+      // setShowCorrectAnswer(true);
    };
 
    // Function to check if the selected answer is correct
@@ -142,19 +146,24 @@ const RolePlayProvider = ({ children, exerciseId, exerciseTitle }) => {
 
    // Function to add the user's answer to the userAnswers array
    const addUserAnswer = (selectedOption) => {
-      const userAnswerText = selectedOption
-         ? selectedOption.text
-         : "Unknown answer";
-      setUserAnswers((prevAnswers) => [...prevAnswers, userAnswerText]);
+      const userAnswerText = selectedOption ? selectedOption.text : "Unknown answer";
+
+      setUserAnswers((prevAnswers) => {
+         // Replace the previous answer for the current question
+         const updatedAnswers = [...prevAnswers];
+         updatedAnswers[currentQuestionIndex] = userAnswerText;
+         return updatedAnswers;
+      });
    };
 
    // Function to move to the next question and update game state
    const moveToNextQuestion = () => {
       // Check if the quiz is finished and update game state accordingly
       if (currentQuestionIndex >= questions.data.length - 1) {
-         setIsFinished(true);
+         // setIsFinished(true);
          setPlaying(false);
          setShowGame(false);
+         setGameShown(true);
       } else {
          setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
          setPlaying(true);
@@ -177,15 +186,16 @@ const RolePlayProvider = ({ children, exerciseId, exerciseTitle }) => {
       setShowCorrectAnswer(false);
       setIsCorrect(false);
       setShowGame(false);
+      setGameShown(false);
       setCurrentExerciseId(exerciseId);
+      setAttempt(0);
    };
 
    // Function to get the video pause/Options/currentQuestion time for the current question with optional Chaning
    const timeStamp = questions?.data?.[currentQuestionIndex]?.video?.pauseTime;
    const shuffledOptions = questions?.data?.[currentQuestionIndex]?.options;
    const dutchSentence = questions?.data?.[currentQuestionIndex]?.question;
-   const correctOptionId =
-      questions?.data?.[currentQuestionIndex]?.correctOptionId;
+   const correctOptionId = questions?.data?.[currentQuestionIndex]?.correctOptionId;
    const correctAnswer = questions?.data?.[currentQuestionIndex]?.options.find(
       (option) => option.id === correctOptionId
    )?.text;
@@ -194,11 +204,11 @@ const RolePlayProvider = ({ children, exerciseId, exerciseTitle }) => {
       const numberOfMistakes = questions?.data?.length - score;
 
       if (numberOfMistakes === 0) {
-         return "🥇 Gold";
+         return "🥇 Goud";
       } else if (numberOfMistakes === 1) {
-         return "🥈 Silver";
+         return "🥈 Zilver";
       } else if (numberOfMistakes === 2) {
-         return "🥉 Bronze";
+         return "🥉 Brons";
       } else {
          return "No prize 🫡";
       }
@@ -222,6 +232,7 @@ const RolePlayProvider = ({ children, exerciseId, exerciseTitle }) => {
             dutchSentence,
             selectedOptionID,
             userAnswers,
+            gameShown,
             // src,
             showCorrectAnswer,
             isCorrect,
@@ -237,6 +248,7 @@ const RolePlayProvider = ({ children, exerciseId, exerciseTitle }) => {
             handleSubmit,
             handlePrompt,
             handleRestart,
+            setIsFinished,
          }}
       >
          {children}

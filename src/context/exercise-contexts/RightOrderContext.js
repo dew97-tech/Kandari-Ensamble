@@ -28,7 +28,7 @@ const RightOrderExerciseProvider = ({
    const [playing, setPlaying] = useState(true);
    const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
    const [isCorrect, setIsCorrect] = useState(false);
-   const [borderColor, setBorderColor] = useState("border-secondary border-2");
+   const [borderColor, setBorderColor] = useState("border-secondary border-2 border-2");
    const [playingAudio, setPlayingAudio] = useState(null);
 
    const currentExercise = exerciseData;
@@ -269,11 +269,11 @@ const RightOrderExerciseProvider = ({
       const numberOfMistakes = currentExercise?.data?.length - score;
 
       if (numberOfMistakes === 0) {
-         return "🥇 Gold";
+         return "🥇 Goud";
       } else if (numberOfMistakes === 1) {
-         return "🥈 Silver";
+         return "🥈 Zilver";
       } else if (numberOfMistakes === 2) {
-         return "🥉 Bronze";
+         return "🥉 Brons";
       } else {
          return "No prize 🫡";
       }

@@ -6,7 +6,7 @@ const VisualMemoryGame = ({ exerciseTitle }) => {
 	return (
 		<>
 			<VisualMemoryGameProvider exerciseTitle={exerciseTitle}>
-				<Game />
+				<Game exerciseTitle={exerciseTitle}/>
 			</VisualMemoryGameProvider>
 		</>
 	);

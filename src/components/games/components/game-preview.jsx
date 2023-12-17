@@ -1,50 +1,65 @@
-import React, { useState, useContext, useEffect, useRef } from 'react';
-import 'react-tooltip/dist/react-tooltip.css';
-import { Tooltip } from 'react-tooltip';
-import { GameContext } from '@/src/context/GameContext';
-import AudioPlayer from '../memory-games/audio-player';
+import React, { useContext } from "react";
+import "react-tooltip/dist/react-tooltip.css";
+import { Tooltip } from "react-tooltip";
+import { GameContext } from "@/src/context/GameContext";
+import AudioPlayer from "../memory-games/audio-player";
 
+// The GamePreview component displays a clickable word that triggers a tooltip and an audio player.
 const GamePreview = ({ guessedWord, dutchTranslation, audioUrl }) => {
-	const { isStudying } = useContext(GameContext);
+   // Access the isStudying flag from the GameContext to conditionally render game elements.
+   const { isStudying } = useContext(GameContext);
 
-	return (
-		<>
-			{isStudying && (
-				<div className="text-center">
-					<ul className="memory-game-color d-flex align-items-center justify-content-center">
-						<a
-							className="btn c-color-blue ml-10 py-2 border border-1 border-primary buff-text-color mb-0 shadow-sm"
-							data-tooltip-id={guessedWord}
-						>
-							{guessedWord}
-						</a>
+   // Function to sanitize ID by removing any special characters to ensure compatibility with HTML attributes.
+   const sanitizeId = (id) => {
+      return id.replace(/[^a-zA-Z0-9]/g, "");
+   };
 
-						<Tooltip
-							className="btn py-2"
-							id={guessedWord}
-							variant="dark"
-							style={{
-								fontSize: '15px',
-								borderColor: 'black',
-								color: 'whitesmoke',
-								borderRadius: '10px',
-								zIndex: '1',
-							}}
-							content={dutchTranslation}
-							place="bottom"
-						/>
-						<AudioPlayer audioUrl={audioUrl} context={GameContext} setIsAudioPlaying={null}/>
-					</ul>
-				</div>
-			)}
-		</>
-	);
+   // Sanitize the guessedWord to use as a DOM ID for the tooltip trigger and content.
+   const sanitizedId = sanitizeId(guessedWord);
+
+   return (
+      <>
+         {/* Render the game preview only if in studying mode */}
+         {isStudying && (
+            <div className='text-center'>
+               <ul className='memory-game-color d-flex align-items-center justify-content-center'>
+                  {/* Word button that triggers tooltip */}
+                  <a
+                     className='btn c-color-blue ml-10 py-2 border border-1 border-primary buff-text-color mb-0 shadow-sm'
+                     data-tooltip-id={sanitizedId}
+                  >
+                     {guessedWord}
+                  </a>
+
+                  {/* Tooltip that displays Dutch translation of the guessed word */}
+                  <Tooltip
+                     className='btn py-2'
+                     id={sanitizedId}
+                     variant='dark'
+                     style={{
+                        fontSize: "15px",
+                        borderColor: "black",
+                        color: "whitesmoke",
+                        borderRadius: "10px",
+                        zIndex: "1",
+                     }}
+                     content={dutchTranslation}
+                     place='bottom'
+                  />
+
+                  {/* Audio player component for playing pronunciation or example usage */}
+                  <AudioPlayer audioUrl={audioUrl} context={GameContext} setIsAudioPlaying={null} />
+               </ul>
+            </div>
+         )}
+      </>
+   );
 };
 
 export default GamePreview;
 
 {
-	/* <Modal
+   /* <Modal
     isOpen={modalIsOpen}
     onRequestClose={handleCloseModal}
     className="custom-modal">

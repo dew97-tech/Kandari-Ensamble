@@ -69,54 +69,31 @@ const StudyDialogueProvider = ({ children, exerciseId, exerciseTitle }) => {
       }
    }, [slides, currentSlide]); // Adjusted the dependency to avoid unnecessary fetches
 
-   useEffect(() => {
-      if (isFinished) {
-         const storedExercises = JSON.parse(
-            localStorage.getItem("lessons_exercises")
-         );
-         const updatedExercises = [...storedExercises];
-         const index = updatedExercises.findIndex(
-            (exercise) => exercise.name === exerciseTitle
-         );
-         updatedExercises[index].isFinished = true;
-         localStorage.setItem(
-            "lessons_exercises",
-            JSON.stringify(updatedExercises)
-         );
-      }
-   }, [isFinished]);
-
    const moveNext = () => {
-      if (currentSlide < slides.length - 1) {
+      if (currentSlide <= slides.length - 1) {
          setCurrentSlide(currentSlide + 1);
          setPlaying(true); // Start playing the video
-         setShowGame(false); // Hide the game
          setCurrentSlideStartTime(slides[currentSlide + 1]?.video?.startTime);
          setCurrentSlidePauseTime(slides[currentSlide + 1]?.video?.pauseTime);
       }
-      // Game is finished now if the current slide is the last slide
-      else {
-         setShowGame(false);
-         setShowVideo(false);
-         setPlaying(false);
-         setIsFinished(true);
-      }
+      setShowGame(false);
    };
+
+   // handleFinish function helps to end the exercise and show the Previous Answer Component
+   // const handleFinish = () => {
+   //    setShowGame(false);
+   //    setShowVideo(false);
+   //    setPlaying(false);
+   //    setIsFinished(true);
+   // };
    // Exercise Progrssion Checker
    useEffect(() => {
       if (isFinished) {
-         const storedExercises = JSON.parse(
-            localStorage.getItem("lessons_exercises")
-         );
+         const storedExercises = JSON.parse(localStorage.getItem("lessons_exercises"));
          const updatedExercises = [...storedExercises];
-         const index = updatedExercises.findIndex(
-            (exercise) => exercise.name === exerciseTitle
-         );
+         const index = updatedExercises.findIndex((exercise) => exercise.name === exerciseTitle);
          updatedExercises[index].isFinished = true;
-         localStorage.setItem(
-            "lessons_exercises",
-            JSON.stringify(updatedExercises)
-         );
+         localStorage.setItem("lessons_exercises", JSON.stringify(updatedExercises));
       }
    }, [isFinished]);
 
@@ -132,8 +109,9 @@ const StudyDialogueProvider = ({ children, exerciseId, exerciseTitle }) => {
    };
 
    // ... rest of your context implementation ...
-   const timeStamp = slides[currentSlide]?.video.pauseTime;
-   console.log("Pause Time", timeStamp);
+   const timeStamp = slides[currentSlide]?.video?.pauseTime;
+   console.log("startTime : ", slides[currentSlide]?.video?.startTime);
+   console.log("pauseTime : ", slides[currentSlide]?.video?.pauseTime);
 
    return (
       <StudyDialogueContext.Provider
@@ -146,8 +124,10 @@ const StudyDialogueProvider = ({ children, exerciseId, exerciseTitle }) => {
             showGame,
             timeStamp,
             currentSlideStartTime,
+            currentSlidePauseTime,
             isFinished,
             playingAudio,
+            setIsFinished,
             setPlayingAudio,
             fetcher,
             setSlides,

@@ -3,22 +3,12 @@ import { ExpressYourselfContext } from "@/src/context/ExpressYourselfContext";
 import CustomButton from "../components/CustomButton";
 
 const InputSection = () => {
-   const { userAnswer, setUserAnswer, handleSubmit, isCorrect } = useContext(
-      ExpressYourselfContext
-   );
-   const [inputBorderColor, setInputBorderColor] = useState("border-secondary");
+   const { userAnswer, setUserAnswer, handleSubmit, isCorrect, inputBorderColor } = useContext(ExpressYourselfContext);
+   // const [inputBorderColor, setInputBorderColor] = useState("border-secondary");
 
    const handleFormSubmit = (e) => {
       e.preventDefault();
       handleSubmit(userAnswer);
-      if (!isCorrect) {
-         // If the answer is incorrect, set the input border color to "danger" (red)
-         setInputBorderColor("border-danger wiggle");
-         // Reset the input border color to "secondary" after 2 seconds
-         setTimeout(() => {
-            setInputBorderColor("border-secondary");
-         }, 1000);
-      }
    };
 
    return (
@@ -39,6 +29,7 @@ const InputSection = () => {
          </div>
          <ul className='memory-game-color d-flex align-items-center justify-content-center'>
             <CustomButton
+               // onClick={handleFormSubmit}
                type='submit'
                text={"Proceed"}
                borderColor={"success"}

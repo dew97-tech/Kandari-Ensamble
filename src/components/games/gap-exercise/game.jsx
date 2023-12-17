@@ -11,6 +11,7 @@ import GameTitle from "../components/game-title";
 import GameOption from "../components/GameOption";
 import { InstructionSentence } from "../components/InstructionSentence";
 import PreviousAnswers from "../components/PreviousAnswers";
+import CongratulationsComponent from "../components/Congratulations";
 // Game Specific Imports
 import Questions from "./Questions";
 // Navigation Imports
@@ -18,7 +19,7 @@ import NavLinks from "../../wrapper-components/navlinks";
 // External Library Imports
 import Confetti from "react-confetti";
 
-const Game = () => {
+const Game = ({ exerciseTitle }) => {
    const context = useContext(FillGapsExerciseContext);
 
    // Game state values
@@ -46,7 +47,7 @@ const Game = () => {
          onClick={() => {
             handleSubmit();
          }}
-         text={"Submit"}
+         text={"Ga Door"}
          borderColor={"success"}
          placeHolder={"Submit-Icon"}
          margin={"mx-2"}
@@ -85,7 +86,7 @@ const Game = () => {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className={`mx-1 shadow-sm border ${borderColor} border-1`}
+                  className={`mx-1 shadow-sm border border-secondary border-1`}
                   style={cardStyle}
                >
                   {showCorrectAnswer ? renderPracticeComponent() : renderQuestion()}
@@ -96,7 +97,7 @@ const Game = () => {
    );
    const renderQuestion = () => (
       <>
-         <h3 className='text-start buff-text-color mb-20'>Question No : {currentQuestionIndex + 1}</h3>
+         {/* <h3 className='text-start buff-text-color mb-20'>Question No : {currentQuestionIndex + 1}</h3> */}
          <DutchSentence {...{ dutchSentence }} />
          <hr className='border border-1 border-secondary opacity-25 mx-2 mt-0 mb-0 rounded' />
          <InstructionSentence
@@ -112,8 +113,8 @@ const Game = () => {
    );
    const renderGameFinished = () => (
       <>
-         <div className='d-flex flex-column justify-content-end align-self-center'>
-            <h3 className='text-start buff-text-color display-6 mb-20'>Your Achievement: {returnAchievement()}</h3>
+         {/* <div className='d-flex flex-column justify-content-end align-self-center'>
+            <h3 className='text-start buff-text-color display-6 mb-20'>Jouw Score: {returnAchievement()}</h3>
             <PreviousAnswers
                game='GapExercise'
                previousAnswers={userAnswers}
@@ -140,6 +141,25 @@ const Game = () => {
                isImageAvailable={true}
             />
             <NavLinks />
+         </div> */}
+         <div className='d-flex flex-column justify-content-center align-self-center'>
+            <CongratulationsComponent
+               showOffCanvas={true}
+               returnAchievement={returnAchievement}
+               showScore={true}
+               handlePrompt={handlePrompt}
+            />
+            {/* <h3 className='text-center buff-text-color display-6 mb-20'>Jouw Score: {returnAchievement()}</h3> */}
+            {/* <PreviousAnswers
+                     game={"RightOrderGame"}
+                     {...{
+                        previousAnswers,
+                        score,
+                        sentenceLength,
+                        sentences,
+                        currentExercise,
+                     }}
+                  /> */}
          </div>
       </>
    );
@@ -167,7 +187,7 @@ const Game = () => {
          <section className='course-area pb-50 bone'>
             <div className='container'>
                {/* Passing gameTitle as Props */}
-               <GameTitle title='Gaps Exercise' />
+               <GameTitle title={exerciseTitle} />
                {renderGameContent()}
             </div>
          </section>

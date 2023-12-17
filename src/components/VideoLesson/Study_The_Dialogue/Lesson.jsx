@@ -7,7 +7,7 @@ const Lesson = ({exerciseTitle,exerciseId}) => {
 			<section className="course-area pt-20 pb-200 bone">
 				<div className="container">
 					<StudyDialogueProvider exerciseId={exerciseId} exerciseTitle={exerciseTitle}>
-						<VideoGame />
+						<VideoGame exerciseTitle={exerciseTitle}/>
 					</StudyDialogueProvider>
 				</div>
 			</section>

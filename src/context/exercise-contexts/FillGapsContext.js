@@ -26,8 +26,9 @@ const FillGapsExerciseProvider = ({ children, exerciseTitle, exerciseId }) => {
    const [userAnswers, setUserAnswers] = useState([]); // New state to store user answers
    const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
    const [isCorrect, setIsCorrect] = useState(false);
-   const [borderColor, setBorderColor] = useState("border-secondary border-2");
+   const [textColor, setTextColor] = useState("buff-text-color");
    const [playingAudio, setPlayingAudio] = useState(null);
+   const [mistake, setMistake] = useState(0); // State to track the number of mistakes for the current question
 
    // Video source URL
    // const src = 'https://res.cloudinary.com/debhfgo5p/video/upload/v1689683156/maison.mp4';
@@ -127,6 +128,7 @@ const FillGapsExerciseProvider = ({ children, exerciseTitle, exerciseId }) => {
       setTimeout(() => {
          setFeedbackMessage("");
       }, 2000);
+      setMistake(0);
    };
 
    // Show feedback message for a given duration
@@ -147,34 +149,46 @@ const FillGapsExerciseProvider = ({ children, exerciseTitle, exerciseId }) => {
 
    // Handle incorrect answer logic
    const handleIncorrectAnswer = () => {
-      setBorderColor("border-danger border-2 wiggle");
+      setTextColor("text-danger wiggle");
       setTimeout(() => {
-         setBorderColor("border-secondary border-2");
+         setTextColor("buff-text-color");
       }, 1000);
       showFeedbackMessage("Incorrect, Please Try Again !");
    };
    // Inside the FillGapsExerciseProvider component
-   const updatePreviousAnswer = (question, userAnswer, actualAnswer) => {
-      // Create a new string by replacing ___ with the selected option
-      const userAnswerSentence = question?.replace("___", userAnswer);
+   const updatePreviousAnswer = (index, userAnswer) => {
+      setUserAnswers((prevUserAnswers) => {
+         // If we don't have an entry for this index yet, create a new one.
+         if (!prevUserAnswers[index]) {
+            return [...prevUserAnswers, createAnswerEntry(currentQuestion.question, userAnswer)];
+         }
 
-      // Create a new string by replacing ___ with the actual answer
-      const actualAnswerSentence = question?.replace("___", actualAnswer);
-
-      // Update userAnswers array with the full sentences
-      setUserAnswers((prevUserAnswers) => [...prevUserAnswers, { userAnswerSentence, actualAnswerSentence }]);
+         // Otherwise, update the existing entry.
+         return prevUserAnswers.map((answer, i) =>
+            i === index ? createAnswerEntry(answer.question, userAnswer) : answer
+         );
+      });
    };
+   // Helper function to create an answer entry object
+   const createAnswerEntry = (questionTemplate, userSelectedOption) => ({
+      question: questionTemplate,
+      userAnswerSentence: questionTemplate.replace("___", userSelectedOption),
+      actualAnswerSentence: questionTemplate.replace("___", correctAns),
+   });
 
-   // Function to move to the next question and update game state
    const moveToNextQuestion = () => {
+      setMistake(0); // Reset mistake count for a new question
       // Check if the quiz is finished and update game state accordingly
       if (currentQuestionIndex >= sentences?.data?.length - 1) {
          setIsFinished(true);
          setPlaying(false);
          // setShowGame(false);
+         // setShowCorrectAnswer(false);
       } else {
          setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
          setPlaying(true);
+         // setShowGame(false);
+         // setShowCorrectAnswer(false);
       }
       setShowGame(false);
       setShowCorrectAnswer(false);
@@ -182,17 +196,30 @@ const FillGapsExerciseProvider = ({ children, exerciseTitle, exerciseId }) => {
 
    // Handle form submission
    const handleSubmit = () => {
-      if (selectedOption === correctAns) {
+      const isAnswerCorrect = selectedOption === correctAns;
+      setIsCorrect(isAnswerCorrect);
+
+      if (isAnswerCorrect) {
          handleCorrectAnswer();
-         setIsCorrect(true);
+         setShowCorrectAnswer(true);
+         setMistake(0); // Reset mistakes since the answer is correct
       } else {
-         handleIncorrectAnswer();
-         setIsCorrect(false);
+         const newMistakeCount = mistake + 1;
+         setMistake(newMistakeCount);
+
+         if (newMistakeCount > 2) {
+            setShowCorrectAnswer(true);
+            setMistake(0); // Prepare for the next question
+         } else {
+            handleIncorrectAnswer();
+            setShowCorrectAnswer(false);
+         }
       }
-      updatePreviousAnswer(currentQuestion.question, selectedOption, correctAns);
-      // moveToNextQuestion();
+
+      // Always update previous answers regardless of whether it's correct or not
+      updatePreviousAnswer(currentQuestionIndex, selectedOption);
+
       setSelectedOption(null);
-      setShowCorrectAnswer(true);
    };
 
    const timeStamp = currentQuestion?.video?.pauseTime;
@@ -201,11 +228,11 @@ const FillGapsExerciseProvider = ({ children, exerciseTitle, exerciseId }) => {
       const numberOfMistakes = QuestionBankLen - score;
 
       if (numberOfMistakes === 0) {
-         return "🥇 Gold";
+         return "🥇 Goud";
       } else if (numberOfMistakes === 1) {
-         return "🥈 Silver";
+         return "🥈 Zilver";
       } else if (numberOfMistakes === 2) {
-         return "🥉 Bronze";
+         return "🥉 Brons";
       } else {
          return "No prize 🫡";
       }
@@ -239,7 +266,7 @@ const FillGapsExerciseProvider = ({ children, exerciseTitle, exerciseId }) => {
             userAnswers,
             correctAnswer: currentQuestion?.question?.replace("___", correctAns),
             sentences,
-            borderColor,
+            textColor,
             playingAudio,
             // Setters
             setPlayingAudio,

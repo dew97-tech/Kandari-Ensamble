@@ -1,91 +1,51 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-import lesson_data from '../layout/headers/lesson-data';
+import React, { createContext, useContext, useState } from "react";
+import { useRouter } from "next/router";
+import lesson_data from "@/src/layout/headers/lesson-data";
+import { useLocalStorage } from "@/hooks/useLocalStorage"; // Import your useLocalStorage hook
 
 const NavigationContext = createContext();
 
-const NavigationProvider = ({ children }) => {
-	const router = useRouter();
-	const [currentExerciseId, setCurrentExerciseId] = useState(1); // Initialize with the initial exercise ID
-	const [previousExerciseId, setPreviousExerciseId] = useState(null); // Initialize previousExerciseId as null
+export const NavigationProvider = ({ children }) => {
+   const [currentIndex, setCurrentIndex] = useState(0);
+   const router = useRouter();
+   const localStorageKey = "currentExercise"; // Set your local storage key
+   const { setItem, getItem } = useLocalStorage(localStorageKey);
 
-	// Function to navigate to a specific exercise
-	const navigateToExercise = (exerciseId) => {
-		const exercise = lesson_data[0].sub_menus.find((item) => item.serialNo === exerciseId);
-		if (exercise) {
-			setPreviousExerciseId(currentExerciseId); // Store the previous exerciseId
-			setCurrentExerciseId(exerciseId);
-			// Store the current exercise ID in local storage
-			localStorage.setItem('currentIndex', exerciseId.toString());
-			localStorage.setItem(
-				'previousIndex',
-				previousExerciseId !== null ? previousExerciseId.toString() : '1'
-			);
-			// Navigate to the exercise's link
-			router.push(exercise.link);
-		}
-	};
+   const goToNextExercise = () => {
+      const totalExercises = lesson_data[0].sub_menus.length;
 
-	// Function to handle navigation to the previous exercise
-	const handlePrevious = () => {
-		const currentIndex = lesson_data[0].sub_menus.findIndex(
-			(item) => item.serialNo === currentExerciseId
-		);
-		if (currentIndex > 0) {
-			const previousExerciseId = lesson_data[0].sub_menus[currentIndex - 1].serialNo;
-			navigateToExercise(previousExerciseId);
-		}
-	};
+      setCurrentIndex((prevIndex) => (prevIndex < totalExercises - 1 ? prevIndex + 1 : 0));
 
-	// Function to handle navigation to the next exercise
-	const handleNext = () => {
-		const currentIndex = lesson_data[0].sub_menus.findIndex(
-			(item) => item.serialNo === currentExerciseId
-		);
-		if (currentIndex < lesson_data[0].sub_menus.length - 1) {
-			const nextExerciseId = lesson_data[0].sub_menus[currentIndex + 1].serialNo;
-			navigateToExercise(nextExerciseId);
-		}
-	};
+      const currentExercise = lesson_data[0].sub_menus.find((exercise) => router.asPath.includes(exercise.link));
 
-	// Function to retrieve the PreviousIndex from local storage on initial load
-	useEffect(() => {
-		return () => {
-			const previousIndex = localStorage.getItem('previousIndex');
-			if (previousIndex) {
-				setPreviousExerciseId(Number(previousIndex));
-			}
-		};
-	}, []);
-	// Cleanup function to remove currentIndex from local storage on unmount
-	useEffect(() => {
-		const currentIndex = parseInt(localStorage.getItem('currentIndex'), 10);
+      const currentSerialNo = currentExercise ? currentExercise.serialNo : 1;
 
-		if (currentIndex === 1) {
-			// If the user is starting from exerciseId 1, remove both currentIndex and previousIndex
-			localStorage.removeItem('currentIndex');
-			localStorage.removeItem('previousIndex');
-		}
-	}, []);
+      const nextSerialNo = currentSerialNo === totalExercises ? 1 : currentSerialNo + 1;
 
-	// Function to retrieve the currentIndex from local storage on initial load
-	useEffect(() => {
-		const savedExerciseId = localStorage.getItem('currentIndex');
-		if (savedExerciseId) {
-			setCurrentExerciseId(Number(savedExerciseId));
-		}
-	}, []);
+      const nextExercise = lesson_data[0].sub_menus.find((exercise) => exercise.serialNo === nextSerialNo);
 
-	// Lesson Path Progress Checker
-	
+      if (nextExercise) {
+         setItem(nextExercise); // Save the next exercise info to local storage
+         router.push(nextExercise.link);
+      }
+   };
 
-	return (
-		<NavigationContext.Provider
-			value={{ currentExerciseId, previousExerciseId, handlePrevious, handleNext }}
-		>
-			{children}
-		</NavigationContext.Provider>
-	);
+   // Additional logic to get the current exercise from local storage
+   const getCurrentExercise = () => {
+      return getItem();
+   };
+
+   return (
+      <NavigationContext.Provider value={{ currentIndex, goToNextExercise, getCurrentExercise }}>
+         {children}
+      </NavigationContext.Provider>
+   );
 };
 
-export { NavigationContext, NavigationProvider };
+export const useNavigation = () => {
+   const context = useContext(NavigationContext);
+   if (!context) {
+      throw new Error("useNavigation must be used within a NavigationProvider");
+   }
+   return context;
+};

@@ -137,7 +137,7 @@ const role_play_game = [
             ],
             correctOptionId: "4A",
             video: {
-               pauseTime: 44.458,
+               pauseTime: 44.250,
             },
          },
          {

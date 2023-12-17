@@ -2,14 +2,14 @@ const slides = [
    {
       exercise_id: 1,
       data: [
-         {
-            id: 1,
-            slideNo: 1, // Added for the new version of the exercise
-            video: {
-               startTime: 0,
-               pauseTime: 16.75,
-            },
-         },
+         // {
+         //    id: 1,
+         //    slideNo: 1, // Added for the new version of the exercise
+         //    video: {
+         //       startTime: 0,
+         //       pauseTime: 16.75,
+         //    },
+         // },
          {
             id: 2,
             slideNo: 2, // Added for the new version of the exercise
@@ -47,22 +47,22 @@ const slides = [
             slideNo: 6, // Added for the new version of the exercise
             video: {
                startTime: 36.125,
-               pauseTime: 40.417,
+               pauseTime: 40.292,
             },
          },
          {
             id: 7,
             slideNo: 7, // Added for the new version of the exercise
             video: {
-               startTime: 40.417,
-               pauseTime: 44.458,
+               startTime: 40.292,
+               pauseTime: 44.25,
             },
          },
          {
             id: 8,
             slideNo: 8, // Added for the new version of the exercise
             video: {
-               startTime: 44.458,
+               startTime: 44.25,
                pauseTime: 49.417,
             },
          },
@@ -128,6 +128,15 @@ const slides = [
             video: {
                startTime: 87.375,
                pauseTime: 91.625,
+            },
+         },
+
+         {
+            id: 17,
+            slideNo: 16, // Added for the new version of the exercise
+            video: {
+               startTime: 91.625,
+               pauseTime: 94.525,
             },
          },
       ],
@@ -135,14 +144,14 @@ const slides = [
    {
       exercise_id: 2,
       data: [
-         {
-            id: 1,
-            slideNo: 1, // Added for the new version of the exercise
-            video: {
-               startTime: 0,
-               pauseTime: 16.75,
-            },
-         },
+         // {
+         //    id: 1,
+         //    slideNo: 1, // Added for the new version of the exercise
+         //    video: {
+         //       startTime: 0,
+         //       pauseTime: 16.75,
+         //    },
+         // },
          {
             id: 2,
             slideNo: 2, // Added for the new version of the exercise
@@ -180,22 +189,22 @@ const slides = [
             slideNo: 6, // Added for the new version of the exercise
             video: {
                startTime: 36.125,
-               pauseTime: 40.417,
+               pauseTime: 40.292,
             },
          },
          {
             id: 7,
             slideNo: 7, // Added for the new version of the exercise
             video: {
-               startTime: 40.417,
-               pauseTime: 44.458,
+               startTime: 40.292,
+               pauseTime: 44.25,
             },
          },
          {
             id: 8,
             slideNo: 8, // Added for the new version of the exercise
             video: {
-               startTime: 44.458,
+               startTime: 44.25,
                pauseTime: 49.417,
             },
          },
@@ -261,6 +270,14 @@ const slides = [
             video: {
                startTime: 87.375,
                pauseTime: 91.625,
+            },
+         },
+         {
+            id: 17,
+            slideNo: 16, // Added for the new version of the exercise
+            video: {
+               startTime: 91.625,
+               pauseTime: 94.525,
             },
          },
       ],
@@ -268,14 +285,14 @@ const slides = [
    {
       exercise_id: 3,
       data: [
-         {
-            id: 1,
-            slideNo: 1, // Added for the new version of the exercise
-            video: {
-               startTime: 0,
-               pauseTime: 16.75,
-            },
-         },
+         // {
+         //    id: 1,
+         //    slideNo: 1, // Added for the new version of the exercise
+         //    video: {
+         //       startTime: 0,
+         //       pauseTime: 16.75,
+         //    },
+         // },
          {
             id: 2,
             slideNo: 2, // Added for the new version of the exercise
@@ -313,22 +330,22 @@ const slides = [
             slideNo: 6, // Added for the new version of the exercise
             video: {
                startTime: 36.125,
-               pauseTime: 40.417,
+               pauseTime: 40.292,
             },
          },
          {
             id: 7,
             slideNo: 7, // Added for the new version of the exercise
             video: {
-               startTime: 40.417,
-               pauseTime: 44.458,
+               startTime: 40.292,
+               pauseTime: 44.25,
             },
          },
          {
             id: 8,
             slideNo: 8, // Added for the new version of the exercise
             video: {
-               startTime: 44.458,
+               startTime: 44.25,
                pauseTime: 49.417,
             },
          },
@@ -394,6 +411,14 @@ const slides = [
             video: {
                startTime: 87.375,
                pauseTime: 91.625,
+            },
+         },
+         {
+            id: 17,
+            slideNo: 16, // Added for the new version of the exercise
+            video: {
+               startTime: 91.625,
+               pauseTime: 94.525,
             },
          },
       ],
@@ -404,9 +429,7 @@ export default function handler(req, res) {
    try {
       if (req.method === "GET") {
          const { id } = req.query;
-         const exercise = slides.find(
-            (exercise) => exercise.exercise_id === parseInt(id)
-         );
+         const exercise = slides.find((exercise) => exercise.exercise_id === parseInt(id));
          console.log("Fetching Role Play Game...");
          res.status(200).json(exercise);
          console.log("Returning Role Play Game as JSON...");

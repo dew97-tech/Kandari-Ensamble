@@ -6,7 +6,7 @@ import Confetti from "react-confetti";
 import { VisualMemoryGameContext } from "@/src/context/VisualContext";
 import GameCard from "./game-card";
 import NavLinks from "../../wrapper-components/navlinks";
-const Game = () => {
+const Game = ({ exerciseTitle }) => {
    const [allImagesLoaded, setAllImagesLoaded] = useState(false);
 
    const { isGameStarted, handleGameStart, isLoading, gameData, level, isGameOver, isGameFinished, returnAchievement } =
@@ -38,7 +38,7 @@ const Game = () => {
       <>
          <section className='course-area pb-200 bone'>
             <div className='container'>
-               <GameTitle title='Visual Memory Game' />
+               <GameTitle title={exerciseTitle} />
                {/* <span>{gameData.length}</span> */}
                {isGameStarted ? (
                   <>
@@ -74,7 +74,7 @@ const Game = () => {
                                  <div className='section-title mb-30 memory-game-color'>
                                     <h3 className='buff-text-color display-4 mb-20'>Game Over ! Keep Practicing 💪</h3>
                                     <h3 className='text-center buff-text-color display-6 mb-20'>
-                                       Your Achievement: {returnAchievement()}
+                                       Jouw score : {returnAchievement()}
                                     </h3>
                                  </div>
                                  <NavLinks />
@@ -88,7 +88,7 @@ const Game = () => {
                               <div className='section-title mb-30 memory-game-color'>
                                  <h3 className='buff-text-color display-4 mb-20'>Congratulations ! You are a Pro 🧠</h3>
                                  <h3 className='text-center buff-text-color display-6 mb-20'>
-                                    Your Achievement: {returnAchievement()}
+                                    Jouw score : {returnAchievement()}
                                  </h3>
                               </div>
                               <NavLinks />

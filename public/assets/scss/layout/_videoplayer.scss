@@ -1,28 +1,44 @@
-.video-player-container video {
-   width: 100vw; /* Set width to 100vw to fill the viewport */
-   height: 100vh; /* Set height to 100vh to fill the viewport */
-   object-fit: fill; /* Change object-fit to contain */
-   opacity: 1;
-   transition: opacity 0.3s ease;
-   border-radius: 12px;
-   border: 6px solid #3f3f3fe5;
+.video-player-container .video {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
+   border-radius: 10px;
+   border: 3px solid #3f3f3fe5;
    box-shadow: 0 4px 10px rgba(73, 73, 73, 0.123);
+   overflow-y: hidden;
+}
+.video-player-container::before {
+   content: "";
+   background-image: url("../../img/banner/maison.png");
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-size: cover;
+   background-position: center;
+   filter: blur(20px);
+   -webkit-filter: blur(20px);
+   z-index: -1; /* Place the blurred layer behind the video */
 }
 
 .video-player-container {
    position: relative;
-   width: 100vw; /* Set width to 100vw for viewport width */
-   height: 100vh; /* Set height to 100vh for viewport height */
-   overflow: hidden; /* Hide any overflowing content */
+   width: 100vw;
+   height: 100vh;
+   overflow: hidden;
 }
 
 // Video Div Stylings
 
 .video-wrapper {
-   position: relative; /* Change position to relative */
+   position: relative;
    width: 100%;
    height: 100%;
-   z-index: -1;
+   z-index: 0; /* Ensure the video stays on top of the pseudo-element */
 }
 // Game Div Stylings
 .game-wrapper {

@@ -24,6 +24,7 @@ const RightOrderProvider = ({ children, exerciseId, exerciseTitle }) => {
    const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
    const [isCorrect, setIsCorrect] = useState(false);
    const [playingAudio, setPlayingAudio] = useState(null);
+   const [gameShown, setGameShown] = useState(false);
 
    const currentExercise = exerciseData;
 
@@ -91,18 +92,11 @@ const RightOrderProvider = ({ children, exerciseId, exerciseTitle }) => {
    // Exercise Progress Checker
    useEffect(() => {
       if (isFinished) {
-         const storedExercises = JSON.parse(
-            localStorage.getItem("lessons_exercises")
-         );
+         const storedExercises = JSON.parse(localStorage.getItem("lessons_exercises"));
          const updatedExercises = [...storedExercises];
-         const index = updatedExercises.findIndex(
-            (exercise) => exercise.name === exerciseTitle
-         );
+         const index = updatedExercises.findIndex((exercise) => exercise.name === exerciseTitle);
          updatedExercises[index].isFinished = true;
-         localStorage.setItem(
-            "lessons_exercises",
-            JSON.stringify(updatedExercises)
-         );
+         localStorage.setItem("lessons_exercises", JSON.stringify(updatedExercises));
       }
    }, [isFinished]);
 
@@ -130,9 +124,7 @@ const RightOrderProvider = ({ children, exerciseId, exerciseTitle }) => {
 
       if (currentExercise && currentExercise.data.length > 0) {
          const exerciseItem = currentExercise.data[currentIndex];
-         setWrongOrder(
-            [...exerciseItem.wrongOrder].sort(() => Math.random() - 0.5)
-         );
+         setWrongOrder([...exerciseItem.wrongOrder].sort(() => Math.random() - 0.5));
       }
       handleFeedbackMessage("");
       setShowConfetti(false);
@@ -143,9 +135,7 @@ const RightOrderProvider = ({ children, exerciseId, exerciseTitle }) => {
       setIsFinished(false);
       if (currentExercise && currentExercise.data.length > 0) {
          const exerciseItem = currentExercise.data[currentIndex];
-         setWrongOrder(
-            [...exerciseItem.wrongOrder].sort(() => Math.random() - 0.5)
-         );
+         setWrongOrder([...exerciseItem.wrongOrder].sort(() => Math.random() - 0.5));
       }
       setScore(0);
       setAttempts(0);
@@ -157,6 +147,7 @@ const RightOrderProvider = ({ children, exerciseId, exerciseTitle }) => {
       setShowGame(false);
       setShowCorrectAnswer(false);
       setIsCorrect(false);
+      setGameShown(false);
    };
 
    const handleFeedbackMessage = (message) => {
@@ -167,7 +158,7 @@ const RightOrderProvider = ({ children, exerciseId, exerciseTitle }) => {
    };
 
    const handleCorrectAnswer = () => {
-      if (score < currentExercise.data.length) {
+      if (score <= currentExercise.data.length) {
          setScore(score + 1);
          setShowCorrectAnswer(true);
       }
@@ -186,19 +177,14 @@ const RightOrderProvider = ({ children, exerciseId, exerciseTitle }) => {
    };
 
    const updatePreviousAnswer = () => {
-      const existingAnswerIndex = previousAnswers.findIndex(
-         (answer) => answer.challengeIndex === currentIndex
-      );
+      const existingAnswerIndex = previousAnswers.findIndex((answer) => answer.challengeIndex === currentIndex);
 
       if (existingAnswerIndex !== -1) {
          const updatedPreviousAnswers = [...previousAnswers];
          updatedPreviousAnswers[existingAnswerIndex].userAnswer = userOrder;
          setPreviousAnswers(updatedPreviousAnswers);
       } else {
-         const updatedPreviousAnswers = [
-            ...previousAnswers,
-            { challengeIndex: currentIndex, userAnswer: userOrder },
-         ];
+         const updatedPreviousAnswers = [...previousAnswers, { challengeIndex: currentIndex, userAnswer: userOrder }];
          setPreviousAnswers(updatedPreviousAnswers);
       }
    };
@@ -207,39 +193,29 @@ const RightOrderProvider = ({ children, exerciseId, exerciseTitle }) => {
       if (currentIndex < currentExercise.data.length - 1 && attempts < 2) {
          console.log("Fired inside if statement");
          setCurrentIndex(currentIndex + 1);
-         setPlaying(true);
-         setShowGame(false);
          setUserOrder([]);
          setAttempts(0);
-      } else if (
-         currentIndex < currentExercise.data.length - 1 &&
-         attempts >= 2
-      ) {
+      } else if (currentIndex < currentExercise.data.length - 1 && attempts >= 2) {
          console.log("Fired inside else if statement");
          setCurrentIndex(currentIndex + 1);
-         setPlaying(true);
-         setShowGame(false);
          setUserOrder([]);
          setAttempts(0);
          handleFeedbackMessage("Incorrect, Moving on to the next challenge.");
-      } else if (
-         currentIndex === currentExercise.data.length - 1 &&
-         attempts >= 2
-      ) {
+      } else if (currentIndex === currentExercise.data.length - 1 && attempts >= 2) {
          console.log("Fired inside else if 2 statement");
          handleFeedbackMessage("Incorrect, Game Finished");
-         setIsFinished(true);
-         setPlaying(false);
-         setShowGame(false);
+         setGameShown(true);
+         setShowConfetti(true);
+         // setIsFinished(true);
       } else {
          console.log("Fired inside else statement");
-         handleFeedbackMessage(
-            "Congratulations! You Have Completed All The Challenges"
-         );
+         handleFeedbackMessage("Congratulations! You Have Completed All The Challenges");
          setShowConfetti(true);
-         setIsFinished(true);
+         setGameShown(true);
       }
+      setShowGame(false);
       setShowCorrectAnswer(false);
+      setPlaying(true);
    };
 
    const handleSubmit = () => {
@@ -255,22 +231,22 @@ const RightOrderProvider = ({ children, exerciseId, exerciseTitle }) => {
 
       updatePreviousAnswer();
    };
-   const handleFinish = () => {
-      setIsFinished(true);
-      setShowVideo(false);
-      setPlaying(false);
-   };
+   // const handleFinish = () => {
+   //    setIsFinished(true);
+   //    setShowVideo(false);
+   //    setPlaying(false);
+   // };
 
    const timeStamp = currentExerciseData?.video?.pauseTime;
    const returnAchievement = () => {
       const numberOfMistakes = currentExercise?.data?.length - score;
 
       if (numberOfMistakes === 0) {
-         return "🥇 Gold";
+         return "🥇 Goud";
       } else if (numberOfMistakes === 1) {
-         return "🥈 Silver";
+         return "🥈 Zilver";
       } else if (numberOfMistakes === 2) {
-         return "🥉 Bronze";
+         return "🥉 Brons";
       } else {
          return "No prize 🫡";
       }
@@ -306,10 +282,11 @@ const RightOrderProvider = ({ children, exerciseId, exerciseTitle }) => {
             isCorrect,
             exerciseData,
             playingAudio,
+            gameShown,
             // handlePlay,
             returnAchievement,
             setPlayingAudio,
-            handleFinish,
+            // handleFinish,
             fetcher,
             moveToNextQuestion,
             setShowGame,
@@ -332,6 +309,7 @@ const RightOrderProvider = ({ children, exerciseId, exerciseTitle }) => {
             handlePrompt,
             setShowConfetti,
             setWrongOrder,
+            setIsFinished,
          }}
       >
          {children}

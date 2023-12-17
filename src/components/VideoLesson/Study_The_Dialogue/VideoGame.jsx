@@ -9,16 +9,9 @@ import LoadingComponent from "../../games/components/LoadingComponent";
 import ErrorComponent from "../../games/components/ErrorComponent";
 import useSWR from "swr";
 import CongratulationsComponent from "../../games/components/Congratulations";
-const VideoGame = () => {
-   const {
-      handlePrompt,
-      isFinished,
-      questionLength,
-      score,
-      userAnswers,
-      slides,
-      fetcher,
-   } = useContext(StudyDialogueContext);
+const VideoGame = ({ exerciseTitle }) => {
+   const { handlePrompt, isFinished, questionLength, score, userAnswers, slides, fetcher } =
+      useContext(StudyDialogueContext);
    // we can use this fetcher function in other components as well
    const { data, error, isLoading } = useSWR("StudyTheDialogue", fetcher, {
       revalidateIfStale: false,
@@ -37,37 +30,21 @@ const VideoGame = () => {
    // }
    return (
       <div>
-         {isFinished && (
-            <Confetti duration={3000} recycle={false} numberOfPieces={800} />
-         )}
+         {isFinished && <Confetti duration={3000} recycle={false} numberOfPieces={800} />}
          {!isFinished ? (
             <>
-               <section className="course-area pt-50 pb-200 mb-200 mt-100 bone">
-                  <div className="container">
-                     <VideoPlayer id="video-player" />
+               <section className='course-area pt-50 pb-200 mb-200 mt-100 bone'>
+                  <div className='container'>
+                     <VideoPlayer id='video-player' />
                   </div>
                </section>
             </>
          ) : (
             <>
-               <CongratulationsComponent showOffCanvas={false} />
-
-               {/* <CustomButton
-						onClick={() => {
-							handlePrompt(
-								'Do you want to Restart the Game?',
-								'Your all progress will be lost !!',
-								'warning',
-								'handleRestart'
-							);
-						}}
-						text={'Restart'}
-						placeHolder={'Restart-Icon'}
-						iconText={'/assets/icons/restart.gif'}
-						colorString={'bittersweet'}
-						borderColor={'danger'}
-						isImageAvailable={true}
-					/> */}
+               <div className='d-flex flex-column justify-content-center align-self-center'>
+                  <GameTitle title='Oefen de dialoog 1' />
+                  <CongratulationsComponent handlePrompt={handlePrompt} />
+               </div>
             </>
          )}
       </div>

@@ -6,7 +6,7 @@ import WrapperThree from "../layout/wrapper-3";
 const index = () => {
    return (
       <WrapperThree>
-         <SEO pageTitle={"Maison Ensamble"} />
+         <SEO pageTitle={"Maison Ensemble"} />
          <HomeThree />
       </WrapperThree>
    );

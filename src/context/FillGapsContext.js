@@ -9,7 +9,7 @@ const FillGapsProvider = ({ children, exerciseTitle, exerciseId }) => {
    const [sentences, setSentences] = useState([]);
    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
    const [currentExerciseId, setCurrentExerciseId] = useState(exerciseId);
-   const [currentQuestion, setCurrentQuestion] = useState([]);
+   // const [currentQuestion, setCurrentQuestion] = useState([]);
    const [selectedOption, setSelectedOption] = useState(null);
    const [isSubmitted, setIsSubmitted] = useState(false);
    const [showConfetti, setShowConfetti] = useState(false);
@@ -25,9 +25,13 @@ const FillGapsProvider = ({ children, exerciseTitle, exerciseId }) => {
    const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
    const [isCorrect, setIsCorrect] = useState(false);
    const [playingAudio, setPlayingAudio] = useState(null);
+   const [mistake, setMistake] = useState(0); // State to track the number of mistakes for the current question
+   const [textColor, setTextColor] = useState("buff-text-color");
+   const [gameShown, setGameShown] = useState(false);
 
    // Calculate the length of sentences array
    const QuestionBankLen = sentences?.data?.length;
+   const currentQuestion = sentences?.data?.[currentQuestionIndex];
 
    // handlePrompt function
    const handlePrompt = (title, text, iconType, promptType) => {
@@ -65,11 +69,11 @@ const FillGapsProvider = ({ children, exerciseTitle, exerciseId }) => {
    };
 
    // Update current question when sentences or currentQuestionIndex changes
-   useEffect(() => {
-      if (sentences?.data?.length > 0) {
-         setCurrentQuestion(sentences?.data?.[currentQuestionIndex]);
-      }
-   }, [sentences, currentQuestionIndex]);
+   // useEffect(() => {
+   //    if (sentences?.data?.length > 0) {
+   //       setCurrentQuestion(sentences?.data?.[currentQuestionIndex]);
+   //    }
+   // }, [sentences, currentQuestionIndex]);
 
    // Handle game start
    const handleGameStart = () => {
@@ -102,6 +106,7 @@ const FillGapsProvider = ({ children, exerciseTitle, exerciseId }) => {
       setTimeout(() => {
          setFeedbackMessage("");
       }, 2000);
+      setGameShown(false);
    };
 
    // Show feedback message for a given duration
@@ -122,74 +127,89 @@ const FillGapsProvider = ({ children, exerciseTitle, exerciseId }) => {
    // Handle incorrect answer logic
    const handleIncorrectAnswer = () => {
       showFeedbackMessage("Incorrect, Please Try Again !");
+      setTextColor("text-danger wiggle");
+      setTimeout(() => {
+         setTextColor("buff-text-color");
+      }, 1000);
    };
-   // Inside the FillGapsProvider component
-   const updatePreviousAnswer = (question, userAnswer, actualAnswer) => {
-      // Create a new string by replacing ___ with the selected option
-      const userAnswerSentence = question?.replace("___", userAnswer);
+   // Inside the FillGapsExerciseProvider component
+   const updatePreviousAnswer = (index, userAnswer) => {
+      setUserAnswers((prevUserAnswers) => {
+         // If we don't have an entry for this index yet, create a new one.
+         if (!prevUserAnswers[index]) {
+            return [...prevUserAnswers, createAnswerEntry(currentQuestion.question, userAnswer)];
+         }
 
-      // Create a new string by replacing ___ with the actual answer
-      const actualAnswerSentence = question?.replace("___", actualAnswer);
-
-      // Update userAnswers array with the full sentences
-      setUserAnswers((prevUserAnswers) => [
-         ...prevUserAnswers,
-         { userAnswerSentence, actualAnswerSentence },
-      ]);
+         // Otherwise, update the existing entry.
+         return prevUserAnswers.map((answer, i) =>
+            i === index ? createAnswerEntry(answer.question, userAnswer) : answer
+         );
+      });
    };
+   // Helper function to create an answer entry object
+   const createAnswerEntry = (questionTemplate, userSelectedOption) => ({
+      question: questionTemplate,
+      userAnswerSentence: questionTemplate.replace("___", userSelectedOption),
+      actualAnswerSentence: questionTemplate.replace("___", correctAns),
+   });
 
    // Function to move to the next question and update game state
+   // Function to move to the next question and update game state
    const moveToNextQuestion = () => {
+      setMistake(0); // Reset mistake count for a new question
+
       // Check if the quiz is finished and update game state accordingly
       if (currentQuestionIndex >= sentences?.data?.length - 1) {
-         setIsFinished(true);
-         setPlaying(false);
-         // setShowGame(false);
-         // setShowCorrectAnswer(false);
+         // Handle game finished scenario
+         setGameShown(true);
+         setShowConfetti(true);
+         // setIsFinished(true);
       } else {
-         setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-         setPlaying(true);
-         // setShowGame(false);
-         // setShowCorrectAnswer(false);
+         // Move to the next question
+         setCurrentQuestionIndex(currentQuestionIndex + 1);
       }
+      // Reset UI states
       setShowGame(false);
       setShowCorrectAnswer(false);
+      setPlaying(true);
    };
 
    // Exercise Progress Checker
    useEffect(() => {
       if (isFinished) {
-         const storedExercises = JSON.parse(
-            localStorage.getItem("lessons_exercises")
-         );
+         const storedExercises = JSON.parse(localStorage.getItem("lessons_exercises"));
          const updatedExercises = [...storedExercises];
-         const index = updatedExercises.findIndex(
-            (exercise) => exercise.name === exerciseTitle
-         );
+         const index = updatedExercises.findIndex((exercise) => exercise.name === exerciseTitle);
          updatedExercises[index].isFinished = true;
-         localStorage.setItem(
-            "lessons_exercises",
-            JSON.stringify(updatedExercises)
-         );
+         localStorage.setItem("lessons_exercises", JSON.stringify(updatedExercises));
       }
    }, [isFinished]);
 
    // Handle form submission
    const handleSubmit = () => {
-      if (selectedOption === correctAns) {
+      const isAnswerCorrect = selectedOption === correctAns;
+      setIsCorrect(isAnswerCorrect);
+
+      if (isAnswerCorrect) {
          handleCorrectAnswer();
-         setIsCorrect(true);
+         setShowCorrectAnswer(true);
+         setMistake(0); // Reset mistakes since the answer is correct
       } else {
-         handleIncorrectAnswer();
-         setIsCorrect(false);
+         const newMistakeCount = mistake + 1;
+         setMistake(newMistakeCount);
+
+         if (newMistakeCount > 2) {
+            setShowCorrectAnswer(true);
+            setMistake(0); // Prepare for the next question
+         } else {
+            handleIncorrectAnswer();
+            setShowCorrectAnswer(false);
+         }
       }
-      updatePreviousAnswer(
-         currentQuestion.question,
-         selectedOption,
-         correctAns
-      );
+
+      // Always update previous answers regardless of whether it's correct or not
+      updatePreviousAnswer(currentQuestionIndex, selectedOption);
       setSelectedOption(null);
-      setShowCorrectAnswer(true);
    };
 
    const timeStamp = currentQuestion?.video?.pauseTime;
@@ -199,11 +219,11 @@ const FillGapsProvider = ({ children, exerciseTitle, exerciseId }) => {
       const numberOfMistakes = QuestionBankLen - score;
 
       if (numberOfMistakes === 0) {
-         return "🥇 Gold";
+         return "🥇 Goud";
       } else if (numberOfMistakes === 1) {
-         return "🥈 Silver";
+         return "🥈 Zilver";
       } else if (numberOfMistakes === 2) {
-         return "🥉 Bronze";
+         return "🥉 Brons";
       } else {
          return "No prize 🫡";
       }
@@ -234,14 +254,14 @@ const FillGapsProvider = ({ children, exerciseTitle, exerciseId }) => {
             timeStamp,
             dutchSentence: currentQuestion?.hintSentence,
             userAnswers,
-            correctAnswer: currentQuestion?.question?.replace(
-               "___",
-               correctAns
-            ),
+            correctAnswer: currentQuestion?.question?.replace("___", correctAns),
             sentences,
             playingAudio,
             returnAchievement,
             setPlayingAudio,
+            textColor,
+            gameShown,
+            setIsFinished,
             // Functions
             fetcher,
             moveToNextQuestion,

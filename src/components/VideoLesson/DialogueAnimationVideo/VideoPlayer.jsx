@@ -6,11 +6,19 @@ import FetchVideoSrc from "../components/FetchVideoSrc";
 import ErrorComponent from "../../games/components/ErrorComponent";
 import Confetti from "react-confetti";
 import CongratulationsComponent from "../../games/components/Congratulations";
-const StudyDialogueVideoPlayer = () => {
-   const { isFinished } = useContext(DialogueAnimationContext);
+import GameTitle from "../../games/components/game-title";
+const StudyDialogueVideoPlayer = ({ exerciseTitle }) => {
+   const { isFinished, handlePrompt } = useContext(DialogueAnimationContext);
 
    // Fetch video src from API
-   const { data, error } = useSWR("VideoSrc", FetchVideoSrc);
+   const { data, error } = useSWR("VideoSrc", FetchVideoSrc, {
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+      refreshWhenOffline: false,
+      refreshWhenHidden: false,
+      refreshInterval: 0,
+      shouldRetryOnError: true,
+   });
 
    const videoSrc = data?.src; // Access the 'src' property
    // console.log('videoSrc', videoSrc);
@@ -23,12 +31,9 @@ const StudyDialogueVideoPlayer = () => {
       <>
          {isFinished ? (
             <>
-               <Confetti
-                  duration={5000}
-                  recycle={false}
-                  numberOfPieces={2000}
-               />
-               <CongratulationsComponent />
+               <Confetti duration={5000} recycle={false} numberOfPieces={2000} />
+               <GameTitle title={exerciseTitle} />
+               <CongratulationsComponent handlePrompt={handlePrompt} />
             </>
          ) : (
             <CommonVideoPlayer

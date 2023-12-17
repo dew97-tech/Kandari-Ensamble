@@ -17,6 +17,8 @@ const ExpressYourselfProvider = ({ children, exerciseId, exerciseTitle }) => {
    const [recordUserAnswers, setRecordUserAnswers] = useState([]);
    const [isCorrect, setIsCorrect] = useState(false);
    const [playingAudio, setPlayingAudio] = useState(null);
+   const [gameShown, setGameShown] = useState(false);
+   const [inputBorderColor, setInputBorderColor] = useState("border-secondary");
 
    const currentQuestion = questions?.data?.[currentQuestionIndex];
    const handlePrompt = (title, text, iconType, promptType) => {
@@ -46,9 +48,7 @@ const ExpressYourselfProvider = ({ children, exerciseId, exerciseTitle }) => {
    // Function to load questions from the API
    const fetcher = async () => {
       // await new Promise((resolve) => setTimeout(resolve, 3000));
-      const res = await fetch(
-         `/api/express-yourself-game/${currentExerciseId}`
-      );
+      const res = await fetch(`/api/express-yourself-game/${currentExerciseId}`);
       const data = await res.json();
       setQuestions(data);
       return data;
@@ -57,7 +57,8 @@ const ExpressYourselfProvider = ({ children, exerciseId, exerciseTitle }) => {
    const moveToNextQuestion = () => {
       // Checking if currentIndex is the last Index ? if yes then execute otherwise proceed to next Question
       if (currentQuestionIndex === questions?.data?.length - 1) {
-         setIsFinished(true);
+         // setIsFinished(true);
+         setGameShown(true);
          setPlaying(false);
       } else {
          setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
@@ -68,18 +69,11 @@ const ExpressYourselfProvider = ({ children, exerciseId, exerciseTitle }) => {
    };
    useEffect(() => {
       if (isFinished) {
-         const storedExercises = JSON.parse(
-            localStorage.getItem("lessons_exercises")
-         );
+         const storedExercises = JSON.parse(localStorage.getItem("lessons_exercises"));
          const updatedExercises = [...storedExercises];
-         const index = updatedExercises.findIndex(
-            (exercise) => exercise.name === exerciseTitle
-         );
+         const index = updatedExercises.findIndex((exercise) => exercise.name === exerciseTitle);
          updatedExercises[index].isFinished = true;
-         localStorage.setItem(
-            "lessons_exercises",
-            JSON.stringify(updatedExercises)
-         );
+         localStorage.setItem("lessons_exercises", JSON.stringify(updatedExercises));
       }
    }, [isFinished]);
 
@@ -89,6 +83,7 @@ const ExpressYourselfProvider = ({ children, exerciseId, exerciseTitle }) => {
       setAttempts(0);
       setShowCorrectAnswer(true);
       setIsCorrect(true);
+      setInputBorderColor("border-secondary");
    };
 
    // Function to handle incorrect answer
@@ -100,16 +95,18 @@ const ExpressYourselfProvider = ({ children, exerciseId, exerciseTitle }) => {
          setShowGame(true);
          setAttempts(0);
       }
+      // If the answer is incorrect, set the input border color to "danger" (red)
+      setInputBorderColor("border-danger wiggle");
+      // Reset the input border color to "secondary" after 2 seconds
+      setTimeout(() => {
+         setInputBorderColor("border-secondary");
+      }, 1000);
    };
 
    // Function to check the user's answer and record it
    const checkAnswer = (evaluateAnswer) => {
-      const correctAnswer = questions?.data?.[
-         currentQuestionIndex
-      ].correctAnswer
-         .trim()
-         .toLowerCase();
-      if (evaluateAnswer.trim().toLowerCase() === correctAnswer) {
+      const correctAnswer = questions?.data?.[currentQuestionIndex].correctAnswer.trim().toLowerCase();
+      if (evaluateAnswer?.trim().toLowerCase() === correctAnswer) {
          // User's answer is correct
          handleCorrectAnswer();
       } else {
@@ -117,9 +114,7 @@ const ExpressYourselfProvider = ({ children, exerciseId, exerciseTitle }) => {
          handleIncorrectAnswer();
       }
       // Find the index of the previous answer for the current question
-      const previousAnswerIndex = recordUserAnswers.findIndex(
-         (answer) => answer.id === currentQuestionIndex
-      );
+      const previousAnswerIndex = recordUserAnswers.findIndex((answer) => answer.id === currentQuestionIndex);
       // If the previous answer exists, update it; otherwise, add a new entry
       if (previousAnswerIndex >= 0) {
          const updatedAnswers = [...recordUserAnswers];
@@ -152,10 +147,13 @@ const ExpressYourselfProvider = ({ children, exerciseId, exerciseTitle }) => {
       setAttempts(0);
       setShowCorrectAnswer(false);
       setIsFinished(false);
+      setShowVideo(true);
       setPlaying(true);
       setShowGame(false);
       setRecordUserAnswers([]);
       setIsCorrect(false);
+      setGameShown(false);
+      setInputBorderColor("border-secondary");
    };
 
    const timeStamp = currentQuestion?.video?.pauseTime;
@@ -164,11 +162,11 @@ const ExpressYourselfProvider = ({ children, exerciseId, exerciseTitle }) => {
       const numberOfMistakes = questions?.data?.length - score;
 
       if (numberOfMistakes === 1) {
-         return "🥇 Gold";
+         return "🥇 Goud";
       } else if (numberOfMistakes === 2) {
-         return "🥈 Silver";
+         return "🥈 Zilver";
       } else if (numberOfMistakes === 3) {
-         return "🥉 Bronze";
+         return "🥉 Brons";
       } else {
          return "No prize 🫡";
       }
@@ -179,14 +177,14 @@ const ExpressYourselfProvider = ({ children, exerciseId, exerciseTitle }) => {
             questions,
             currentQuestionIndex,
             dutchSentence: questions?.data?.[currentQuestionIndex]?.question,
-            correctAnswer:
-               questions?.data?.[currentQuestionIndex]?.correctAnswer,
+            correctAnswer: questions?.data?.[currentQuestionIndex]?.correctAnswer,
             questionLength: questions?.data?.length,
             score,
             attempts,
             showCorrectAnswer,
             timeStamp,
             isFinished,
+            inputBorderColor,
             // src,
             showVideo,
             showGame,
@@ -195,6 +193,8 @@ const ExpressYourselfProvider = ({ children, exerciseId, exerciseTitle }) => {
             recordUserAnswers,
             isCorrect,
             playingAudio,
+            gameShown,
+            setIsFinished,
             returnAchievement,
             setPlayingAudio,
             fetcher,

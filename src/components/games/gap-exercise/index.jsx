@@ -6,7 +6,7 @@ const FillUpTheGaps = ({ exerciseTitle, exerciseId }) => {
 	return (
 		<>
 			<FillGapsExerciseProvider exerciseId={exerciseId} exerciseTitle={exerciseTitle}>
-				<Game />
+				<Game exerciseTitle={exerciseTitle}/>
 			</FillGapsExerciseProvider>
 		</>
 	);

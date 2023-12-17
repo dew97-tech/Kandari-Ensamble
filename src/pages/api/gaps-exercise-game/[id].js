@@ -4,8 +4,8 @@ const sentences = [
       data: [
          {
             id: 1,
-            hintSentence: "Sacha is sympatiek.",
-            question: "Sacha ___ sympathique.",
+            hintSentence: "Sacha is in Frankrijk, in Marans.",
+            question: "Sacha ___ en France, à Marans.",
             options: ["suis", "es", "est", "sommes", "êtes", "sont"],
             correctAns: "est",
             video: {
@@ -14,8 +14,8 @@ const sentences = [
          },
          {
             id: 2,
-            hintSentence: " Hallo, ik ben Louisa.",
-            question: "Bonjour, je ___ Louisa.",
+            hintSentence: "Hallo, ik ben Sacha.",
+            question: "Bonjour, je ___ Sacha.",
             options: ["suis", "es", "est", "sommes", "êtes", "sont"],
             correctAns: "suis",
             video: {
@@ -59,7 +59,7 @@ const sentences = [
             options: ["suis", "es", "est", "sommes", "êtes", "sont"],
             correctAns: "sont",
             video: {
-               pauseTime: 77.250,
+               pauseTime: 77.25,
             },
          },
       ],
@@ -133,15 +133,11 @@ const sentences = [
 export default function handler(req, res) {
    try {
       if (req.method === "GET") {
-         console.log("Fetching Gap-Exercise...");
+         console.log(`Fetching Gap-Exercise...${req.query.id}`);
          const { id } = req.query;
-         const exercise = sentences.find(
-            (exercise) => exercise.exercise_id === parseInt(id)
-         );
+         const exercise = sentences.find((exercise) => exercise.exercise_id === parseInt(id));
          if (!exercise) {
-            return res
-               .status(404)
-               .json({ message: `Exercise with id: ${id} not found.` });
+            return res.status(404).json({ message: `Exercise with id: ${id} not found.` });
          }
          res.status(200).json(exercise);
 

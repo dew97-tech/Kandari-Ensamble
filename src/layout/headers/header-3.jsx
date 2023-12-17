@@ -58,10 +58,7 @@ const HeaderThree = () => {
                         </div>
                         {isLoggedIn ? (
                            <div className='main-menu main-menu-black'>
-                              <nav
-                                 id='mobile-menu'
-                                 className='d-none d-xl-block'
-                              >
+                              <nav id='mobile-menu' className='d-none d-xl-block'>
                                  <div className='d-flex '>
                                     <NavMenu />
                                     <ProfileMenu handleLogout={handleLogout} />
@@ -83,10 +80,7 @@ const HeaderThree = () => {
                         )}
                         <div className='d-flex justify-content-end'>
                            <li>
-                              <button
-                                 onClick={() => setIsActive(true)}
-                                 className='tp-menu-toggle d-xl-none'
-                              >
+                              <button onClick={() => setIsActive(true)} className='tp-menu-toggle d-xl-none'>
                                  <i className='fa-solid fa-bars fa-xl'></i>
                               </button>
                            </li>
@@ -96,11 +90,7 @@ const HeaderThree = () => {
                </div>
             </div>
          </header>
-         <Sidebar
-            isActive={isActive}
-            setIsActive={setIsActive}
-            handleLogout={handleLogout}
-         />
+         <Sidebar isActive={isActive} setIsActive={setIsActive} handleLogout={handleLogout} />
       </>
    );
 };

@@ -8,17 +8,11 @@ import LoadingComponent from "../../games/components/LoadingComponent";
 import ErrorComponent from "../../games/components/ErrorComponent";
 import NavLinks from "../../wrapper-components/navlinks";
 import useSWR from "swr";
-const VideoGame = () => {
-   const {
-      handlePrompt,
-      isFinished,
-      questionLength,
-      score,
-      userAnswers,
-      questions,
-      fetcher,
-      returnAchievement,
-   } = useContext(RolePlayContext);
+import CongratulationsComponent from "../../games/components/Congratulations";
+import GameTitle from "../../games/components/game-title";
+const VideoGame = ({ exerciseTitle }) => {
+   const { handlePrompt, isFinished, questionLength, score, userAnswers, questions, fetcher, returnAchievement } =
+      useContext(RolePlayContext);
    const { data, error, isLoading } = useSWR("RolePlayGame", fetcher, {
       revalidateIfStale: false,
       revalidateOnFocus: false,
@@ -34,9 +28,7 @@ const VideoGame = () => {
    // }
    return (
       <div>
-         {isFinished && (
-            <Confetti duration={3000} recycle={false} numberOfPieces={800} />
-         )}
+         {isFinished && <Confetti duration={3000} recycle={false} numberOfPieces={800} />}
          {!isFinished ? (
             <>
                <section className='course-area bone'>
@@ -48,9 +40,27 @@ const VideoGame = () => {
          ) : (
             <>
                <div className='d-flex flex-column justify-content-center align-self-center'>
-                  <h1 className='text-start buff-text-color display-6'>
-                     Your Achievement : {returnAchievement()}
-                  </h1>
+                  <GameTitle title={exerciseTitle} />
+                  <CongratulationsComponent
+                     showOffCanvas={true}
+                     returnAchievement={returnAchievement}
+                     showScore={true}
+                     handlePrompt={handlePrompt}
+                  />
+                  {/* <h3 className='text-center buff-text-color display-6 mb-20'>Jouw Score: {returnAchievement()}</h3> */}
+                  {/* <PreviousAnswers
+                     game={"RightOrderGame"}
+                     {...{
+                        previousAnswers,
+                        score,
+                        sentenceLength,
+                        sentences,
+                        currentExercise,
+                     }}
+                  /> */}
+               </div>
+               {/* <div className='d-flex flex-column justify-content-center align-self-center'>
+                  <h1 className='text-start buff-text-color display-6'>Jouw Score: {returnAchievement()}</h1>
                   <PreviousAnswers
                      game={"RolePlayGame"}
                      previousAnswers={userAnswers}
@@ -77,7 +87,7 @@ const VideoGame = () => {
                      isImageAvailable={true}
                   />
                   <NavLinks />
-               </div>
+               </div> */}
             </>
          )}
       </div>

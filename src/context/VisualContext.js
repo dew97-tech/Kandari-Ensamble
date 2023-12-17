@@ -86,7 +86,7 @@ const VisualMemoryGameProvider = ({ children, exerciseTitle }) => {
 
       return newGlowingCards;
    };
-
+   // Function to handle the prompt 
    const handlePrompt = (title, text, iconType, time, promptType) => {
       Swal.fire({
          icon: iconType,
@@ -94,6 +94,7 @@ const VisualMemoryGameProvider = ({ children, exerciseTitle }) => {
          text,
          showConfirmButton: true,
          confirmButtonColor: "#87b0e6",
+         confirmButtonText: "Ga door",
          allowOutsideClick: false,
          allowEscapeKey: false,
       }).then((result) => {
@@ -264,11 +265,11 @@ const VisualMemoryGameProvider = ({ children, exerciseTitle }) => {
             setTimeout(() => {
                setSelectedCards(glowingCards);
                handlePrompt(
-                  "Congratulations!",
+                  "Goed gedaan!",
                   `${
                      level >= 6 && sequenceCount === 1
                         ? "Now answer in opposite order"
-                        : "Your answer was correct"
+                        : ""
                   }`,
                   "success",
                   "1000",
@@ -278,7 +279,7 @@ const VisualMemoryGameProvider = ({ children, exerciseTitle }) => {
          } else {
             handlePrompt(
                "Incorrect !",
-               "Your sequence was wrong ",
+               "",
                "error",
                "1000",
                "handleMistake"
@@ -288,11 +289,11 @@ const VisualMemoryGameProvider = ({ children, exerciseTitle }) => {
    };
    const returnAchievement = () => {
       if (level >= 6) {
-         return "🥇 Gold";
+         return "🥇 Goud";
       } else if (level === 5) {
-         return "🥈 Silver";
+         return "🥈 Zilver";
       } else if (level === 4) {
-         return "🥉 Bronze";
+         return "🥉 Brons";
       } else if (level === 3) {
          return "No prize 🫡";
       }

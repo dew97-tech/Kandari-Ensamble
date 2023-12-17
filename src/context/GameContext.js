@@ -50,7 +50,8 @@ const GameProvider = ({ children, exerciseTitle }) => {
 			cancelButtonColor: '#ff5c5c',
 			showCancelButton: true,
 			confirmButtonColor: '#82d995',
-			confirmButtonText: 'Yes',
+			confirmButtonText: 'Ja',
+			cancelButtonText: 'Nee',
 			// denyButtonText: `Don't save`,
 		}).then((result) => {
 			/* Read more about isConfirmed, isDenied below */

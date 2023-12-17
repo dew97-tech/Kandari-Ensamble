@@ -10,7 +10,7 @@ import GameResult from "../memory-games/game-result";
 import Image from "next/image";
 
 const GameCard = ({
-   index,
+   // serial,
    img,
    audioUrl,
    no_img,
@@ -27,8 +27,8 @@ const GameCard = ({
    const imageContainerSize = {
       objectFit: "cover",
       width: "100%",
-      maxHeight: "8rem",
-      minHeight: "8rem",
+      maxHeight: "10rem",
+      minHeight: "5rem",
    };
 
    const renderGameLogic = () => {
@@ -36,7 +36,7 @@ const GameCard = ({
          if (frame === 2) {
             return (
                <Frame2
-                  key={index}
+                  key={serial}
                   guessedWord={guessedWord}
                   handleStopTimer={handleStopTimer}
                   handleResult={handleResult}
@@ -47,7 +47,7 @@ const GameCard = ({
          } else if (frame === 3) {
             return (
                <Frame3
-                  key={index}
+                  key={serial}
                   guessedWord={guessedWord}
                   handleStopTimer={handleStopTimer}
                   handleResult={handleResult}
@@ -58,7 +58,7 @@ const GameCard = ({
          } else if (frame === 4) {
             return (
                <Frame4
-                  key={index}
+                  key={serial}
                   guessedWord={guessedWord}
                   handleStopTimer={handleStopTimer}
                   handleResult={handleResult}
@@ -70,7 +70,7 @@ const GameCard = ({
       } else if (!isPlaying && !showAll) {
          return (
             <GamePreview
-               key={index}
+               key={serial}
                guessedWord={guessedWord}
                englishTranslation={englishTranslation}
                dutchTranslation={dutchTranslation}
@@ -83,7 +83,7 @@ const GameCard = ({
                guessedWord={guessedWord}
                result={UserAnswers[serial]}
                answers={answers}
-               index={index}
+               serial={serial}
                audioUrl={audioUrl}
             />
          );
@@ -91,7 +91,7 @@ const GameCard = ({
    };
 
    return (
-      <div key={index} className=' mb-3'>
+      <div key={serial} className=' mb-3'>
          <div className=''>
             <div className='card pb-0 pt-0 mb-5'>
                {frame === 4

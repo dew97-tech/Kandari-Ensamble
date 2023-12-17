@@ -6,7 +6,7 @@ const Lesson = ({ exerciseTitle }) => {
 		<>
 			<section className="bone">
 				<DialogueAnimationProvider exerciseTitle={exerciseTitle}>
-					<VideoPlayer />
+					<VideoPlayer exerciseTitle={exerciseTitle}/>
 				</DialogueAnimationProvider>
 			</section>
 		</>

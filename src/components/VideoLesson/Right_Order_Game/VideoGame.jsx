@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { RightOrderContext } from "@/src/context/RightOrderContext";
 import VideoPlayer from "./VideoPlayer";
 import Confetti from "react-confetti";
@@ -7,7 +7,11 @@ import CustomButton from "../../games/components/CustomButton";
 import ErrorComponent from "../../games/components/ErrorComponent";
 import NavLinks from "../../wrapper-components/navlinks";
 import useSWR from "swr";
-const VideoGame = () => {
+import CongratulationsComponent from "../../games/components/Congratulations";
+import OffCanvas from "../../wrapper-components/off-canvas";
+import GameTitle from "../../games/components/game-title";
+
+const VideoGame = ({ exerciseTitle }) => {
    const {
       handlePrompt,
       isFinished,
@@ -32,8 +36,8 @@ const VideoGame = () => {
 
    return (
       <div>
-         {showConfetti && (
-            <Confetti duration={3000} recycle={false} numberOfPieces={800} />
+         {isFinished && (
+            <Confetti duration={3000} recycle={false} numberOfPieces={2000}/>
          )}
          {!isFinished ? (
             <>
@@ -45,11 +49,19 @@ const VideoGame = () => {
             </>
          ) : (
             <>
+               {/* <div>
+                  <OffCanvas />
+               </div> */}
                <div className='d-flex flex-column justify-content-center align-self-center'>
-                  <h3 className='text-start buff-text-color display-6 mb-20'>
-                     Your Achievement: {returnAchievement()}
-                  </h3>
-                  <PreviousAnswers
+                  <GameTitle title={exerciseTitle} />
+                  <CongratulationsComponent
+                     showOffCanvas={true}
+                     returnAchievement={returnAchievement}
+                     showScore={true}
+                     handlePrompt={handlePrompt}
+                  />
+                  {/* <h3 className='text-center buff-text-color display-6 mb-20'>Jouw Score: {returnAchievement()}</h3> */}
+                  {/* <PreviousAnswers
                      game={"RightOrderGame"}
                      {...{
                         previousAnswers,
@@ -58,9 +70,9 @@ const VideoGame = () => {
                         sentences,
                         currentExercise,
                      }}
-                  />
+                  /> */}
                </div>
-               <div className='d-flex justify-content-between'>
+               {/* <div className='d-flex justify-content-cetner'>
                   <CustomButton
                      onClick={() => {
                         handlePrompt(
@@ -78,7 +90,7 @@ const VideoGame = () => {
                      isImageAvailable={true}
                   />
                   <NavLinks />
-               </div>
+               </div> */}
             </>
          )}
       </div>

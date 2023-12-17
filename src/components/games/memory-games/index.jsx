@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Game from './game';
 import { GameProvider } from '@/src/context/GameContext';
 import { GameCardProvider } from '@/src/context/GameCardContext';
@@ -9,7 +8,7 @@ const MemoryGame = ({ exerciseTitle }) => {
 		<>
 			<GameProvider exerciseTitle={exerciseTitle}>
 				<GameCardProvider>
-					<Game />
+					<Game exerciseTitle={exerciseTitle}/>
 				</GameCardProvider>
 			</GameProvider>
 		</>

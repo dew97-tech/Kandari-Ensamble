@@ -6,7 +6,7 @@ const RightOrderGame = ({exerciseId,exerciseTitle}) => {
 	return (
 		<>
 			<RightOrderExerciseProvider exerciseId={exerciseId} exerciseTitle={exerciseTitle}>
-				<GameContainer />
+				<GameContainer exerciseTitle={exerciseTitle}/>
 			</RightOrderExerciseProvider>
 		</>
 	);

@@ -1,61 +1,8 @@
-import React, { useMemo, useEffect } from "react";
-import { useRouter } from "next/router";
+import React, { useEffect } from "react";
 import ExerciseLessonContainer from "../ExerciseLessonContainer";
-const menu_data = [
-   {
-      id: 7,
-      title: "Exercises",
-      has_dropdown: true,
-      onlySideBar: false,
-      sub_menus: [
-         {
-            link: "/exercise-lessons/memory-game",
-            title: "Memory Game",
-            exercise_id: 1,
-         },
-         {
-            link: "/exercise-lessons/right-order-game",
-            title: "Place in Right Order (Without Video)",
-            exercise_id: 3,
-         },
-         {
-            link: "/exercise-lessons/gap-exercise",
-            title: "Fill in the Gaps",
-            exercise_id: 2,
-         },
-         {
-            link: "/exercise-lessons/dictation-memory-game",
-            title: "Dictation Memory Game",
-            exercise_id: 1,
-         },
-         {
-            link: "/exercise-lessons/visual-memory-game",
-            title: "Visual Memory Game",
-            exercise_id: 1,
-         },
-         {
-            link: "/exercise-lessons/sound-library-exercise",
-            title: "Sound Library Exercise",
-            exercise_id: 1,
-         },
-         {
-            link: "/exercise-lessons/sound-library",
-            title: "Sound-Library",
-            exercise_id: 1,
-         },
-      ],
-   },
-];
+import lesson_data from "@/src/layout/headers/lesson-data";
 
 const ExerciseLesson = ({ slug, title, link, exercise_id }) => {
-   // const router = useRouter();
-   // const { slug } = router.query;
-
-   // const lesson = useMemo(() => {
-   //    return lessonData[0]?.sub_menus?.find((lesson) =>
-   //       lesson?.link?.includes(slug)
-   //    );
-   // }, [slug]);
    useEffect(() => {
       console.log(
          `Rendering VideoLessonsContainer with slug = ${slug} , title = ${title} , exercise_id = ${exercise_id}`
@@ -77,7 +24,7 @@ export default ExerciseLesson;
 // Using Incremental Static Regeneration
 export async function getStaticProps({ params }) {
    const { slug } = params;
-   const lesson = menu_data[0]?.sub_menus?.find((lesson) =>
+   const lesson = lesson_data[0]?.sub_menus?.find((lesson) =>
       lesson?.link.includes(slug)
    );
    return {

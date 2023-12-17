@@ -146,7 +146,7 @@ const FooterThree = () => {
                         <div className='col-xl-6 col-lg-5'>
                            <div className='f-copyright__text h1 text-center mb-30'>
                               <span style={{ fontSize: "20px" }}>
-                                 Maison Ensamble © {new Date().getFullYear()} ,
+                                 Maison Ensemble © {new Date().getFullYear()} ,
                                  All Rights Reserved
                               </span>
                            </div>
