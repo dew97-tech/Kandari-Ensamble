@@ -21,14 +21,33 @@ const GameCard = ({
    setAnswers,
    UserAnswers,
    serial,
+   isFrame4Finished,
 }) => {
-   const { handleResult, isPlaying, showAll } = useContext(GameCardContext);
+   const { handleResult, isPlaying, showAll, shuffledGameData, currentCard, nextCard, resetGame, getCurrentAudioURL } =
+      useContext(GameCardContext);
    const { handleStopTimer, isGameFinished, frame } = useContext(GameContext);
+
    const imageContainerSize = {
       objectFit: "cover",
       width: "100%",
       maxHeight: "10rem",
       minHeight: "5rem",
+      marginBottom: "0.1rem",
+   };
+   const frame4ContainerSize = {
+      objectFit: "cover",
+      width: "100%",
+      display: "grid",
+      placeItems: "center",
+      maxHeight: "24rem",
+      minHeight: "20rem",
+      // marginBottom: "0.1rem",
+   };
+   const cardBodyStyle = {
+      // minHeight: "5rem",
+      // vertical align center with Grid
+      // display: "grid",
+      // placeItems: "center",
    };
 
    const renderGameLogic = () => {
@@ -91,32 +110,20 @@ const GameCard = ({
    };
 
    return (
-      <div key={serial} className=' mb-3'>
+      <div key={serial} className='mb-3'>
          <div className=''>
             <div className='card pb-0 pt-0 mb-5'>
-               {frame === 4
-                  ? img && (
-                       <Image
-                          src={no_img}
-                          width={640}
-                          height={640}
-                          style={imageContainerSize}
-                          className='card-img-top'
-                          alt={`${img}`}
-                       />
-                    )
-                  : img && (
-                       <Image
-                          src={img}
-                          width={640}
-                          height={640}
-                          style={imageContainerSize}
-                          className='card-img-top'
-                          alt={`${img}`}
-                       />
-                    )}
-
-               <div className='card-body py-2 pr-0 pl-0 shadow-sm'>
+               {img && (
+                  <Image
+                     src={img}
+                     width={640}
+                     height={640}
+                     style={!isFrame4Finished && frame === 4 ? frame4ContainerSize : imageContainerSize}
+                     className='card-img-top'
+                     alt={`${img}`}
+                  />
+               )}
+               <div className='card-body py-2 pr-0 pl-0 shadow-sm' style={cardBodyStyle}>
                   {renderGameLogic()}
                </div>
             </div>

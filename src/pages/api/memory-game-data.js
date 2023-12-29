@@ -51,7 +51,7 @@ const memory_game_data = [
       id: 4,
       gameLanguage: "English",
       wantToLearn: "French",
-      guessedWord: "ça va bien",
+      guessedWord: "çava bien",
       translation: {
          dutch: "het gaat goed",
          english: "it is going well",

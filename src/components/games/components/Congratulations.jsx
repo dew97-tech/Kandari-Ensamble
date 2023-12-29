@@ -2,7 +2,7 @@ import React from "react";
 import OffCanvas from "../../wrapper-components/off-canvas";
 import NavLinks from "../../wrapper-components/navlinks";
 import CustomButton from "./CustomButton";
-const CongratulationsComponent = ({ showOffCanvas, showScore, returnAchievement ,handlePrompt}) => {
+const CongratulationsComponent = ({ showOffCanvas, showScore, returnAchievement, handlePrompt, mistakes }) => {
    return (
       <section className='course-area pt-30 pb-100 bone'>
          <div className='container'>
@@ -16,6 +16,9 @@ const CongratulationsComponent = ({ showOffCanvas, showScore, returnAchievement 
                {showScore && (
                   <h3 className='text-center buff-text-color display-6 mb-50'>Jouw Score: {returnAchievement()}</h3>
                )}
+               {/* {mistakes ? (
+                  <h3 className='text-center buff-text-color display-6 mb-50'>Aantal Fouten: {mistakes}</h3>
+               ) : null} */}
                {/* <NavLinks /> */}
                <div className='d-flex justify-content-between'>
                   <CustomButton
