@@ -232,6 +232,7 @@ const GameProvider = ({ children, exerciseTitle }) => {
          setAnswers(Array(sentences.length).fill(""));
       } else if (isGameFinished && frame === 3) {
          startPlay();
+         pauseStudy();
          setFrame(4);
          setUserAnswers([]);
          setAnswers(Array(sentences.length).fill(""));
@@ -247,6 +248,8 @@ const GameProvider = ({ children, exerciseTitle }) => {
          pauseStudy();
       } else if (!isFinished && isPlaying) {
          pausePlay();
+      } else if (frame === 5) {
+         pauseStudy();
       } else {
          pausePlay();
          pauseStudy();
@@ -371,7 +374,7 @@ const GameProvider = ({ children, exerciseTitle }) => {
 
    // Start the timer based on the current phase and game status
    useEffect(() => {
-      if (isStudying && isGameFinished && isStudyTimerActive) {
+      if (isStudying && isGameFinished && isStudyTimerActive && frame !== 5) {
          startStudy();
       } else if (isPlaying && !isGameFinished && isPlayTimerActive) {
          startPlay();

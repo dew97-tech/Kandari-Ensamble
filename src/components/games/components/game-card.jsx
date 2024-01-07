@@ -31,7 +31,7 @@ const GameCard = ({
       objectFit: "cover",
       width: "100%",
       maxHeight: "10rem",
-      minHeight: "5rem",
+      minHeight: "11rem",
       marginBottom: "0.1rem",
    };
    const frame4ContainerSize = {
@@ -39,7 +39,7 @@ const GameCard = ({
       width: "100%",
       display: "grid",
       placeItems: "center",
-      maxHeight: "24rem",
+      maxHeight: "30rem",
       minHeight: "20rem",
       // marginBottom: "0.1rem",
    };
@@ -123,7 +123,7 @@ const GameCard = ({
                      alt={`${img}`}
                   />
                )}
-               <div className='card-body py-2 pr-0 pl-0 shadow-sm' style={cardBodyStyle}>
+               <div className='card-body py-2 pr-0 pl-0' style={cardBodyStyle}>
                   {renderGameLogic()}
                </div>
             </div>

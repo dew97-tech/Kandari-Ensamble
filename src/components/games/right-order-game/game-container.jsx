@@ -20,7 +20,7 @@ import PracticeComponent from "../components/PracticeComponent";
 import { RightOrderExerciseContext } from "@/src/context/exercise-contexts/RightOrderContext";
 import CongratulationsComponent from "../components/Congratulations";
 
-const GameContainer = ({exerciseTitle}) => {
+const GameContainer = ({ exerciseTitle }) => {
    // Destructuring values from the RightOrderExerciseContext
    const {
       isGameStarted,
@@ -85,7 +85,7 @@ const GameContainer = ({exerciseTitle}) => {
          <InstructionSentence
             marginTop={"mt-15"}
             marginBottom={"mb-15"}
-            InstructionText={"Translate the sentence to French from the options below"}
+            InstructionText={"Vertaal de zin door de Franse woorden in juiste volgorde aan te klikken"}
          />
          <AnswerBox context={RightOrderExerciseContext} />
          <hr className='border border-1 border-secondary opacity-25 mt-10 mx-2 mb-0 rounded' />
@@ -134,12 +134,12 @@ const GameContainer = ({exerciseTitle}) => {
    const renderGameFinished = () => (
       <>
          <div className='d-flex flex-column justify-content-center align-self-center'>
-         <CongratulationsComponent
-                     showOffCanvas={true}
-                     returnAchievement={returnAchievement}
-                     showScore={true}
-                     handlePrompt={handlePrompt}
-                  />
+            <CongratulationsComponent
+               showOffCanvas={true}
+               returnAchievement={returnAchievement}
+               showScore={true}
+               handlePrompt={handlePrompt}
+            />
             {/* <h3 className='text-center buff-text-color'>Jouw Score: {returnAchievement()}</h3> */}
             {/* <PreviousAnswers
                game={"RightOrderGame"}

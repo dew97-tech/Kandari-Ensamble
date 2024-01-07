@@ -38,10 +38,7 @@ const LoginForm = () => {
          },
       }).then((result) => {
          /* Read more about handling dismissals below */
-         if (
-            result.dismiss === Swal.DismissReason.timer &&
-            promptType === "HomePage"
-         ) {
+         if (result.dismiss === Swal.DismissReason.timer && promptType === "HomePage") {
             router.reload("/");
          }
       });
@@ -90,7 +87,7 @@ const LoginForm = () => {
       <>
          <section className='login-area pt-20 pb-50 bone'>
             <div className='container'>
-               <div className='row'>
+               <div className='row'  style={{ height: "78vh" }}>
                   <motion.div
                      key='step1'
                      className='d-flex justify-content-center align-items-center'
@@ -105,19 +102,14 @@ const LoginForm = () => {
                            <div className='row'>
                               <div className='d-flex justify-content-center'>
                                  <div className='text-center'>
-                                    <h3 className='tp-section-title px-2 buff-text-color'>
-                                       Login From Here
-                                    </h3>
+                                    <h3 className='tp-section-title px-2 buff-text-color'>Login From Here</h3>
                                     <hr className='shadow-sm border border-1 border-secondary opacity-25 rounded mt-0 mb-30 mx-2' />
                                  </div>
                               </div>
                            </div>
 
                            <form onSubmit={handleSubmit}>
-                              <label
-                                 htmlFor='email'
-                                 className='buff-text-color mx-0'
-                              >
+                              <label htmlFor='email' className='buff-text-color mx-0'>
                                  Email <span>*</span>
                               </label>
                               <input
@@ -130,10 +122,7 @@ const LoginForm = () => {
                                  required
                                  onChange={handleInputChange}
                               />
-                              <label
-                                 htmlFor='password'
-                                 className='buff-text-color mx-0'
-                              >
+                              <label htmlFor='password' className='buff-text-color mx-0'>
                                  Password <span>*</span>
                               </label>
                               <input
@@ -147,22 +136,13 @@ const LoginForm = () => {
                                  onChange={handleInputChange}
                               />
                               <div className='forgot-password-div d-flex justify-content-end'>
-                                 <Link
-                                    href='/forgot-password'
-                                    className='my-3 h6 text-primary opacity-75'
-                                 >
+                                 <Link href='/forgot-password' className='my-3 h6 text-primary opacity-75'>
                                     <u>Forgot Password?</u>
                                  </Link>
                               </div>
-                              {error && (
-                                 <div className='my-1 text-danger text-center'>
-                                    {error}
-                                 </div>
-                              )}
+                              {error && <div className='my-1 text-danger text-center'>{error}</div>}
                               <button
-                                 className={`text-white btn btn-lg w-100 light-blue ${
-                                    loading && "btn-secondary"
-                                 }`}
+                                 className={`text-white btn btn-lg w-100 light-blue ${loading && "btn-secondary"}`}
                                  disabled={loading}
                               >
                                  {loading ? "Loading..." : "Login"}

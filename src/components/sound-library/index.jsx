@@ -14,14 +14,11 @@ const SoundLibrary = () => {
    return (
       <>
          <SoundLibraryProvider>
-            <section className="course-area pt-50 pb-100">
-               <GameTitle title={"Sound Library"} gameLanguage={"Dutch"} />
-               <div className="container col-lg-6 col-md-8 col-sm-10">
-                  <div
-                     className="mx-1 shadow-sm border border-secondary border-2"
-                     style={cardStyle}
-                  >
-                     <div className="d-flex justify-content-start mb-20">
+            <section className='course-area pt-50 pb-100'>
+               <GameTitle title={"Klankenbibliotheek"} gameLanguage={"Dutch"} />
+               <div className='container col-lg-6 col-md-8 col-sm-10'>
+                  <div className='mx-1 shadow-sm border border-secondary border-2' style={cardStyle}>
+                     <div className='d-flex justify-content-start mb-20'>
                         <DutchSentence dutchSentence={"Word Groups :"} />
                      </div>
                      <Library selectedGameLevel={4} cardStyle={cardStyle} />

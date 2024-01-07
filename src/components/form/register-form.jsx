@@ -58,10 +58,7 @@ const RegisterForm = () => {
          },
       }).then((result) => {
          /* Read more about handling dismissals below */
-         if (
-            result.dismiss === Swal.DismissReason.timer &&
-            promptType === "LoginPage"
-         ) {
+         if (result.dismiss === Swal.DismissReason.timer && promptType === "LoginPage") {
             router.push("/sign-in");
          }
       });
@@ -117,9 +114,7 @@ const RegisterForm = () => {
             if (response.status === 400) {
                // Check the response body to see if the error is due to a duplicate username or email.
                const errorBody = await response.json();
-               if (
-                  errorBody.message === "User with this email already exists"
-               ) {
+               if (errorBody.message === "User with this email already exists") {
                   // Show an error message to the user.
                   setError("User with this email already exists");
                } else if (errorBody.message === "Username is already taken") {
@@ -152,16 +147,12 @@ const RegisterForm = () => {
                <div className='row'>
                   <div className='d-flex justify-content-center'>
                      <div className='text-center'>
-                        <h3 className='tp-section-title px-2 buff-text-color'>
-                           Sign-up From Here
-                        </h3>
+                        <h3 className='tp-section-title px-2 buff-text-color'>Sign-up From Here</h3>
                         <hr className='shadow-sm border border-1 border-secondary opacity-25 rounded mt-0 mx-2' />
                      </div>
                   </div>
                </div>
-               <h5 className='text-left mt-30 mb-10 text-center buff-text-color'>
-                  Personal Information
-               </h5>
+               <h5 className='text-left mt-30 mb-10 text-center buff-text-color'>Personal Information</h5>
                <label htmlFor='name' className='buff-text-color mx-0'>
                   User Name <span>*</span>
                </label>
@@ -198,10 +189,7 @@ const RegisterForm = () => {
                   onChange={handleChange}
                   required
                />
-               <label
-                  htmlFor='confirm-password'
-                  className='buff-text-color mx-0'
-               >
+               <label htmlFor='confirm-password' className='buff-text-color mx-0'>
                   Confirm Password <span>*</span>
                </label>
                <input
@@ -215,21 +203,13 @@ const RegisterForm = () => {
                />
 
                {formFilled ? (
-                  <button
-                     className='text-white btn btn-lg w-100 light-blue'
-                     type='submit'
-                     onClick={performCheck}
-                  >
+                  <button className='text-white btn btn-lg w-100 light-blue' type='submit' onClick={performCheck}>
                      Next
                   </button>
                ) : (
                   <>
                      <div className='my-1 text-danger text-center'>{error}</div>
-                     <button
-                        className='text-white btn btn-lg w-100 light-blue'
-                        type='submit'
-                        onClick={performCheck}
-                     >
+                     <button className='text-white btn btn-lg w-100 light-blue' type='submit' onClick={performCheck}>
                         Next
                      </button>
                   </>
@@ -258,14 +238,9 @@ const RegisterForm = () => {
                                     value="learn-french-at-beginner's-level-psychological"
                                     onClick={handleChange}
                                  />
-                                 <label
-                                    className='form-check-label ml-3 mb-4 d-block custom-label'
-                                    htmlFor='level1'
-                                 >
-                                    I want to learn French at a beginner's level
-                                    and use a method that integrates
-                                    psychological concepts that facilitate the
-                                    learning process.
+                                 <label className='form-check-label ml-3 mb-4 d-block custom-label' htmlFor='level1'>
+                                    I want to learn French at a beginner's level and use a method that integrates
+                                    psychological concepts that facilitate the learning process.
                                  </label>
                               </div>
                               <div className='form-check form-check-inline mb-10'>
@@ -277,13 +252,9 @@ const RegisterForm = () => {
                                     value="learn-french-at-beginner's-level-executive"
                                     onClick={handleChange}
                                  />
-                                 <label
-                                    className='form-check-label ml-3 mb-4 d-block'
-                                    htmlFor='level2'
-                                 >
-                                    I want to learn French at a beginners’ level
-                                    and improve my executive functions (advised
-                                    until 14 y.o.).
+                                 <label className='form-check-label ml-3 mb-4 d-block' htmlFor='level2'>
+                                    I want to learn French at a beginners’ level and improve my executive functions
+                                    (advised until 14 y.o.).
                                  </label>
                               </div>
                               <div className='form-check form-check-inline'>
@@ -295,36 +266,22 @@ const RegisterForm = () => {
                                     value='want-to-integrate-this-course'
                                     onClick={handleChange}
                                  />
-                                 <label
-                                    className='form-check-label ml-3 mb-4 d-block'
-                                    htmlFor='level3'
-                                 >
-                                    We are a school and we want to integrate
-                                    this course in our curriculum activities
+                                 <label className='form-check-label ml-3 mb-4 d-block' htmlFor='level3'>
+                                    We are a school and we want to integrate this course in our curriculum activities
                                  </label>
                               </div>
                            </div>
                         </div>
-                        {error && (
-                           <div className='mt-0 text-danger text-center'>
-                              {error}
-                           </div>
-                        )}
+                        {error && <div className='mt-0 text-danger text-center'>{error}</div>}
                      </div>
                   </div>
                </div>
             </section>
             <div className='d-flex justify-content-between'>
-               <button
-                  className='btn btn-lg buff shadow px-5 py-2 h3 pt-0'
-                  onClick={() => setStep(1)}
-               >
+               <button className='btn btn-lg buff shadow px-5 py-2 h3 pt-0' onClick={() => setStep(1)}>
                   <span className='text-white h5'>Back</span>
                </button>
-               <button
-                  className='btn btn-lg light-blue shadow px-5 py-2 h3 pt-0'
-                  onClick={handleSubmit}
-               >
+               <button className='btn btn-lg light-blue shadow px-5 py-2 h3 pt-0' onClick={handleSubmit}>
                   <span className='text-white h5'>Proceed</span>
                </button>
             </div>
@@ -333,9 +290,9 @@ const RegisterForm = () => {
    };
 
    return (
-      <section className='login-area pt-50 pb-110 bone'>
+      <section className='login-area pt-50 pb-50 bone'>
          <div className='container'>
-            <div className='row'>
+            <div className='row' style={{ height: "90vh" }}>
                <div className='col-lg-8 offset-lg-2 '>
                   <div className='basic-login card-color border border-secondary border-1 rounded-4'>
                      {step === 1 && (

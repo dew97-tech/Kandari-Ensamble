@@ -7,7 +7,7 @@ import { DictationGameContext } from "@/src/context/DictationContext";
 import GameContainer from "./game-container";
 import NavLinks from "../../wrapper-components/navlinks";
 
-const DictationMemoryGame = () => {
+const DictationMemoryGame = ({ exerciseTitle }) => {
    const {
       currentSentence,
       score,
@@ -138,7 +138,7 @@ const DictationMemoryGame = () => {
          {showConfetti && <Confetti duration={3000} recycle={false} numberOfPieces={1000} />}
          <section className='course-area pt-50 pb-200 bone'>
             <div className='container'>
-               <GameTitle title='Dictation Memory Game' />
+               <GameTitle title={exerciseTitle} />
                {isGameStarted ? (
                   <>
                      {!challengesCompleted && !isFinished ? (

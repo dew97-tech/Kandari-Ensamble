@@ -176,7 +176,7 @@ const GameBody = ({
             {/* Sound Library Game */}
             {game === "sound-library" && (
                <>
-                  <h2 className='text-center mb-0 buff-text-color'>Sound Library</h2>
+                  <h2 className='text-center mb-0 buff-text-color'>Klankenbibliotheek</h2>
                   <hr className='border border-1 border-secondary opacity-25 mt-0 mb-0 rounded' />
                   <>
                      {toggleScreen ? (

@@ -1,6 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import Calendly from "../calendly";
+import instructor02 from "@/public/assets/img/bg/instruc-in-02.jpg";
+import instructor03 from "@/public/assets/img/bg/instruc-in-03.jpg";
+import instructor04 from "@/public/assets/img/bg/instruc-in-04.jpg";
+import instructor06 from "@/public/assets/img/bg/instruc-in-06.jpg";
+import instructor08 from "@/public/assets/img/bg/instruc-in-08.jpg";
+
 const ServicePage = () => {
    const imgStyle = {
       objectFit: "cover",
@@ -43,11 +49,12 @@ const ServicePage = () => {
                         <div className='ml-10 mobile-margin' style={{ flex: "0 0 30%" }}>
                            <Image
                               className='course-avata card-color shadow-sm'
-                              src='/assets/img/bg/instruc-in-08.jpg'
+                              src={instructor08}
                               alt='Louisa_Profile_Picture'
                               style={imgStyle}
                               width={800}
                               height={800}
+                              placeholder='blur'
                            />
                         </div>
                      </div>
@@ -58,11 +65,12 @@ const ServicePage = () => {
                         <div className='mr-10 mobile-margin' style={{ flex: "0 0 30%" }}>
                            <Image
                               className='course-avata card-color shadow-sm'
-                              src='/assets/img/bg/instruc-in-02.jpg'
+                              src={instructor02}
                               alt='Louisa_Profile_Picture'
                               style={imgStyle}
                               width={800}
                               height={800}
+                              placeholder='blur'
                            />
                         </div>
                         <div className='ml-10' style={{ flex: "0 0 70%" }}>
@@ -100,11 +108,12 @@ const ServicePage = () => {
                         <div className='ml-10 mobile-margin' style={{ flex: "0 0 30%" }}>
                            <Image
                               className='course-avata card-color shadow-sm'
-                              src='/assets/img/bg/instruc-in-03.jpg'
+                              src={instructor03}
                               alt='Louisa_Profile_Picture'
                               style={imgStyle}
                               width={800}
                               height={800}
+                              placeholder='blur'
                            />
                         </div>
                      </div>
@@ -114,11 +123,12 @@ const ServicePage = () => {
                         <div className='mr-10 mobile-margin' style={{ flex: "0 0 30%" }}>
                            <Image
                               className='course-avata card-color shadow-sm'
-                              src='/assets/img/bg/instruc-in-06.jpg'
+                              src={instructor06}
                               alt='Louisa_Profile_Picture'
                               style={imgStyle}
                               width={800}
                               height={800}
+                              placeholder='blur'
                            />
                         </div>
                         <div className='ml-10' style={{ flex: "0 0 70%" }}>
@@ -154,18 +164,19 @@ const ServicePage = () => {
                         <div className='ml-10 mobile-margin' style={{ flex: "0 0 30%" }}>
                            <Image
                               className='course-avata card-color shadow-sm'
-                              src='/assets/img/bg/instruc-in-04.jpg'
+                              src={instructor04}
                               alt='Louisa_Profile_Picture'
                               style={imgStyle}
                               width={500}
                               height={250}
+                              placeholder='blur'
                            />
                         </div>
                      </div>
                   </div>
                </article>
                {/* Add Calendly Widget */}
-               <Calendly />
+               <Calendly showInline={true} />
             </div>
          </div>
       </div>

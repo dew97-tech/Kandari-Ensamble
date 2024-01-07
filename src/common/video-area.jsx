@@ -1,75 +1,76 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import ReactPlayer from "react-player";
+import { motion } from "framer-motion";
+import { FaVolumeMute, FaVolumeUp } from "react-icons/fa";
 const VideoArea = ({ style_2 }) => {
-  return (
-    <>
-      <section
-        className={`video-area ${style_2 ? "pb-120" : "pt-90 pb-120"} wow fadeInUp`}
-        data-wow-duration=".8s"
-        data-wow-delay=".4s"
-      >
-        <div className="container">
-          <div className="row text-center">
-            <div className="col-lg-12 col-md-12">
-              <div className="section-title mb-65">
-                <span className="tp-sub-title-box mb-15">Live Classes</span>
-                <h2 className="tp-section-title mb-20">
-                  HD Quality Video, Audio <br /> & Live Classes
-                </h2>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-12">
-              <div className="video-bg p-relative text-center">
-                {style_2 ? (
-                  <img src="/assets/img/bg/video-bg-2.jpg" alt="video-bg" />
-                ) : (
-                  <img src="/assets/img/bg/video-bg-01.jpg" alt="video-bg" />
-                )}
-                <div className={`video-text ${style_2 ? "video-run-time" : ""}`}>
-                  <i>
-                    Live<span>01:30:08</span>
-                  </i>
-                </div>
-                <div className={`${style_2 ? "video-shape-area" : "video-shape"}`}>
+   const [playing, setPlaying] = useState(false);
+   const [videoSrc, setVideoSrc] = useState();
+   const [isMuted, setIsMuted] = useState(true);
+   useEffect(() => {
+      const fetchVideoSrc = async () => {
+         const res = await fetch("/api/video-src");
+         const data = await res.json();
+         setVideoSrc(data?.src);
+         setPlaying(true);
+      };
 
-                  {
-                    style_2 ? 
-                    
-                    <>
-                    <img
-                    className="video-shape"
-                    src="/assets/img/about/shape-2-img-2.png"
-                    alt="video-shape"
-                  />
-                  <img
-                    className="video-shape-2 d-none d-md-block"
-                    src="/assets/img/about/video-2-shape-2.png"
-                    alt="video-shape"
-                  />
-                  <img
-                    className="video-shape-3 d-none d-md-block"
-                    src="/assets/img/about/video-2-shape-1.jpg"
-                    alt="video-shape"
-                  />
-                  
-                  </>
-                  : 
-                  <img
-                    src="/assets/img/about/shape-2-img-2.png"
-                    alt="video-shape"
-                  />
-                  }
-                  
-                </div>
-              </div>
+      fetchVideoSrc();
+   }, []);
+   const toggleMute = () => {
+      setIsMuted(!isMuted); // Toggle mute state
+   };
+   return (
+      <>
+         <section className={`bone`}>
+            {/* Container */}
+            <div className='container'>
+               {/* Row */}
+               <div className='row homePageSection'>
+                  <motion.div
+                     initial={{ opacity: 0 }}
+                     animate={{ opacity: 1 }}
+                     exit={{ opacity: 0 }}
+                     transition={{ duration: 0.5 }}
+                  >
+                     {/* <h1 className='text-center buff-text-color fs-1'>Welcome to Maison Ensemble</h1> */}
+                     <div className='text-center'>
+                        {!playing ? (
+                           <motion.img
+                              src='/assets/img/banner/maison.png'
+                              alt='video-bg'
+                              animate={{ opacity: 1 }}
+                              initial={{ opacity: 0 }}
+                              exit={{ opacity: 0 }}
+                              transition={{ duration: 0.5 }}
+                           />
+                        ) : (
+                           <motion.div
+                              initial={{ opacity: 0, translateX: "100%" }}
+                              animate={{ opacity: 1, translateX: "0%" }}
+                              exit={{ opacity: 0, translateX: "100%" }}
+                              transition={{ duration: 0.5 }}
+                           >
+                              <ReactPlayer
+                                 url={videoSrc}
+                                 className='react-player'
+                                 width='100%' // 100%
+                                 height='100%' // 100%
+                                 playing={playing}
+                                 loop={true}
+                                 muted={isMuted}
+                              />
+                              <button onClick={toggleMute} className={`mute-button ${isMuted ? "is-muted" : ""}`}>
+                                 {isMuted ? <FaVolumeMute className='fa-2xl' /> : <FaVolumeUp className='fa-2xl' />}
+                              </button>
+                           </motion.div>
+                        )}
+                     </div>
+                  </motion.div>
+               </div>
             </div>
-          </div>
-        </div>
-      </section>
-    </>
-  );
+         </section>
+      </>
+   );
 };
 
 export default VideoArea;

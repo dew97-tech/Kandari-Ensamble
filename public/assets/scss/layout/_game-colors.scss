@@ -53,6 +53,10 @@
 .bone {
    background-color: #e6ddcb;
 }
+.bone-button {
+   background-color: #e6ddcb;
+   border-color: #e6ddcb;
+}
 .buff {
    background-color: #ecba82;
    &:hover {
@@ -62,6 +66,12 @@
 }
 .buff-text-color {
    color: darkslategrey;
+}
+.bone-text-color {
+   color: #f0be85;
+}
+.light-blue-text-color {
+   color: #7da9ad;
 }
 .bittersweet {
    background-color: #ff5c5c;

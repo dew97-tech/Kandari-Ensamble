@@ -13,18 +13,3 @@ const index = () => {
 };
 
 export default index;
-// Main Home 1 index
-// import SEO from '../common/seo';
-// import Home3 from '../components/homes/home-3';
-// import Wrapper from '../layout/wrapper';
-
-// const index = () => {
-//     return (
-//         <Wrapper>
-//             <SEO pageTitle={'Epora'} />
-//             <Home3 />
-//         </Wrapper>
-//     );
-// };
-
-// export default index;

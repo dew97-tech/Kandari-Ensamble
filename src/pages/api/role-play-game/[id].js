@@ -6,8 +6,8 @@ const role_play_game = [
             id: 1,
             question: "Hoi, ik heet Charlie.",
             options: [
-               { id: "1A", text: "Salut, je m`appelle Charlie." },
-               { id: "1B", text: "Salut, j`appelle Charlie." },
+               { id: "1A", text: "Salut,je m'appelle Charlie." },
+               { id: "1B", text: "Salut,j'appelle Charlie." },
             ],
             correctOptionId: "1A",
             video: {
@@ -137,7 +137,7 @@ const role_play_game = [
             ],
             correctOptionId: "4A",
             video: {
-               pauseTime: 44.250,
+               pauseTime: 44.458,
             },
          },
          {
@@ -208,9 +208,7 @@ export default function handler(req, res) {
    try {
       if (req.method === "GET") {
          const { id } = req.query;
-         const exercise = role_play_game.find(
-            (exercise) => exercise.exercise_id === parseInt(id)
-         );
+         const exercise = role_play_game.find((exercise) => exercise.exercise_id === parseInt(id));
          console.log("Fetching Role Play Game...");
          res.status(200).json(exercise);
          console.log("Returning Role Play Game as JSON...");

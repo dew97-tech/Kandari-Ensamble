@@ -146,7 +146,7 @@ const Game = ({ exerciseTitle }) => {
                                    isPlaying &&
                                    currentCard && (
                                       <div className='d-flex align-items-center justify-content-center'>
-                                         <Col xl={5} lg={4} md={12} sm={12} xs={12} key={currentCardIndex}>
+                                         <Col xl={8} lg={8} md={12} sm={12} xs={12} key={currentCardIndex}>
                                             <GameCard
                                                {...cardProps(currentCard, currentCardIndex)}
                                                isFrame4Finished={isFrame4Finished}

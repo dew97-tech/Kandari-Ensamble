@@ -4,7 +4,7 @@ import React from 'react';
 import VideoArea from '../../../common/video-area';
 import AboutArea from '../../../common/about-area';
 import BannerArea from './banner-area';
-import BlogArea from './blog-area';
+import BlogArea from './subscription';
 import CategoryArea from './category-area';
 import ChooseArea from './choose-area';
 import CounterArea from './counter-area';
@@ -16,19 +16,19 @@ import Calendly from '../../calendly';
 const HomeThree = () => {
     return (
         <>
-            <BannerArea />
-            {/* <Calendly /> */}
-            <FeatureArea />
-            <AboutArea />
-            <SuitableArea />
             <VideoArea style_2={true} />
-            <CategoryArea />
-            <OurCourse />
+            {/* <BannerArea /> */}
+            {/* <Calendly /> */}
+            {/* <FeatureArea /> */}
+            <AboutArea />
+            {/* <SuitableArea /> */}
+            {/* <CategoryArea /> */}
+            {/* <OurCourse /> */}
             {/* <ChooseArea /> */}
             {/* <TestimonialArea /> */}
-            <BrandArea style_3={true} />
+            {/* <BrandArea style_3={true} /> */}
             <BlogArea />
-            <CounterArea style_3={true} />
+            {/* <CounterArea style_3={true} /> */}
         </>
     );
 };

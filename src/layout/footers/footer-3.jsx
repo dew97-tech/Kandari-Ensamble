@@ -133,32 +133,20 @@ const FooterThree = () => {
 							</div>
 						</div>
 					</div> */}
-               <div className='f-copyright pt-60 pb-40'>
+               <div className='f-copyright'>
                   <div className='container'>
-                     <div className='row text-center text-lg-start'>
-                        <div className='col-xl-3 col-lg-3'>
-                           {/* // <div className="f-copyright__logo mb-30">
-									// 	<Link href="/">
-									// 		<span className='h3 text-white'>MAISON ENSAMBLE</span>
-									// 	</Link>
-									// </div> */}
-                        </div>
+                     <div className='row d-flex align-items-center justify-content-center text-center text-lg-start py-3'>
                         <div className='col-xl-6 col-lg-5'>
-                           <div className='f-copyright__text h1 text-center mb-30'>
+                           <div className='f-copyright__text h1 text-center'>
                               <span style={{ fontSize: "20px" }}>
-                                 Maison Ensemble © {new Date().getFullYear()} ,
-                                 All Rights Reserved
+                                 Maison Ensemble © {new Date().getFullYear()} , All Rights Reserved
                               </span>
                            </div>
                         </div>
                         <div className='col-xl-3 col-lg-4'>
-                           <div className='f-copyright__social-area mb-20 text-lg-end'>
+                           <div className='f-copyright__social-area text-lg-end'>
                               {social_links.map((item, i) => (
-                                 <a
-                                    key={i}
-                                    href={item.link}
-                                    target={item.target}
-                                 >
+                                 <a key={i} href={item.link} target={item.target}>
                                     <i className={item.icon}></i>
                                  </a>
                               ))}

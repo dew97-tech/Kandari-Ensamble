@@ -5,7 +5,7 @@ const express_yourself_exercise = [
          {
             id: 1,
             question: "Hoi, ik heet Charlie.",
-            correctAnswer: "Salut, je m`appelle Charlie.",
+            correctAnswer: "Salut,je m'appelle Charlie.",
             video: {
                pauseTime: 26.375,
             },
@@ -92,8 +92,7 @@ const express_yourself_exercise = [
             question: "Het gaat goed, dank je.",
             correctAnswer: "Ça va bien merci.",
             video: {
-               // pauseTime: 36.125,
-               pauseTime: 44.25,
+               pauseTime: 44.458,
             },
          },
          {

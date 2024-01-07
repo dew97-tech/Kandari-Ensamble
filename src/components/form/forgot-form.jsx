@@ -39,7 +39,7 @@ const ForgotForm = () => {
 		<>
 			<section className="login-area pt-55 pb-75 bone">
 				<div className="container">
-					<div className="row">
+					<div className="row" style={{ height:'72.2vh' }}>
 						<motion.div
 							key="step1"
 							className="step-wrapper"
