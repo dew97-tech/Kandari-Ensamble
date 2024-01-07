@@ -1,19 +1,50 @@
-website link [E-pora-next.js](https://e-pora-next.vercel.app/)
-Facebook link [Facebook.com](https://www.facebook.com/themepure.net/)
+# Maison Ensemble - French Language Learning Platform 🇫🇷
 
-## System Requirements:
+Maison Ensemble is a robust French language learning platform that provides innovative ways for students to master the language. Whether you're a beginner or looking to enhance your French skills, Maison Ensemble offers a dynamic and interactive learning experience.
 
-1. `Node.js 16.8` or later.
-2. `macOS`, `Windows (including WSL)`, and `Linux` are supported.
+## Features
 
-## Run in your Local Machine :
+### 1. Interactive Exercises 🎓
 
-1. `Open Project in VSCode`
+Immerse yourself in 12 unique exercises carefully designed to stimulate your memory reflexes. Learn French from Dutch in a fun and interactive manner, making language acquisition an enjoyable journey.
 
-2. `Open Terminal`
+### 2. Video Learning 📹
 
-3. `cd MAISON-ENSEMBLE-WEB`
+Enhance your understanding of French through informative videos and engaging pop-up quizzes. Maison Ensemble integrates multimedia elements to cater to diverse learning preferences.
 
-4. `npm install`
+### 3. Achievement Unlocking 🏆
 
-5. `npm run dev`
+Navigate through the interactive exercises and earn achievements based on your performance. Track your progress and celebrate your milestones as you advance in your language learning journey.
+
+## Resources
+
+- [Live Preview](https://maison-kandari-ensamble.vercel.app/)
+- [Git Repository](https://github.com/dew97-tech/Kandari-Ensamble)
+
+## Getting Started
+
+To run Maison Ensemble locally, follow these steps:
+
+1. Clone the repository: `git clone https://github.com/dew97-tech/Kandari-Ensamble`
+2. Install dependencies: `npm install`
+3. Run the development server: `npm run dev`
+4. Open your browser and navigate to `http://localhost:3000`
+
+## Technologies Used
+
+- Next.js 13
+- Bootstrap 5.2
+- MongoDB
+- nextAuth
+  
+## Contributing
+
+We welcome contributions from the community! If you have suggestions, enhancements, or bug fixes, feel free to open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+**Happy Learning with Maison Ensemble! 🇫🇷**
