@@ -4,9 +4,9 @@ const Frame4 = ({ index, guessedWord, answers, setAnswers }) => {
     return (
         <>
             <div>
-                <p id="guessword" name="guessword" className='text-center buff-text-color h5 mb-0 py-2'>
+                {/* <p id="guessword" name="guessword" className='text-center buff-text-color h5 mb-0 py-2'>
                     Guess the Word
-                </p>
+                </p> */}
                 <form
                     className="d-flex align-items-center justify-content-center mb-2"
                     onSubmit={(e) => {

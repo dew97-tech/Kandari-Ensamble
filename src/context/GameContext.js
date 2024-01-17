@@ -195,7 +195,9 @@ const GameProvider = ({ children, exerciseTitle }) => {
       if (message === "correct") {
          setScore(score + 1);
       } else {
-         frame === 4 && setMistakes(mistakes + 1);
+         frame >= 4 && setMistakes((prevMistake) => prevMistake + 1);
+         console.log("mistakes", mistakes);
+         console.log("frame", frame);
       }
       setResult(message);
       setShowResult(true);
@@ -329,6 +331,7 @@ const GameProvider = ({ children, exerciseTitle }) => {
 
    // Return Achievements based on the totalStudyTime and TotalPlayTime
    const returnAchievement = () => {
+      console.log("Total Mistakes in Frame 4", mistakes);
       // Minimum study and play times in seconds
       const MINIMUM_STUDY_TIME = 90; // 1 minute 30 seconds
       const MINIMUM_PLAY_TIME = 90; // 1 minute 30 seconds
@@ -361,7 +364,7 @@ const GameProvider = ({ children, exerciseTitle }) => {
       ) {
          return `Bronze 🥉`; // Bronze achievement
       } else {
-         return `No Achievements 😔`; // No achievements
+         return `geen medaille 😔`; // No achievements
       }
    };
 

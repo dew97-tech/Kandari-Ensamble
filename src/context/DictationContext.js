@@ -305,6 +305,7 @@ const DictationGameProvider = ({ children, exerciseTitle }) => {
             audioUrl,
             playingAudio,
             feedbackMessage,
+            currentSentenceIndex,
             goNext,
             handleRestart,
             setPlayingAudio,

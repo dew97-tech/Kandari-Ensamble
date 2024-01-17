@@ -22,17 +22,17 @@ const PricingCard = ({ planName, description, duration, price, selectedDuration,
          animate='visible'
       >
          <div className='text-center '>
-            <h5 className='card-title buff-text-color fs-1 p-2'>{packageType}</h5>
+            <h5 className='card-title buff-text-color fs-2 p-2 mb-0'>{packageType}</h5>
             <hr className='mt-0 mx-3 mb-0' />
          </div>
 
          <motion.div className='card-body text-center ' variants={cardVariants}>
-            <div className='mb-2 py-3 memory-game-color'>
+            <div className='py-3 memory-game-color'>
                {price ? (
                   <>
-                     <h1 className='card-subtitle light-blue-text-color mb-3 fs-1'>
+                     <h1 className='card-subtitle light-blue-text-color mb-3 fs-2'>
                         {price}
-                        <span className='small buff-text-color fs-4'>/ {duration} months</span>
+                        <span className='small buff-text-color fs-5'>/ {duration} months</span>
                      </h1>
                      <div className='btn light-blue fs-5 py-2 px-4'>
                         <PopupCalendly buttonText='Subscribe' />

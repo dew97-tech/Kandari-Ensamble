@@ -18,14 +18,13 @@ const GameContainer = () => {
       mistake,
       sentenceLength,
       word,
+      currentSentenceIndex,
    } = useContext(DictationGameContext);
    return (
       <>
-         <div className="d-flex align-items-center justify-content-between mb-30">
-            <h3 className="px-2 py-2 buff-text-color card-color">
-               Sequence : {currentWordIndex + 1}
-            </h3>
-            <h3 className="px-2 py-2 border border-warning border-2 rounded shadow-sm buff-text-color buff">
+         <div className='d-flex align-items-center justify-content-between mb-30'>
+            <h3 className='px-2 py-2 buff-text-color card-color'>Sequence : {currentSentenceIndex + 1}</h3>
+            <h3 className='px-2 py-2 border border-warning border-2 rounded shadow-sm buff-text-color buff'>
                <Lifeline context={DictationGameContext} />
             </h3>
          </div>

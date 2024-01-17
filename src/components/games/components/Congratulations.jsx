@@ -34,7 +34,7 @@ const CongratulationsComponent = ({ showOffCanvas, showScore, returnAchievement,
                      placeHolder={"Restart-Icon"}
                      iconText={"/assets/icons/restart.gif"}
                      colorString={"bittersweet"}
-                     borderColor={"danger"}
+                     borderColor={"secondary"}
                      isImageAvailable={true}
                   />
                   <NavLinks />

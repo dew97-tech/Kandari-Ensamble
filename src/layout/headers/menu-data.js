@@ -14,7 +14,7 @@ const menu_data = [
    },
    {
       id: 7,
-      title: "Sound Library",
+      title: "Klankenbibliotheek",
       link: "/exercise-lessons/sound-library",
       has_dropdown: false,
       onlySideBar: false,

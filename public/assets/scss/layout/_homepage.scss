@@ -1,30 +1,110 @@
 @use "../utils" as *;
+.homePageSection {
+   height: 90vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
 
-// Laptop (1366x768)
-@media (width <= 1400px) and (height <= 800px) {
+// iPhone 14 Pro Max (430x932) & iPhone 12 Pro (390x844) in portrait mode
+@media (width <= 450px) and (height <= 1000px) and (orientation: portrait) {
    body .homePageSection {
-      height: 85vh; // Adjust the height as needed for laptops
+      height: 30vh; // Adjust the height as needed for iPhone 14 Pro Max and iPhone 12 Pro
+   }
+   .tp-btn {
+      width: 100%;
+   }
+   .row {
+      display: grid;
+      align-content: center;
+      gap: 2rem;
+   }
+   .tp-about-class-content {
+      margin-bottom: 0rem !important;
+   }
+   .footer-flex {
+      display: flex;
+      flex-direction: column-reverse;
+   }
+   // Social Links
+   .f-copyright__social-area a {
+      margin: 0 0.5rem;
+   }
+   .f-copyright__text {
+      margin-bottom: 0rem;
+   }
+}
+// iPad Pro (1366x1024) and iPad Latest (1366x1024) in landscape mode
+@media (1366px <= width <= 1024px) and (1366px <= height <= 1024px) and (orientation: landscape) {
+   body .homePageSection {
+      height: 70vh; // Adjust as needed for iPad Pro and iPad Latest
+   }
+   // Social Links
+   .f-copyright__social-area a {
+      margin: 0 0.5rem;
+   }
+}
+
+// iPad Mini (768x1024) in landscape mode
+@media (1024px <= width <= 768px) and (768px <= height <= 1024px) and (orientation: landscape) {
+   body .homePageSection {
+      height: 90dvh; // Adjust as needed for iPad Mini
+   }
+   // Social Links
+   .f-copyright__social-area a {
+      margin: 0 0.5rem;
+   }
+}
+// iPad Air (820x1180) in landscape mode
+@media (1180px <= width <= 820px) and (820px <= height <= 1180px) and (orientation: landscape) {
+   body .homePageSection {
+      height: 90vh; // Adjust as needed for iPad Air
+   }
+   // Social Links
+   .f-copyright__social-area a {
+      margin: 0 0.5rem;
+   }
+}
+// Laptop (1366x768) in Landscape mode
+@media (width <= 1400px) and (height <= 800px) and (orientation: landscape) {
+   body .homePageSection {
+      height: 90vh; // Adjust the height as needed for laptops
+   }
+   // Social Links
+   .f-copyright__social-area a {
+      margin: 0 0.5rem;
+   }
+}
+// Laptop (1366x768) in Portrait mode
+@media (width <= 800px) and (height <= 1400px) and (orientation: portrait) {
+   body .homePageSection {
+      height: 32vh; // Adjust the height as needed for laptops
+   }
+   .footer-flex {
+      display: flex;
+      flex-direction: column-reverse;
+   }
+   // Social Links
+   .f-copyright__social-area a {
+      margin: 0 0.5rem;
+   }
+   .f-copyright__text {
+      margin-bottom: 0rem;
    }
 }
 
 // 13" Macbook Pro (1440x900) and 15" Macbook Pro (1680x1050)
-@media (width <= 1500px) and (height <= 1000px) {
+@media (width <= 1500px) and (height <= 1000px) and (orientation: landscape) {
    body .homePageSection {
-      height: 85vh; // Adjust the height as needed for 13" and 15" Macbook Pro
+      height: 90vh; // Adjust the height as needed for 13" and 15" Macbook Pro
+      align-items: baseline;
    }
 }
 
 // iPad Pro (1024x1366) and iPad Latest (1024x1366) in portrait mode
 @media (1024px <= width <= 1366px) and (1024px <= height <= 1366px) and (orientation: portrait) {
    body .homePageSection {
-      height: 40vh; // Adjust as needed for iPad Pro and iPad Latest
-   }
-}
-
-// iPad Pro (1024x1366) and iPad Latest (1024x1366) in landscape mode
-@media (1366px <= width <= 1024px) and (1024px <= height <= 1366px) and (orientation: landscape) {
-   body .homePageSection {
-      height: 90vh; // Adjust as needed for iPad Pro and iPad Latest
+      height: 45dvh; // Adjust as needed for iPad Pro and iPad Latest
    }
 }
 
@@ -33,12 +113,16 @@
    body .homePageSection {
       height: 40vh; // Adjust as needed for iPad Mini
    }
-}
-
-// iPad Mini (768x1024) in landscape mode
-@media (1024px <= width <= 768px) and (768px <= height <= 1024px) and (orientation: landscape) {
-   body .homePageSection {
-      height: 90vh; // Adjust as needed for iPad Mini
+   .footer-flex {
+      display: flex;
+      flex-direction: column-reverse;
+   }
+   // Social Links
+   .f-copyright__social-area a {
+      margin: 0 0.5rem;
+   }
+   .f-copyright__text {
+      margin-bottom: 0rem;
    }
 }
 
@@ -47,14 +131,19 @@
    body .homePageSection {
       height: 35vh; // Adjust as needed for iPad Air
    }
-}
-
-// iPad Air (820x1180) in landscape mode
-@media (1180px <= width <= 820px) and (820px <= height <= 1180px) and (orientation: landscape) {
-   body .homePageSection {
-      height: 90vh; // Adjust as needed for iPad Air
+   .footer-flex {
+      display: flex;
+      flex-direction: column-reverse;
+   }
+   // Social Links
+   .f-copyright__social-area a {
+      margin: 0 0.5rem;
+   }
+   .f-copyright__text {
+      margin-bottom: 0rem;
    }
 }
+
 // Surface Pro 7 (912x1368) in portrait mode
 @media (912px <= width <= 1368px) and (912px <= height <= 1368px) and (orientation: portrait) {
    body .homePageSection {
@@ -66,13 +155,6 @@
    body .homePageSection {
       height: 40vh; // Adjust as needed for Kindle Fire HDX 7"
    }
-}
-
-.homePageSection {
-   height: 90vh;
-   display: flex;
-   justify-content: center;
-   align-items: center;
 }
 
 // Mute Button CSS

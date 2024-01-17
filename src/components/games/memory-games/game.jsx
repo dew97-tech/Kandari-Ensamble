@@ -96,7 +96,7 @@ const Game = ({ exerciseTitle }) => {
                   </>
                )}
                {isGameStarted ? (
-                  <div className='d-flex align-items-center justify-content-between mx-1 mb-15'>
+                  <div className='d-flex align-items-center justify-content-between mb-10 mx-1'>
                      {(isStudying || isPlaying) && (
                         <>
                            <GameTime activity={"Leertijd"} totalTime={studyTotalSeconds} {...{ formatTime }} />
@@ -117,6 +117,17 @@ const Game = ({ exerciseTitle }) => {
                   </ul>
                )}
                <GameCardProvider>
+                  {isPlaying && (
+                     <div className='d-flex align-items-center justify-content-center'>
+                        <span
+                           id='guessword'
+                           name='guessword'
+                           className='h3 card-color p-2 buff-text-color pb-1 border border-1 border-secondary rounded-3 shadow-sm'
+                        >
+                           Vul het Franse woord in
+                        </span>
+                     </div>
+                  )}
                   <Container className='col-xl-12 col-lg-12 col-md-12 col-sm-12'>
                      <Row>
                         {frame !== 4 ? (

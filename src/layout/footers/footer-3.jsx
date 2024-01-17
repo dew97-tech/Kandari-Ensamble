@@ -135,12 +135,10 @@ const FooterThree = () => {
 					</div> */}
                <div className='f-copyright'>
                   <div className='container'>
-                     <div className='row d-flex align-items-center justify-content-center text-center text-lg-start py-3'>
+                     <div className='row d-flex align-items-center justify-content-between text-center footer-flex py-3'>
                         <div className='col-xl-6 col-lg-5'>
                            <div className='f-copyright__text h1 text-center'>
-                              <span style={{ fontSize: "20px" }}>
-                                 Maison Ensemble © {new Date().getFullYear()} , All Rights Reserved
-                              </span>
+                              <span>Maison Ensemble © {new Date().getFullYear()} , All Rights Reserved</span>
                            </div>
                         </div>
                         <div className='col-xl-3 col-lg-4'>
