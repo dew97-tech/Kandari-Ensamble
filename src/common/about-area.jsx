@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
-import imgUrl from "@/public/assets/img/bg/instruc-ab-01.jpg";
+import imgUrl from "@/public/assets/img/bg/louisa.jpeg";
 const about_info = {
    students: "235K",
    review: "4.7",
@@ -39,7 +39,7 @@ const AboutArea = ({ style_about }) => {
             <div className='container'>
                <div className='row align-items-center'>
                   <div className='col-xxl-7 col-xl-7 col-lg-6 col-md-12 col-12'>
-                     <div className='tp-about-class p-relative pb-50'>
+                     <div className='tp-about-class p-relative'>
                         {style_about ? (
                            <img src='/assets/img/bg/instructor-ab-02.jpg' alt='about-img' />
                         ) : (
@@ -47,8 +47,8 @@ const AboutArea = ({ style_about }) => {
                            <Image
                               src={imgUrl}
                               alt='about-img'
-                              width={1000}
-                              height={1000}
+                              width={640}
+                              height={427}
                               quality={100}
                               placeholder='blur'
                            />
@@ -56,7 +56,7 @@ const AboutArea = ({ style_about }) => {
                      </div>
                   </div>
                   <div className='col-xxl-5 col-xl-5 col-lg-6 col-md-12 col-12'>
-                     <div className='tp-about-class-content mb-50 ml-75'>
+                     <div className='tp-about-class-content mb-50 ml-55'>
                         <div className='section-title mb-35'>
                            {/* <span className='tp-bline-stitle mb-15'>Qualifications</span> */}
                            <h2 className='tp-section-title mb-25'>{title}</h2>

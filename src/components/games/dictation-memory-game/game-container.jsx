@@ -23,15 +23,18 @@ const GameContainer = () => {
    return (
       <>
          <div className='d-flex align-items-center justify-content-between mb-30'>
-            <h3 className='px-2 py-2 buff-text-color card-color'>Sequence : {currentSentenceIndex + 1}</h3>
+            <div className='mb-2'>
+               <h3 className='px-2 py-1 buff-text-color card-color'>Sequence : {currentSentenceIndex + 1}</h3>
+               <hr className='border-bottom border-secondary opacity-25 mx-1 mt-0 pt-0 mb-0 rounded' />
+            </div>
             <h3 className='px-2 py-2 border border-warning border-2 rounded shadow-sm buff-text-color buff'>
                <Lifeline context={DictationGameContext} />
             </h3>
          </div>
-
          {showNextFrame ? (
-            shuffledWords.map((wordObj, index) => (
+            currentSentence?.words.map((wordObj, index) => (
                <Memorize
+                  key={index}
                   word={wordObj.word}
                   serial={index}
                   answers={answers[index]}

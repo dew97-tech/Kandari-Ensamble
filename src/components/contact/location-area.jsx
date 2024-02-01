@@ -1,25 +1,13 @@
-import React from "react";
-
-// location_info
-const location_info = [
-   {
-      id: 1,
-      icon: "fa-light fa-phone",
-      info: "(209) 555-0104",
-   },
-   {
-      id: 2,
-      icon: "fa-light fa-location-dot",
-      info: "1901 Thornridge Cir. Shiloh, Hawaii 81063",
-   },
-   {
-      id: 3,
-      icon: "fi fi-rr-envelope",
-      info: "danghoang87hl@gmail.com",
-   },
-];
+import React, { useState, useEffect } from "react";
+import PopupCalendly from "../calendly/popup";
+import { PopupButton, PopupModal } from "react-calendly";
 
 const LocationArea = () => {
+   const [isOpen, setIsOpen] = useState(false);
+   const [rootElement, setRootElement] = useState(null);
+   useEffect(() => {
+      setRootElement(document.getElementById("__next"));
+   }, []);
    return (
       <>
          <div className='postbox__area bone pt-50 pb-24 px-2'>
@@ -36,17 +24,11 @@ const LocationArea = () => {
                            </div>
                            <div className='location-content'>
                               <h5 className='location-title '>
-                                 <a
-                                    className='buff-text-color'
-                                    href='tell:316 50 41 96 71'
-                                 >
+                                 <a className='buff-text-color' href='tell:316 50 41 96 71'>
                                     Telefoonnummer: +316 50 41 96 71
                                  </a>
                                  <br />
-                                 <a
-                                    className='buff-text-color'
-                                    href='tell:8329950'
-                                 >
+                                 <a className='buff-text-color' href='tell:8329950'>
                                     KVK nummer 8329950
                                  </a>
                               </h5>
@@ -56,16 +38,21 @@ const LocationArea = () => {
                      <div className='col-xl-6 col-md-6'>
                         <div className='location-item text-center mb-30'>
                            <div className='location-icon mb-25'>
-                              <i className='fa-solid fa-envelope fa-2xs'></i>
+                              <i
+                                 className='fa-regular fa-calendar-days'
+                                 onClick={() => setIsOpen(true)}
+                                 style={{ cursor: "pointer" }}
+                              ></i>
                            </div>
                            <div className='location-content'>
                               <h5 className='location-title'>
-                                 <a
-                                    className='buff-text-color'
-                                    href='mailto:danghoang87hl@gmail.com'
-                                 >
-                                    maison.ensamble.test@g.edu.com
-                                 </a>
+                                 <PopupModal
+                                    url='https://calendly.com/david-dew-mallick/30min'
+                                    onModalClose={() => setIsOpen(false)}
+                                    open={isOpen}
+                                    rootElement={rootElement}
+                                 />
+                                 <PopupCalendly buttonText='Calendly' />
                               </h5>
                            </div>
                         </div>

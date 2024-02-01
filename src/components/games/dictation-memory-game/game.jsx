@@ -141,7 +141,7 @@ const DictationMemoryGame = ({ exerciseTitle }) => {
                <GameTitle title={exerciseTitle} />
                {isGameStarted ? (
                   <>
-                     {!challengesCompleted && !isFinished ? (
+                     {!challengesCompleted && !isFinished && !isGameOver ? (
                         <section className='bone pt-10 pb-50 text-center'>
                            <div className='container pb-50'>
                               <div className='mx-1 shadow-sm border border-secondary border-2' style={cardStyle}>

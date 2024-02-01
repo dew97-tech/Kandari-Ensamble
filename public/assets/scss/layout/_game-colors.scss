@@ -79,6 +79,11 @@
       color: darkslategray;
       background-color: #ff7878;
    }
+   &:disabled {
+      background-color: #ff7843 !important;
+      opacity: 1 !important;
+      color: darkslategray;
+   }
 }
 .light-blue {
    background-color: #89b9bd;
@@ -99,6 +104,11 @@
    &:hover {
       color: darkslategray;
       background-color: #9de0ab;
+   }
+   &:disabled {
+      background-color: #82d995 !important;
+      opacity: 1 !important;
+      color: darkslategray;
    }
 }
 .card-color {

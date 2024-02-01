@@ -24,31 +24,38 @@ const DictationGameProvider = ({ children, exerciseTitle }) => {
    const [answers, setAnswers] = useState([]);
    const [UserAnswers, setUserAnswers] = useState([]);
    const [showResult, setShowResult] = useState(false);
-   const [heartEmojis, setHeartEmojis] = useState([
-      "❤︎",
-      "❤︎",
-      "❤︎",
-      "❤︎",
-      "❤︎",
-   ]);
+   const [heartEmojis, setHeartEmojis] = useState(["❤︎", "❤︎", "❤︎", "❤︎", "❤︎"]);
+   // States for True False Component
+   const [isCorrect, setIsCorrect] = useState(null);
+   const [selectedOption, setSelectedOption] = useState(null);
+   const [isSelectionMade, setIsSelectionMade] = useState(false);
+   const [countdown, setCountdown] = useState(null); // Starting countdown from 4
+   // Options Array of Answers with Correct Answer and Wrong Answer
+   const [options, setOptions] = useState([]);
+   // const [wordIndex, setWordIndex] = useState(0);
+   const [word, setWord] = useState("");
    // Function to remove a heart emoji from the lifeline
    const removeHeart = () => {
-      if (heartEmojis.length > 0) {
-         const newHeartEmojis = [...heartEmojis];
-         newHeartEmojis.pop();
-         // newHeartEmojis.unshift('💔');
-         setHeartEmojis(newHeartEmojis);
+      if (heartEmojis.length - 1 > 0) {
+         setHeartEmojis((prevHeartEmojis) => {
+            const newHeartEmojis = [...prevHeartEmojis];
+            newHeartEmojis.pop();
+            // newHeartEmojis.unshift('💔');
+            return newHeartEmojis;
+         });
       } else {
+         console.log("Game Over");
          setFeedbackMessage("Game Over !");
          setIsFinished(true);
          setIsGameOver(true);
          setShowConfetti(false);
-         setHeartEmojis(["❤︎", "❤︎", "❤︎", "❤︎", "❤︎"]);
+         // setHeartEmojis(["❤︎", "❤︎", "❤︎", "❤︎", "❤︎"]);
          setTimeout(() => {
             setFeedbackMessage("");
          }, 2000);
       }
    };
+
    const updateAnswer = (index, value) => {
       const newAnswers = [...answers];
       newAnswers[index] = value;
@@ -81,25 +88,53 @@ const DictationGameProvider = ({ children, exerciseTitle }) => {
       });
    };
    const handleSubmitAll = () => {
-      // Show confirmation prompt before submitting
-      // Process and submit all answers for Frame 3
+      var mistakes = 0;
+      let score = 0;
+      const wordTotal = currentSentence?.words;
 
-      answers.forEach((answer, index) => {
-         const actualWord = shuffledWords[index].word;
-         console.log("Correct Answer", actualWord);
-         console.log("User Answer", answer);
-         answer?.toLowerCase() === actualWord.toLowerCase()
-            ? handleResult("correct", index)
-            : handleResult("wrong", index);
-      });
+      // If there are answers, compare them with the correct answers from the backend
+      if (answers.length > 0) {
+         console.log("Answer:", answers);
+         for (let count = 0; count < wordTotal.length; count++) {
+            // Find the correct answer for the current word
+            const correctAnswer = wordTotal[count].answer.find((ans) => ans.isCorrect).text;
+
+            if (answers[count] === correctAnswer) {
+               handleResult("correct", count);
+               score += 1;
+            } else {
+               handleResult("wrong", count);
+               mistakes += 1;
+            }
+         }
+      } else {
+         // If there are no answers, every word in the current sentence is a mistake
+         mistakes += currentSentence?.words?.length || 0;
+      }
+      console.log("Mistakes:", mistakes);
+
+      // Remove hearts based on the number of mistakes
+      for (let i = 0; i < mistakes; i++) {
+         removeHeart();
+         if (mistakes >= 4) {
+            setFeedbackMessage("Game Over !");
+            setIsFinished(true);
+            setIsGameOver(true);
+            setShowConfetti(false);
+            setTimeout(() => {
+               setFeedbackMessage("");
+            }, 2000);
+         }
+      }
+
       setShowResult(true);
-
-      // Process and submit all answers for Frame 2
+      setMistake((prevMistake) => prevMistake + mistakes);
+      setScore((prevScore) => prevScore + score);
    };
 
    const handleResult = (message, index) => {
       if (message === "correct") {
-         setScore(score + 1);
+         // setScore(score + 1);
       }
 
       // setIsSubmitted(true);
@@ -124,27 +159,27 @@ const DictationGameProvider = ({ children, exerciseTitle }) => {
    useEffect(() => {
       if (sentences.length > 0) {
          setCurrentSentence(sentences[currentSentenceIndex]);
-         shuffleWords(sentences[currentSentenceIndex]);
-         console.log("sentences:", sentences);
-         console.log("api resolved");
+         // shuffleWords(sentences[currentSentenceIndex]);
+         setWord(sentences[currentSentenceIndex].words[currentWordIndex].word);
+         // Assuming you want to populate options with the answers of the current word pair
+         const currentWordAnswers = sentences[currentSentenceIndex].words[currentWordIndex].answer;
+
+         setOptions(currentWordAnswers);
+         // setAnswers(Array(sentences[currentSentenceIndex].words[currentWordIndex].length).fill(""));
+         // console.log("options:", currentWordAnswers);
+         // console.log("sentences:", sentences);
+         // console.log("api resolved");
       }
-   }, [sentences]);
+   }, [sentences, currentSentenceIndex, currentWordIndex]);
 
    // Exercise Progress Checker
    useEffect(() => {
       if (isFinished) {
-         const storedExercises = JSON.parse(
-            localStorage.getItem("lessons_exercises")
-         );
+         const storedExercises = JSON.parse(localStorage.getItem("lessons_exercises"));
          const updatedExercises = [...storedExercises];
-         const index = updatedExercises.findIndex(
-            (exercise) => exercise.name === exerciseTitle
-         );
+         const index = updatedExercises.findIndex((exercise) => exercise.name === exerciseTitle);
          updatedExercises[index].isFinished = true;
-         localStorage.setItem(
-            "lessons_exercises",
-            JSON.stringify(updatedExercises)
-         );
+         localStorage.setItem("lessons_exercises", JSON.stringify(updatedExercises));
       }
    }, [isFinished]);
 
@@ -174,9 +209,13 @@ const DictationGameProvider = ({ children, exerciseTitle }) => {
    const handleNextButtonClick = () => {
       // Go to next sentence in the array
       if (currentSentenceIndex < sentences.length - 1) {
-         setCurrentSentenceIndex(currentSentenceIndex + 1);
+         // setCurrentSentenceIndex(currentSentenceIndex + 1);
          setCurrentSentence(sentences[currentSentenceIndex + 1]);
          shuffleWords(sentences[currentSentenceIndex + 1]);
+         // Move on to the next sentence index
+         setCurrentSentenceIndex(currentSentenceIndex + 1);
+         setCurrentWordIndex(0); // Reset word index to 0 for the new sentence
+         setIsSequenceEnd(false);
       } else {
          // alert('Game Over');
          setFeedbackMessage("Congratulations ! All challenges are completed");
@@ -190,24 +229,17 @@ const DictationGameProvider = ({ children, exerciseTitle }) => {
       }
    };
 
-   // initialize the audio src
-   const audioUrl = shuffledWords[currentWordIndex]
-      ? shuffledWords[currentWordIndex]?.audioUrl
-      : null;
+   // Get the AudioURL
+   const audioUrl = currentSentence?.words?.[currentWordIndex]?.audioUrl;
 
    const goNext = () => {
-      if (
-         currentSentence.words &&
-         currentSentence.words.length - 1 === currentWordIndex
-      ) {
-         {
-            // When a words array is finised traversing -> then we are reseting the word index to 0
-            !isSequenceEnd &&
-               (setShowNextFrame(true),
-               setIsSequenceEnd(true),
-               setCurrentWordIndex(0));
-         }
+      if (currentSentence.words && currentSentence.words.length - 1 === currentWordIndex && !isSequenceEnd) {
+         // When a words array is finished traversing -> then we are resetting the word index to 0
+         !isSequenceEnd && (setShowNextFrame(true), setIsSequenceEnd(true));
+         // setShowNextFrame(true);
+         // console.log("i am in if condition");
       } else if (isSequenceEnd) {
+         // console.log("i am in else if condition");
          setShowResult(false);
          setAnswers([]);
          setUserAnswers([]);
@@ -215,6 +247,7 @@ const DictationGameProvider = ({ children, exerciseTitle }) => {
          setShowNextFrame(false);
          handleNextButtonClick();
       } else {
+         // console.log("i am in else condition");
          setCurrentWordIndex(currentWordIndex + 1);
       }
    };
@@ -222,7 +255,7 @@ const DictationGameProvider = ({ children, exerciseTitle }) => {
    const handleRestart = () => {
       setIsFinished(false);
       setShowConfetti(false);
-      // setScore(0);
+      setScore(0);
       setHeartEmojis(["❤︎", "❤︎", "❤︎", "❤︎", "❤︎"]);
       setShowResult(false);
       setAnswers([]);
@@ -235,6 +268,10 @@ const DictationGameProvider = ({ children, exerciseTitle }) => {
       setCurrentWordIndex(0);
       setIsGameStarted(false);
       setCurrentSentence(sentences[0]);
+      setWord([]);
+      setOptions([]);
+      setShuffledWords([]);
+      setFeedbackMessage("");
    };
    const monitorMistake = () => {
       console.log(mistake);
@@ -248,42 +285,73 @@ const DictationGameProvider = ({ children, exerciseTitle }) => {
          }, 2000);
       }
    };
-   const handleWordClick = (word, type) => {
-      // Find the word object based on the clicked word
-      const wordObj = currentSentence.words.find((obj) => obj.word === word);
-      // console.log(wordObj);
+   let timeoutId = null;
+   const handleWordClick = (word, optionText) => {
+      // Find the correct word object based on the clicked word
+      const wordObj = currentSentence.words.find((wordObj) => wordObj.word === word);
+      // console.log("Filtered Word Object", wordObj);
       if (wordObj) {
-         const isCorrect =
-            (type === "oui" && wordObj.answer === "oui") ||
-            (type === "non" && wordObj.answer === "non");
-         console.log(isCorrect);
+         // Check if the selected optionText is the correct word
+         const isCorrect = wordObj.answer.find((answer) => answer.text === optionText).isCorrect;
+
+         setIsCorrect(isCorrect);
+
          if (isCorrect) {
             setFeedbackMessage("Correct! Good Job");
-            setTimeout(() => {
+            timeoutId = setTimeout(() => {
                setFeedbackMessage("");
-            }, 1000);
+               setIsCorrect(null);
+               if (timeoutId) {
+                  clearTimeout(timeoutId);
+               }
+            }, 3000);
             // Rest of the code
          } else {
             setFeedbackMessage("Sorry! Wrong Answer");
-            setTimeout(() => {
+            timeoutId = setTimeout(() => {
                setFeedbackMessage("");
-            }, 1000);
-            setMistake(mistake + 1);
-            removeHeart();
-            // Highlight the word on the screen
-            // Rest of the code
+               setIsCorrect(null);
+               if (timeoutId) {
+                  clearTimeout(timeoutId);
+               }
+            }, 3000);
          }
       }
 
-      monitorMistake();
-      goNext();
+      // Clear the timeout if it exists
+      if (timeoutId) {
+         clearTimeout(timeoutId);
+      }
+
+      const startCountdown = () => {
+         setCountdown(3); // Reset countdown for each question
+         // setShowNextFrame(true);
+         const intervalId = setInterval(() => {
+            setCountdown((prevCount) => {
+               if (prevCount > 1) {
+                  return prevCount - 1;
+               } else {
+                  clearInterval(intervalId);
+                  setCountdown(null);
+                  goNext(); // Move to the next question after countdown finishes
+                  setIsCorrect(null);
+                  setSelectedOption(null);
+                  setIsSelectionMade(false);
+                  return 4; // Reset countdown after finishing
+               }
+            });
+         }, 1000); // Update countdown every second
+      };
+      startCountdown();
    };
+
    const returnAchievement = () => {
-      if (mistake <= 1) {
+      console.log(score);
+      if (score >= 4) {
          return "🥇";
-      } else if (mistake === 2) {
+      } else if (score === 3) {
          return "🥈";
-      } else if (mistake === 3) {
+      } else if (score === 2) {
          return "🥉";
       } else {
          return "No prize 🫡";
@@ -313,8 +381,9 @@ const DictationGameProvider = ({ children, exerciseTitle }) => {
             handleWordClick,
             handleGameStart,
             goNext,
-			returnAchievement, 
-            word: shuffledWords[currentWordIndex]?.word,
+            returnAchievement,
+            // word: shuffledWords[currentWordIndex]?.word,
+            word,
             answers,
             UserAnswers,
             updateAnswer,
@@ -324,6 +393,15 @@ const DictationGameProvider = ({ children, exerciseTitle }) => {
             showResult,
             isSequenceEnd,
             heartEmojis,
+            options,
+            isGameOver,
+            isCorrect,
+            selectedOption,
+            setSelectedOption,
+            isSelectionMade,
+            setIsSelectionMade,
+            timeoutId,
+            countdown,
          }}
       >
          {children}

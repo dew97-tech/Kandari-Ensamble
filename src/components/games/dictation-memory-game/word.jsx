@@ -6,15 +6,16 @@ const Word = () => {
    const { word, audioUrl } = useContext(DictationGameContext);
    return (
       <>
-         <div className="d-flex align-items-center justify-content-center mb-10 mx-3 rounded-4">
-            <h2 className="buff-text-color buff px-3 rounded-3 border border-warning border-2 shadow-sm mb-0">
+         <div className='d-flex align-items-center justify-content-center mb-20'>
+            <h2 className='buff-text-color card-color px-3 py-2 rounded-3 border border-secondary border-2 shadow-sm mb-0 me-3'>
                {word}
             </h2>
             <AudioPlayer
-               audioUrl={audioUrl}
+               audioUrl={decodeURIComponent(audioUrl)}
                context={DictationGameContext}
-               buttonSize={"btn-lg mx-2 px-3"}
-            //    rounded={"rounded-5"}
+               buttonSize={"btn-lg px-3 py-3"}
+               iconSize={"2rem"}
+               //    rounded={"rounded-5"}
             />
          </div>
       </>

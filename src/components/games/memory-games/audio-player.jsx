@@ -1,13 +1,7 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
 import { MdVolumeUp, MdPause } from "react-icons/md";
 
-const AudioPlayer = ({
-   audioUrl,
-   context,
-   rounded,
-   buttonSize,
-   setIsAudioPlaying,
-}) => {
+const AudioPlayer = ({ audioUrl, context, rounded, buttonSize, setIsAudioPlaying, iconSize }) => {
    const { playingAudio, setPlayingAudio } = useContext(context);
    // Create a reference to the audio element
    const audioRef = useRef(null);
@@ -58,19 +52,17 @@ const AudioPlayer = ({
       <div>
          {/* Audio control button */}
          <button
-            type="button"
+            type='button'
             className={`btn btn-md mx-1 py-2  ${
-               playingAudio === audioRef.current && isSoundPlaying
-                  ? "bittersweet"
-                  : "light-blue-secondary"
+               playingAudio === audioRef.current && isSoundPlaying ? "bittersweet" : "light-blue-secondary"
             } ${rounded ? rounded : "rounded"} 
                 ${buttonSize ? buttonSize : "btn"} shadow-sm buff-text-color`}
             onClick={handleSound}
          >
             {playingAudio === audioRef.current && isSoundPlaying ? (
-               <MdPause size={20} />
+               <MdPause size={`${iconSize ? iconSize : "20"}`} />
             ) : (
-               <MdVolumeUp size={20} />
+               <MdVolumeUp size={`${iconSize ? iconSize : "20"}`} />
             )}
          </button>
          {/* Audio element */}
