@@ -66,9 +66,21 @@
    }
 }
 // Laptop (1366x768) in Landscape mode
-@media (width <= 1400px) and (height <= 800px) and (orientation: landscape) {
+@media screen and (min-device-width: 1200px) and (max-device-width: 1400px) and (orientation: landscape) {
    body .homePageSection {
       height: 90vh; // Adjust the height as needed for laptops
+      align-items: baseline;
+   }
+   // Social Links
+   .f-copyright__social-area a {
+      margin: 0 0.5rem;
+   }
+}
+// Laptop (1366x768) in Landscape mode Istiak Special 
+@media screen and (min-device-width: 1400px) and (max-device-width: 1600px) and (orientation: landscape) {
+   body .homePageSection {
+      height: 110vh; // Adjust the height as needed for laptops
+      align-items: baseline;
    }
    // Social Links
    .f-copyright__social-area a {
@@ -94,12 +106,12 @@
 }
 
 // 13" Macbook Pro (1440x900) and 15" Macbook Pro (1680x1050)
-@media (width <= 1500px) and (height <= 1000px) and (orientation: landscape) {
-   body .homePageSection {
-      height: 90vh; // Adjust the height as needed for 13" and 15" Macbook Pro
-      align-items: baseline;
-   }
-}
+// @media (width <= 1500px) and (height <= 1000px) and (orientation: landscape) {
+//    body .homePageSection {
+//       height: 90vh; // Adjust the height as needed for 13" and 15" Macbook Pro
+//       align-items: baseline;
+//    }
+// }
 
 // iPad Pro (1024x1366) and iPad Latest (1024x1366) in portrait mode
 @media (1024px <= width <= 1366px) and (1024px <= height <= 1366px) and (orientation: portrait) {
