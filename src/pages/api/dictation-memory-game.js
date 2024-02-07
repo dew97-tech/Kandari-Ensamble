@@ -1,20 +1,20 @@
 const translations = {
-   "à-plus": [
+   "à plus": [
       { translation: "tot later", isCorrect: true },
       { translation: "wij gaan", isCorrect: false },
       { audioUrl: "/assets/exercises/dictation-memory-game/audio_1.mp3" },
    ],
-   "ça-va-bien": [
+   "ça va bien": [
       { translation: "het gaat goed", isCorrect: true },
       { translation: "het gaat slecht", isCorrect: false },
       { audioUrl: "/assets/exercises/dictation-memory-game/audio_2.mp3" },
    ],
-   "je-m'appelle": [
+   "je m'appelle": [
       { translation: "hij heet", isCorrect: false },
       { translation: "ik heet", isCorrect: true },
       { audioUrl: "/assets/exercises/dictation-memory-game/audio_3.mp3" },
    ],
-   "au-revoir": [
+   "au revoir": [
       { translation: "tot ziens", isCorrect: true },
       { translation: "hallo", isCorrect: false },
       { audioUrl: "/assets/exercises/dictation-memory-game/audio_4.mp3" },
@@ -54,7 +54,7 @@ const translations = {
       { translation: "doei", isCorrect: false },
       { audioUrl: "/assets/exercises/dictation-memory-game/audio_11.mp3" },
    ],
-   "des-photos": [
+   "des photos": [
       { translation: "foto's", isCorrect: true },
       { translation: "videos", isCorrect: false },
       { audioUrl: "/assets/exercises/dictation-memory-game/audio_12.mp3" },
@@ -69,7 +69,7 @@ const translations = {
       { translation: "hij", isCorrect: false },
       { audioUrl: "/assets/exercises/dictation-memory-game/audio_14.mp3" },
    ],
-   "elle-est": [
+   "elle est": [
       { translation: "zij is", isCorrect: true },
       { translation: "zij zijn", isCorrect: false },
       { audioUrl: "/assets/exercises/dictation-memory-game/audio_15.mp3" },
@@ -79,12 +79,12 @@ const translations = {
       { translation: "daar", isCorrect: false },
       { audioUrl: "/assets/exercises/dictation-memory-game/audio_16.mp3" },
    ],
-   "je-dois": [
+   "je dois": [
       { translation: "ik moet", isCorrect: true },
       { translation: "ik wil", isCorrect: false },
       { audioUrl: "/assets/exercises/dictation-memory-game/audio_17.mp3" },
    ],
-   "je-suis": [
+   "je suis": [
       { translation: "ik ben", isCorrect: true },
       { translation: "hij is", isCorrect: false },
       { audioUrl: "/assets/exercises/dictation-memory-game/audio_18.mp3" },

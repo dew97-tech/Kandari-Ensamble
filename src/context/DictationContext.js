@@ -99,7 +99,7 @@ const DictationGameProvider = ({ children, exerciseTitle }) => {
             // Find the correct answer for the current word
             const correctAnswer = wordTotal[count].answer.find((ans) => ans.isCorrect).text;
 
-            if (answers[count] === correctAnswer) {
+            if (answers[count].toLowerCase() === correctAnswer.toLowerCase()) {
                handleResult("correct", count);
                score += 1;
             } else {
