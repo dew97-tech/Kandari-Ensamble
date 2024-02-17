@@ -10,7 +10,7 @@ const lesson_data = [
             serialNo: 1,
             exercise_id: 1,
             link: "/video-lessons/dialogue-animation-video",
-            title: "Dialogue Animation",
+            title: "Video",
          },
          {
             serialNo: 2,

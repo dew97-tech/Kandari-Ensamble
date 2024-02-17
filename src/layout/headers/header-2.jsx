@@ -30,7 +30,7 @@ const HeaderTwo = () => {
                                             <Link href="/home-3">
                                                 <img
                                                     src="/assets/img/logo/brand_logo_2.png"
-                                                    alt="Maison Ensamble"
+                                                    alt="Maison Ensemble"
                                                 />
                                             </Link>
                                         </div>
@@ -92,7 +92,7 @@ const HeaderTwo = () => {
                                 <Link href="/">
                                     <img
                                         src="/assets/img/logo/brand_logo_2.png"
-                                        alt="Maison Ensamble"
+                                        alt="Maison Ensemble"
                                     />
                                 </Link>
                             </div>

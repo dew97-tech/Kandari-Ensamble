@@ -1,7 +1,7 @@
 export default function handler(req, res) {
    try {
       const videoSrc =
-         "https://res.cloudinary.com/dgeheytdg/video/upload/f_auto:video,q_auto/v1/Maison%20Ensamble/MaisonEnsamble_Le%C3%A7on1_othoas";
+         "https://res.cloudinary.com/dgeheytdg/video/upload/f_auto:video,q_auto/v1/Maison%20Ensamble/MaisonEnsemble_Le%C3%A7on1_othoas";
       if (req.method === "GET") {
          // We can fetch the video source URL from your backend or database
          console.log("Fetching Video Source...");

@@ -30,8 +30,8 @@ const HeaderThree = () => {
    };
    return (
       <>
-         <header className='bone '>
-            <div className='py-3' id='header-sticky'>
+         <header className='bone'>
+            <div className='pt-10' id='header-sticky'>
                <div className='container col-lg-10'>
                   <div className='d-flex justify-content-between align-items-center'>
                      <div className='text-center'>
@@ -40,9 +40,15 @@ const HeaderThree = () => {
                               <Link href='/'>
                                  <Image
                                     src='/assets/img/logo/brand_logo_2.png'
-                                    alt='Maison Ensamble'
-                                    width={150}
-                                    height={50}
+                                    alt='Maison Ensemble'
+                                    // width={200}
+                                    // height={100}
+
+                                    placeholder={true}
+                                    width={200}
+                                    height={100}
+                                    quality={100}
+                                    priority
                                  />
                               </Link>
                            </div>

@@ -4,7 +4,7 @@ import SEO from '../../../common/seo';
 function PageLoader() {
 	return (
 		<>
-			<SEO pageTitle={'Maison Ensamble'} />
+			<SEO pageTitle={'Maison Ensemble'} />
 			<section className="course-area pt-200 pb-200 bone" style={{ height: '100vh' }}>
 				<div className="container">
 					<div className="d-flex flex-column align-items-center justify-content-center mx-2">

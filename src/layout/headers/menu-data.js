@@ -1,14 +1,14 @@
 const menu_data = [
    {
       id: 4,
-      title: "LEÇON 1",
+      title: "Leçon 1",
       link: "/video-lessons/dialogue-animation-video",
       has_dropdown: false,
       onlySideBar: false,
       sub_menus: [
          {
             link: "/video-lessons/dialogue-animation-video",
-            title: "Dialogue Animation",
+            title: "Video",
          },
       ],
    },

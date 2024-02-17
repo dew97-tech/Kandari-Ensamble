@@ -48,7 +48,7 @@ const Game = ({ exerciseTitle }) => {
                               <>
                                  <div className='d-flex justify-content-evenly align-items-center'>
                                     <h4 className='px-2 py-2 border border-warning border-2 rounded shadow-sm buff-text-color buff'>
-                                       Level : {level - 2}
+                                       Level: {level - 2}
                                     </h4>
                                     <h4 className='px-2 py-2 border border-warning border-2 rounded shadow-sm buff-text-color buff'>
                                        {/* Mistake : {renderHearts} */}

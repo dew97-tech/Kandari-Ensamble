@@ -21,8 +21,8 @@ const LoginForm = () => {
       Swal.fire({
          position: "center",
          icon: "success",
-         title: "Login Successfull !",
-         html: "<h3>Redirecting to Homepage...</h3>",
+         title: "Inloggen is gelukt!",
+         // html: "<h3>Redirecting to Homepage...</h3>",
          timer: 1000,
          allowOutsideClick: false,
          allowEscapeKey: false,
@@ -85,9 +85,9 @@ const LoginForm = () => {
 
    return (
       <>
-         <section className='login-area pt-20 pb-50 bone'>
+         <section className='login-area bone'>
             <div className='container'>
-               <div className='row'  style={{ height: "78vh" }}>
+               <div className='row' style={{ minHeight:"90vh" }}>
                   <motion.div
                      key='step1'
                      className='d-flex justify-content-center align-items-center'
@@ -102,7 +102,7 @@ const LoginForm = () => {
                            <div className='row'>
                               <div className='d-flex justify-content-center'>
                                  <div className='text-center'>
-                                    <h3 className='tp-section-title px-2 buff-text-color'>Login From Here</h3>
+                                    <h3 className='tp-section-title px-2 buff-text-color'>Login</h3>
                                     <hr className='shadow-sm border border-1 border-secondary opacity-25 rounded mt-0 mb-30 mx-2' />
                                  </div>
                               </div>
@@ -117,7 +117,7 @@ const LoginForm = () => {
                                  className='border border-secondary border-1 rounded-2 buff-text-color'
                                  type='email'
                                  name='email'
-                                 placeholder='Enter Email...'
+                                 // placeholder='Enter Email...'
                                  value={formData.email}
                                  required
                                  onChange={handleInputChange}
@@ -130,14 +130,14 @@ const LoginForm = () => {
                                  id='password'
                                  type='password'
                                  name='password'
-                                 placeholder='Enter password...'
+                                 // placeholder='Enter password...'
                                  value={formData.password}
                                  required
                                  onChange={handleInputChange}
                               />
                               <div className='forgot-password-div d-flex justify-content-end'>
                                  <Link href='/forgot-password' className='my-3 h6 text-primary opacity-75'>
-                                    <u>Forgot Password?</u>
+                                    <u>Wachtwoord vergeten?</u>
                                  </Link>
                               </div>
                               {error && <div className='my-1 text-danger text-center'>{error}</div>}
@@ -155,14 +155,14 @@ const LoginForm = () => {
                                  )}
                               </button>
                               <div className='or-divide light-blue-secondary'>
-                                 <span className='rounded-2'>or</span>
+                                 <span className='rounded-2'>of</span>
                               </div>
 
                               <Link
                                  href='/register'
                                  className='btn btn-lg light-border-blue w-100 light-blue shadow-sm'
                               >
-                                 Sign Up
+                                 Inschrijven
                               </Link>
                            </form>
                         </div>

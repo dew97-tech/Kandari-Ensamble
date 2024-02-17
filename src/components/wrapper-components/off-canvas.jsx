@@ -44,7 +44,7 @@ const OffCanvas = () => {
    return (
       <>
          <Button className='buff border border-secondary text-dark px-3 py-2 mb-30' onClick={handleShow}>
-            Lesson Path
+            Oefeningen
          </Button>
          <div>
             <Offcanvas show={show} onHide={handleClose} backdrop={true} scroll={true} style={cardStyle}>

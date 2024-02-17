@@ -102,37 +102,13 @@ const social_links = [
 const FooterThree = () => {
    return (
       <>
-         <footer>
+         <footer className='d-block mt-auto'>
             <div
-               className='footer-bg theme-bg bg-bottom'
+               className='footer-bg theme-bg bg-bottom-center'
                style={{
                   backgroundImage: `url(/assets/img/bg/shape-bg-02.png)`,
                }}
             >
-               {/* <div className="f-border pt-115 pb-165">
-						<div className="container">
-							<div className="row">
-								{footer_three_content.map((item, i) => (
-									<div key={i} className={`${item.cls} col-md-4  col-6`}>
-										<div className={`footer-widget ${item.footer_col} mb-50`}>
-											<div className="footer-widget__text mb-35">
-												<h3 className="footer-widget__title">{item.title}</h3>
-											</div>
-											<div className="footer-widget__link">
-												<ul>
-													{item.links.map((link, i) => (
-														<li key={i}>
-															<a href="#">{link.name}</a>
-														</li>
-													))}
-												</ul>
-											</div>
-										</div>
-									</div>
-								))}
-							</div>
-						</div>
-					</div> */}
                <div className='f-copyright'>
                   <div className='container'>
                      <div className='row d-flex align-items-center justify-content-between text-center footer-flex py-3'>

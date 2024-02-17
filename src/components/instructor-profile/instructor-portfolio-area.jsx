@@ -129,7 +129,7 @@ const InstructorPortfolioArea = () => {
                                  <li>
                                     <i className='fi fi-rr-envelope'></i>{" "}
                                     <label>Email</label>{" "}
-                                    <span>sacha@maison.ensamble.edu</span>
+                                    <span>sacha@maison.ensemble.edu</span>
                                  </li>
                                  {/* <li>
                         <i className="fi fi-rr-time-forward"></i>{" "}

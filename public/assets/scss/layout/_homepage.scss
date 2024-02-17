@@ -68,15 +68,18 @@
 // Laptop (1366x768) in Landscape mode
 @media screen and (min-device-width: 1200px) and (max-device-width: 1400px) and (orientation: landscape) {
    body .homePageSection {
-      height: 90vh; // Adjust the height as needed for laptops
+      height: 100vh; // Adjust the height as needed for laptops
       align-items: baseline;
+   }
+   .logo img {
+      width: 75%;
    }
    // Social Links
    .f-copyright__social-area a {
       margin: 0 0.5rem;
    }
 }
-// Laptop (1366x768) in Landscape mode Istiak Special 
+// Laptop (1366x768) in Landscape mode When Bookmark Tab Enable
 @media screen and (min-device-width: 1400px) and (max-device-width: 1600px) and (orientation: landscape) {
    body .homePageSection {
       height: 110vh; // Adjust the height as needed for laptops
@@ -90,11 +93,14 @@
 // Laptop (1366x768) in Portrait mode
 @media (width <= 800px) and (height <= 1400px) and (orientation: portrait) {
    body .homePageSection {
-      height: 32vh; // Adjust the height as needed for laptops
+      height: 35vh; // Adjust the height as needed for laptops
    }
    .footer-flex {
       display: flex;
       flex-direction: column-reverse;
+   }
+   .tp-about-class{
+      margin-bottom: 1rem !important;
    }
    // Social Links
    .f-copyright__social-area a {

@@ -145,7 +145,7 @@ const RegisterForm = () => {
                         Sign up From Here
                     </h3> */}
                <div className='row'>
-                  <div className='d-flex justify-content-center'>
+                  <div className='d-flex justify-content-center align-items-center'>
                      <div className='text-center'>
                         <h3 className='tp-section-title px-2 buff-text-color'>Sign-up From Here</h3>
                         <hr className='shadow-sm border border-1 border-secondary opacity-25 rounded mt-0 mx-2' />
@@ -290,10 +290,10 @@ const RegisterForm = () => {
    };
 
    return (
-      <section className='login-area pt-50 pb-50 bone'>
+      <section className='login-area bone p-3'>
          <div className='container'>
-            <div className='row' style={{ height: "90vh" }}>
-               <div className='col-lg-8 offset-lg-2 '>
+            <div className='row d-flex align-items-center justify-content-center' style={{ minHeight: "90vh" }}>
+               <div className='col-lg-8 col-md-12 col-sm-12 col-xs-12'>
                   <div className='basic-login card-color border border-secondary border-1 rounded-4'>
                      {step === 1 && (
                         <motion.div

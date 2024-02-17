@@ -30,10 +30,10 @@ const PricingCard = ({ planName, description, duration, price, selectedDuration,
             <div className='py-3 memory-game-color'>
                {price ? (
                   <>
-                     <h1 className='card-subtitle light-blue-text-color mb-3 fs-2'>
+                     {/* <h1 className='card-subtitle light-blue-text-color mb-3 fs-2'>
                         {price}
                         <span className='small buff-text-color fs-5'>/ {duration} months</span>
-                     </h1>
+                     </h1> */}
                      <div className='btn light-blue fs-5 py-2 px-4'>
                         <PopupCalendly buttonText='Subscribe' />
                      </div>

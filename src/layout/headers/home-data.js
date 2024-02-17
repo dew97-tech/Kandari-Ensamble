@@ -1,21 +1,21 @@
 const home_data = [
    {
       id: 1,
-      title: "OVER",
+      title: "Over",
       link: "/about",
       has_dropdown: false,
       onlySideBar: false,
    },
    {
       id: 2,
-      title: "DIENSTEN",
+      title: "Diensten",
       link: "/services",
       has_dropdown: false,
       onlySideBar: false,
    },
    {
       id: 3,
-      title: "CONTACT",
+      title: "Contact",
       link: "/contact",
       has_dropdown: false,
       onlySideBar: false,
