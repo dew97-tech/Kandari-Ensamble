@@ -1,6 +1,5 @@
 @use "../utils" as *;
 .homePageSection {
-   height: 90vh;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -37,7 +36,8 @@
 // iPad Pro (1366x1024) and iPad Latest (1366x1024) in landscape mode
 @media (1366px <= width <= 1024px) and (1366px <= height <= 1024px) and (orientation: landscape) {
    body .homePageSection {
-      height: 70vh; // Adjust as needed for iPad Pro and iPad Latest
+      // height: 70vh; // Adjust as needed for iPad Pro and iPad Latest
+      align-items: baseline;
    }
    // Social Links
    .f-copyright__social-area a {
@@ -48,7 +48,8 @@
 // iPad Mini (768x1024) in landscape mode
 @media (1024px <= width <= 768px) and (768px <= height <= 1024px) and (orientation: landscape) {
    body .homePageSection {
-      height: 90dvh; // Adjust as needed for iPad Mini
+      // height: 90dvh; // Adjust as needed for iPad Mini
+      align-items: baseline;
    }
    // Social Links
    .f-copyright__social-area a {
@@ -58,7 +59,8 @@
 // iPad Air (820x1180) in landscape mode
 @media (1180px <= width <= 820px) and (820px <= height <= 1180px) and (orientation: landscape) {
    body .homePageSection {
-      height: 90vh; // Adjust as needed for iPad Air
+      // height: 90vh; // Adjust as needed for iPad Air
+      align-items: baseline;
    }
    // Social Links
    .f-copyright__social-area a {
@@ -68,7 +70,6 @@
 // Laptop (1366x768) in Landscape mode
 @media screen and (min-device-width: 1200px) and (max-device-width: 1400px) and (orientation: landscape) {
    body .homePageSection {
-      height: 100vh; // Adjust the height as needed for laptops
       align-items: baseline;
    }
    .logo img {
@@ -82,7 +83,7 @@
 // Laptop (1366x768) in Landscape mode When Bookmark Tab Enable
 @media screen and (min-device-width: 1400px) and (max-device-width: 1600px) and (orientation: landscape) {
    body .homePageSection {
-      height: 110vh; // Adjust the height as needed for laptops
+      // height: 110vh; // Adjust the height as needed for laptops
       align-items: baseline;
    }
    // Social Links
@@ -93,13 +94,14 @@
 // Laptop (1366x768) in Portrait mode
 @media (width <= 800px) and (height <= 1400px) and (orientation: portrait) {
    body .homePageSection {
-      height: 35vh; // Adjust the height as needed for laptops
+      // height: 35vh; // Adjust the height as needed for laptops
+      align-items: baseline;
    }
    .footer-flex {
       display: flex;
       flex-direction: column-reverse;
    }
-   .tp-about-class{
+   .tp-about-class {
       margin-bottom: 1rem !important;
    }
    // Social Links
@@ -111,25 +113,19 @@
    }
 }
 
-// 13" Macbook Pro (1440x900) and 15" Macbook Pro (1680x1050)
-// @media (width <= 1500px) and (height <= 1000px) and (orientation: landscape) {
-//    body .homePageSection {
-//       height: 90vh; // Adjust the height as needed for 13" and 15" Macbook Pro
-//       align-items: baseline;
-//    }
-// }
-
 // iPad Pro (1024x1366) and iPad Latest (1024x1366) in portrait mode
 @media (1024px <= width <= 1366px) and (1024px <= height <= 1366px) and (orientation: portrait) {
    body .homePageSection {
-      height: 45dvh; // Adjust as needed for iPad Pro and iPad Latest
+      // height: 45dvh; // Adjust as needed for iPad Pro and iPad Latest
+      align-items: baseline;
    }
 }
 
 // iPad Mini (768x1024) in portrait mode
 @media (768px <= width <= 1024px) and (768px <= height <= 1024px) and (orientation: portrait) {
    body .homePageSection {
-      height: 40vh; // Adjust as needed for iPad Mini
+      // height: 40vh; // Adjust as needed for iPad Mini
+      align-items: baseline;
    }
    .footer-flex {
       display: flex;
@@ -147,7 +143,8 @@
 // iPad Air (820x1180) in portrait mode
 @media (820px <= width <= 1180px) and (820px <= height <= 1180px) and (orientation: portrait) {
    body .homePageSection {
-      height: 35vh; // Adjust as needed for iPad Air
+      // height: 35vh; // Adjust as needed for iPad Air
+      align-items: baseline;
    }
    .footer-flex {
       display: flex;
@@ -165,13 +162,15 @@
 // Surface Pro 7 (912x1368) in portrait mode
 @media (912px <= width <= 1368px) and (912px <= height <= 1368px) and (orientation: portrait) {
    body .homePageSection {
-      height: 40vh; // Adjust as needed for Surface Pro 7
+      // height: 40vh; // Adjust as needed for Surface Pro 7
+      align-items: baseline;
    }
 }
 // Kindle Fire HDX 7" (800x1280) in portrait mode
 @media (800px <= width <= 1280px) and (800px <= height <= 1280px) and (orientation: portrait) {
    body .homePageSection {
-      height: 40vh; // Adjust as needed for Kindle Fire HDX 7"
+      // height: 40vh; // Adjust as needed for Kindle Fire HDX 7"
+      align-items: baseline;
    }
 }
 

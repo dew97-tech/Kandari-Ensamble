@@ -9,6 +9,7 @@ const Right_Order_Game_Questions = [
             hintSentence: "Hoi, ik heet Charlie.",
             wrongOrder: ["Charlie ", "m`appelle", "je", "salut"],
             correctOrder: ["Salut", "je", "m`appelle", "Charlie"],
+            audioUrl: "/assets/exercises/video-exercise/salut-je-mappelle-charlie.mp3",
             video: {
                pauseTime: 26.375,
             },
@@ -19,6 +20,7 @@ const Right_Order_Game_Questions = [
             hintSentence: "Het gaat goed met me, dank je!",
             wrongOrder: ["vais", "je", "bien", "merci"],
             correctOrder: ["Je,", "vais", "bien", "merci"],
+            audioUrl: "/assets/exercises/video-exercise/je-vais-bien-merci.mp3",
             video: {
                pauseTime: 36.125,
             },
@@ -29,6 +31,7 @@ const Right_Order_Game_Questions = [
             hintSentence: "En jij, hoe gaat het?",
             wrongOrder: ["toi", "et", "va", "ça"],
             correctOrder: ["Et", "toi", "ça", "va"],
+            audioUrl: "/assets/exercises/video-exercise/et-toi-ca-va.mp3",
             video: {
                pauseTime: 40.188,
             },
@@ -39,6 +42,7 @@ const Right_Order_Game_Questions = [
             hintSentence: "Ja, we wonen hier.",
             wrongOrder: ["habitons", "oui", "nous", "ici"],
             correctOrder: ["Oui", "nous", "habitons ", "ici"],
+            audioUrl: "/assets/exercises/video-exercise/oui-nous-habitons-ici.mp3",
             video: {
                pauseTime: 55.854,
             },
@@ -49,6 +53,7 @@ const Right_Order_Game_Questions = [
             hintSentence: "Wij zijn Marandais.",
             wrongOrder: ["sommes", "Marandais", "nous"],
             correctOrder: ["Nous", "sommes", "Marandais"],
+            audioUrl: "/assets/exercises/video-exercise/nous-sommes-marandais.mp3",
             video: {
                pauseTime: 60.875,
             },
@@ -59,6 +64,7 @@ const Right_Order_Game_Questions = [
             hintSentence: "Tot later",
             wrongOrder: ["plus", " à"],
             correctOrder: ["à", "plus"],
+            audioUrl: "/assets/exercises/video-exercise/a-plus.mp3",
             video: {
                pauseTime: 91.625,
             },
@@ -74,6 +80,7 @@ const Right_Order_Game_Questions = [
             hintSentence: "Hallo, ik ben Sacha",
             wrongOrder: ["suis", "bonjour", "Sacha", "je"],
             correctOrder: ["Bonjour", "je", "suis", "Sacha"],
+            audioUrl: "/assets/exercises/video-exercise/bonjour-je-suis-sacha.mp3",
             video: {
                pauseTime: 16.75,
             },
@@ -84,6 +91,7 @@ const Right_Order_Game_Questions = [
             hintSentence: "Hoe heet jij?",
             wrongOrder: ["t`appelles", "tu", "comment"],
             correctOrder: ["Comment", "t`appelles", "tu"],
+            audioUrl: "/assets/exercises/video-exercise/comment-tappelles-tu.mp3",
             video: {
                pauseTime: 22.458,
             },
@@ -94,6 +102,7 @@ const Right_Order_Game_Questions = [
             hintSentence: "Hoe gaat het met je Charlie?",
             wrongOrder: ["vas-tu", "Charlie", "comment"],
             correctOrder: ["Comment", "vas-tu", "Charlie"],
+            audioUrl: "/assets/exercises/video-exercise/comment-vas-tu-charlie.mp3",
             video: {
                pauseTime: 32.125,
             },
@@ -104,6 +113,7 @@ const Right_Order_Game_Questions = [
             hintSentence: "Het gaat goed, dank je.",
             wrongOrder: ["bien", "va", "ça", "merci"],
             correctOrder: ["Ça", "va", "bien", "merci"],
+            audioUrl: "/assets/exercises/video-exercise/ca-va-bien-merci.mp3",
             video: {
                pauseTime: 44.25,
             },
@@ -114,6 +124,7 @@ const Right_Order_Game_Questions = [
             hintSentence: "Ben je hier met je ouders?",
             wrongOrder: ["es", "tu", "avec", "parents", "tes", "ici"],
             correctOrder: ["Tu", "es", "ici", "avec", "tes", "parents"],
+            audioUrl: "/assets/exercises/video-exercise/tu-es-ici-avec-tes-parents.mp3",
             video: {
                pauseTime: 49.417,
             },
@@ -124,6 +135,7 @@ const Right_Order_Game_Questions = [
             hintSentence: "Zijn jullie hier geboren?",
             wrongOrder: ["êtes", "ici", "nés", "vous"],
             correctOrder: ["Vous", "êtes", "nés", "ici"],
+            audioUrl: "/assets/exercises/video-exercise/vous-etes-nes-ici.mp3",
             video: {
                pauseTime: 65.083,
             },
@@ -134,6 +146,7 @@ const Right_Order_Game_Questions = [
             hintSentence: "Wow, ze zijn mooi!",
             wrongOrder: ["belles", "sont", "elles", "wow"],
             correctOrder: ["Wow", "elles", "sont", "belles"],
+            audioUrl: "/assets/exercises/video-exercise/wow-elles-sont-belles.mp3",
             video: {
                pauseTime: 77.25,
             },
@@ -144,6 +157,7 @@ const Right_Order_Game_Questions = [
             hintSentence: "Oh, ik moet gaan",
             wrongOrder: ["oh", "partir", "je", "dois"],
             correctOrder: ["oh", "Je", "dois", "partir"],
+            audioUrl: "/assets/exercises/video-exercise/oh-je-dois-partir.mp3",
             video: {
                pauseTime: 82.25,
             },
@@ -154,6 +168,7 @@ const Right_Order_Game_Questions = [
             hintSentence: "Tot ziens Charlie.",
             wrongOrder: ["revoir", "au", "Charlie"],
             correctOrder: ["Au", "revoir", "Charlie"],
+            audioUrl: "/assets/exercises/video-exercise/au-revoir-charlie.mp3",
             video: {
                pauseTime: 87.375,
             },
@@ -169,6 +184,7 @@ const Right_Order_Game_Questions = [
             hintSentence: "Het gaat heel goed.",
             wrongOrder: ["va", "bien", "très", "ça"],
             correctOrder: ["Ça", "va", "très", "bien"],
+            audioUrl: "/assets/exercises/place-in-right-order/ca-va-tres-bien.mp3",
             video: {
                pauseTime: 16.75,
             },
@@ -179,6 +195,7 @@ const Right_Order_Game_Questions = [
             hintSentence: "Hoe gaat het? Niet slecht.",
             wrongOrder: ["pas ", "va ?", "ça", "mal"],
             correctOrder: ["Ça", "va ?", "Pas", "mal"],
+            audioUrl: "/assets/exercises/place-in-right-order/ca-va-pas-mal.mp3",
             video: {
                pauseTime: 22.458,
             },
@@ -189,6 +206,7 @@ const Right_Order_Game_Questions = [
             hintSentence: "Het gaat niet goed",
             wrongOrder: ["pas", "va", "bien", "ne", "ça"],
             correctOrder: ["Ça", "ne", "va", "pas", "bien"],
+            audioUrl: "/assets/exercises/place-in-right-order/ca-ne-va-pas-bien.mp3",
             video: {
                pauseTime: 32.125,
             },
@@ -199,6 +217,7 @@ const Right_Order_Game_Questions = [
             hintSentence: "Hoi, gaat het goed met je?",
             wrongOrder: ["vas", "bien", "tu", "salut"],
             correctOrder: ["Salut", "tu", "vas", "bien"],
+            audioUrl: "/assets/exercises/place-in-right-order/salut-tu-vas-bien.mp3",
             video: {
                pauseTime: 36.125,
             },
@@ -209,6 +228,7 @@ const Right_Order_Game_Questions = [
             hintSentence: "Het gaat slecht.",
             wrongOrder: ["mal", "ça", "va"],
             correctOrder: ["Ça", "va", "mal"],
+            audioUrl: "/assets/exercises/place-in-right-order/ca-va-mal.mp3",
             video: {
                pauseTime: 49.417,
             },
@@ -219,6 +239,7 @@ const Right_Order_Game_Questions = [
             hintSentence: "Het gaat heel goed met me. En jij?",
             wrongOrder: ["je", "très", "vais", "toi", "et", "bien"],
             correctOrder: ["Je", "vais", "très", "bien", "et", "toi"],
+            audioUrl: "/assets/exercises/place-in-right-order/je-vais-tres-bien-et-toi.mp3",
             video: {
                pauseTime: 60.68,
             },

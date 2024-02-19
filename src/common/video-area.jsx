@@ -27,7 +27,7 @@ const VideoArea = ({ style_2 }) => {
                {/* Container */}
                <div className='container'>
                   {/* Row */}
-                  <div className='row'>
+                  <div className='row homePageSection mb-55'>
                      <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}

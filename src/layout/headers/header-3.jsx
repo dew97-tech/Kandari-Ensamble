@@ -36,19 +36,14 @@ const HeaderThree = () => {
                   <div className='d-flex justify-content-between align-items-center'>
                      <div className='text-center'>
                         <div className='logo-area d-flex align-items-center'>
-                           <div className='logo'>
+                           <div className=''>
                               <Link href='/'>
                                  <Image
                                     src='/assets/img/logo/brand_logo_2.png'
                                     alt='Maison Ensemble'
-                                    // width={200}
-                                    // height={100}
-
                                     placeholder={true}
                                     width={200}
                                     height={100}
-                                    quality={100}
-                                    priority
                                  />
                               </Link>
                            </div>

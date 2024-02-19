@@ -73,6 +73,7 @@ const sentences = [
             question: "Ça va ___ bien.",
             options: ["très", "pas mal", "ne va pas", "bien", "mal", "vais"],
             correctAns: "très",
+            audioUrl: "/assets/exercises/place-in-right-order/ca-va-tres-bien.mp3",
             video: {
                pauseTime: 6,
             },
@@ -83,6 +84,7 @@ const sentences = [
             question: "Ça va ? ___ ",
             options: ["très", "pas mal", "ne va pas", "bien", "mal", "vais"],
             correctAns: "pas mal",
+            audioUrl: "/assets/exercises/place-in-right-order/ca-va-pas-mal.mp3",
             video: {
                pauseTime: 16.75,
             },
@@ -93,6 +95,7 @@ const sentences = [
             question: "Ça ___ bien.",
             options: ["très", "pas mal", "ne va pas", "bien", "mal", "vais"],
             correctAns: "ne va pas",
+            audioUrl: "/assets/exercises/place-in-right-order/ca-ne-va-pas-bien.mp3",
             video: {
                pauseTime: 49.417,
             },
@@ -103,6 +106,7 @@ const sentences = [
             question: "Salut, tu vas ___?",
             options: ["très", "pas mal", "ne va pas", "bien", "mal", "vais"],
             correctAns: "bien",
+            audioUrl: "/assets/exercises/place-in-right-order/salut-tu-vas-bien.mp3",
             video: {
                pauseTime: 60.48,
             },
@@ -113,6 +117,7 @@ const sentences = [
             question: "Ça va ___.",
             options: ["très", "pas mal", "ne va pas", "bien", "mal", "vais"],
             correctAns: "mal",
+            audioUrl: "/assets/exercises/place-in-right-order/ca-va-mal.mp3",
             video: {
                pauseTime: 60.5,
             },
@@ -123,6 +128,7 @@ const sentences = [
             question: "Je elles ___ très bien.Et toi ?",
             options: ["très", "pas mal", "ne va pas", "bien", "mal", "vais"],
             correctAns: "vais",
+            audioUrl: "/assets/exercises/place-in-right-order/je-vais-tres-bien-et-toi.mp3",
             video: {
                pauseTime: 70.35,
             },

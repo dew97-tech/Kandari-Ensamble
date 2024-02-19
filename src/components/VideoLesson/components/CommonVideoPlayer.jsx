@@ -35,6 +35,7 @@ const CommonVideoPlayer = ({ context, gameName, videoSrc, additionalOptions = {}
       currentSlidePauseTime,
       setIsFinished,
       moveNext,
+      audioUrl,
    } = useContext(context);
 
    const videoPlayerContainerRef = useRef(null);
@@ -180,6 +181,7 @@ const CommonVideoPlayer = ({ context, gameName, videoSrc, additionalOptions = {}
                         moveNext={moveNext}
                         movePrevious={seekToStartTime}
                         showGame={showGame}
+                        audioUrl={audioUrl}
                         {...additionalOptions}
                      />
                   </>

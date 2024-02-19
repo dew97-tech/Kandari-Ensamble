@@ -6,30 +6,17 @@ import Alert from "react-bootstrap/Alert";
 import Card from "react-bootstrap/Card";
 import AudioPlayer from "../games/memory-games/audio-player";
 import { SoundLibraryContext } from "@/src/context/SoundLibraryContext";
-import {
-   MdVolumeUp,
-   MdOutlineMic,
-   MdExpandMore,
-   MdExpandLess,
-} from "react-icons/md";
+import { MdVolumeUp, MdOutlineMic, MdExpandMore, MdExpandLess } from "react-icons/md";
 import VoiceRecorder from "../games/components/VoiceRecorder";
 function CustomToggle({ children, eventKey }) {
    const { activeEventKey } = useContext(AccordionContext);
    const decoratedOnClick = useAccordionButton(eventKey);
    const isCurrentEventKey = activeEventKey === eventKey;
    return (
-      <button
-         type="button"
-         style={{ backgroundColor: "rgba(245, 245, 245)" }}
-         onClick={decoratedOnClick}
-      >
-         <Card.Header className="d-flex justify-content-between py-3 border border-1 border-secondary rounded-2 shadow-sm">
+      <button type='button' style={{ backgroundColor: "rgba(245, 245, 245)" }} onClick={decoratedOnClick}>
+         <Card.Header className='d-flex justify-content-between py-3 border border-1 border-secondary rounded-2 shadow-sm'>
             {children}
-            {isCurrentEventKey ? (
-               <MdExpandLess className="h3" />
-            ) : (
-               <MdExpandMore className="h3" />
-            )}
+            {isCurrentEventKey ? <MdExpandLess className='h3' /> : <MdExpandMore className='h3' />}
          </Card.Header>
       </button>
    );
@@ -86,22 +73,26 @@ const Library = ({ selectedGameLevel }) => {
                {
                   dutch: "hoe",
                   french: "comment",
+                  audioUrl: "/assets/exercises/sound-library/comment.mp3",
                },
             ],
             j: [
                {
                   dutch: "ik heet",
                   french: "je m'appelle",
+                  audioUrl: "/assets/exercises/sound-library/je-mappelle.mp3",
                },
             ],
             "c - s": [
                {
                   dutch: "hier",
                   french: "ici",
+                  audioUrl: "/assets/exercises/sound-library/ici.mp3",
                },
                {
                   dutch: "wonen",
                   french: "habiter",
+                  audioUrl: "/assets/exercises/sound-library/habiter.mp3",
                },
             ],
          },
@@ -118,104 +109,84 @@ const Library = ({ selectedGameLevel }) => {
    return (
       <>
          {isMicAvailable && (
-            <Alert
-               variant="danger"
-               onClose={() => setIsMicAvailable(false)}
-               dismissible
-            >
-               <Alert.Heading className="buff-text-color">
-                  Microphone isn't found or accessable 🎙️
-               </Alert.Heading>
+            <Alert variant='danger' onClose={() => setIsMicAvailable(false)} dismissible>
+               <Alert.Heading className='buff-text-color'>Microphone isn't found or accessable 🎙️</Alert.Heading>
             </Alert>
          )}
-         <Accordion eventKey="0">
-            {Object.keys(categoriesData.categories[selectedGameLevel]).map(
-               (category, index) => (
-                  <Card key={index} className="text-center rounded-3 mb-10">
-                     <CustomToggle eventKey={index.toString()}>
-                        <span
-                           className="h4 buff-text-color"
-                           style={{ fontSize: styles.groupFontSize }}
-                        >
-                           {category}
-                        </span>
-                     </CustomToggle>
-                     <Accordion.Collapse eventKey={index.toString()}>
-                        <Card.Body className="table-responsive">
-                           <table className="table table-bordered text-center">
-                              <thead>
-                                 <tr>
-                                    <th
-                                       scope="col"
+         <Accordion eventKey='0'>
+            {Object.keys(categoriesData.categories[selectedGameLevel]).map((category, index) => (
+               <Card key={index} className='text-center rounded-3 mb-10'>
+                  <CustomToggle eventKey={index.toString()}>
+                     <span className='h4 buff-text-color' style={{ fontSize: styles.groupFontSize }}>
+                        {category}
+                     </span>
+                  </CustomToggle>
+                  <Accordion.Collapse eventKey={index.toString()}>
+                     <Card.Body className='table-responsive'>
+                        <table className='table table-bordered text-center'>
+                           <thead>
+                              <tr>
+                                 <th
+                                    scope='col'
+                                    style={{
+                                       fontSize: styles.tableFontSize,
+                                    }}
+                                 >
+                                    Dutch
+                                 </th>
+                                 <th
+                                    scope='col'
+                                    style={{
+                                       fontSize: styles.tableFontSize,
+                                    }}
+                                 >
+                                    French
+                                 </th>
+                                 <th
+                                    scope='col'
+                                    style={{
+                                       fontSize: styles.tableFontSize,
+                                    }}
+                                 >
+                                    Actions
+                                 </th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              {categoriesData.categories[selectedGameLevel][category].map((wordInfo, wordIndex) => (
+                                 <tr key={wordIndex}>
+                                    <td
+                                       className='h5 buff-text-color py-3'
                                        style={{
                                           fontSize: styles.tableFontSize,
                                        }}
                                     >
-                                       Dutch
-                                    </th>
-                                    <th
-                                       scope="col"
+                                       {wordInfo.dutch}
+                                    </td>
+                                    <td
+                                       className='h5 buff-text-color py-3'
                                        style={{
                                           fontSize: styles.tableFontSize,
                                        }}
                                     >
-                                       French
-                                    </th>
-                                    <th
-                                       scope="col"
-                                       style={{
-                                          fontSize: styles.tableFontSize,
-                                       }}
-                                    >
-                                       Actions
-                                    </th>
+                                       {wordInfo.french}
+                                    </td>
+                                    <td className='d-flex justify-content-center'>
+                                       <AudioPlayer
+                                          audioUrl={wordInfo.audioUrl ? wordInfo.audioUrl : "/assets/audio/audio_1.mp3"}
+                                          context={SoundLibraryContext}
+                                          setIsAudioPlaying={setIsAudioPlaying}
+                                       />
+                                       <VoiceRecorder micHandler={micHandler} isAudioPlaying={isAudioPlaying} />
+                                    </td>
                                  </tr>
-                              </thead>
-                              <tbody>
-                                 {categoriesData.categories[selectedGameLevel][
-                                    category
-                                 ].map((wordInfo, wordIndex) => (
-                                    <tr key={wordIndex}>
-                                       <td
-                                          className="h5 buff-text-color py-3"
-                                          style={{
-                                             fontSize: styles.tableFontSize,
-                                          }}
-                                       >
-                                          {wordInfo.dutch}
-                                       </td>
-                                       <td
-                                          className="h5 buff-text-color py-3"
-                                          style={{
-                                             fontSize: styles.tableFontSize,
-                                          }}
-                                       >
-                                          {wordInfo.french}
-                                       </td>
-                                       <td className="d-flex justify-content-center">
-                                          <AudioPlayer
-                                             audioUrl={
-                                                "/assets/audio/sample_1.mp3"
-                                             }
-                                             context={SoundLibraryContext}
-                                             setIsAudioPlaying={
-                                                setIsAudioPlaying
-                                             }
-                                          />
-                                          <VoiceRecorder
-                                             micHandler={micHandler}
-                                             isAudioPlaying={isAudioPlaying}
-                                          />
-                                       </td>
-                                    </tr>
-                                 ))}
-                              </tbody>
-                           </table>
-                        </Card.Body>
-                     </Accordion.Collapse>
-                  </Card>
-               )
-            )}
+                              ))}
+                           </tbody>
+                        </table>
+                     </Card.Body>
+                  </Accordion.Collapse>
+               </Card>
+            ))}
          </Accordion>
       </>
    );

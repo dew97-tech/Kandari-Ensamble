@@ -6,10 +6,11 @@ const role_play_game = [
             id: 1,
             question: "Hoi, ik heet Charlie.",
             options: [
-               { id: "1A", text: "Salut,je m'appelle Charlie." },
-               { id: "1B", text: "Salut,j'appelle Charlie." },
+               { id: "1A", text: "Salut, je m'appelle Charlie." },
+               { id: "1B", text: "Salut, j'appelle Charlie." },
             ],
             correctOptionId: "1A",
+            audioUrl: "/assets/exercises/video-exercise/salut-je-mappelle-charlie.mp3",
             video: {
                pauseTime: 26.375,
             },
@@ -23,6 +24,7 @@ const role_play_game = [
                { id: "2B", text: "Je vais bien, merci !" },
             ],
             correctOptionId: "2B",
+            audioUrl: "/assets/exercises/video-exercise/je-vais-bien-merci.mp3",
             video: {
                pauseTime: 36.125,
             },
@@ -35,6 +37,7 @@ const role_play_game = [
                { id: "3B", text: "Et toi, ça va ?" },
             ],
             correctOptionId: "3B",
+            audioUrl: "/assets/exercises/video-exercise/et-toi-ca-va.mp3",
             video: {
                pauseTime: 40.417,
             },
@@ -47,6 +50,7 @@ const role_play_game = [
                { id: "4B", text: "Oui, vous habitons ici." },
             ],
             correctOptionId: "4A",
+            audioUrl: "/assets/exercises/video-exercise/oui-nous-habitons-ici.mp3",
             video: {
                pauseTime: 55.854,
             },
@@ -59,6 +63,7 @@ const role_play_game = [
                { id: "5B", text: "Nous sommes Marandais !" },
             ],
             correctOptionId: "5B",
+            audioUrl: "/assets/exercises/video-exercise/nous-sommes-marandais.mp3",
             video: {
                pauseTime: 60.875,
             },
@@ -71,6 +76,7 @@ const role_play_game = [
                { id: "6B", text: "Oui ! Regarde, voici des photos de Marans." },
             ],
             correctOptionId: "6B",
+            audioUrl: "/assets/exercises/video-exercise/oui-regarde-voici-des-photos-de-marans.mp3",
             video: {
                pauseTime: 69.708,
             },
@@ -83,6 +89,7 @@ const role_play_game = [
                { id: "7B", text: "Au plus !" },
             ],
             correctOptionId: "7A",
+            audioUrl: "/assets/exercises/video-exercise/a-plus.mp3",
             video: {
                pauseTime: 91.625,
             },
@@ -100,6 +107,7 @@ const role_play_game = [
                { id: "1B", text: "Bonjour, je sius Sacha." },
             ],
             correctOptionId: "1A",
+            audioUrl: "/assets/exercises/video-exercise/bonjour-je-suis-sacha.mp3",
             video: {
                pauseTime: 16.75,
             },
@@ -112,6 +120,7 @@ const role_play_game = [
                { id: "2B", text: "Comment t'appelles-tu ?" },
             ],
             correctOptionId: "2B",
+            audioUrl: "/assets/exercises/video-exercise/comment-tappelles-tu.mp3",
             video: {
                pauseTime: 22.458,
             },
@@ -124,6 +133,7 @@ const role_play_game = [
                { id: "3B", text: "Comment vas-tu Charlie ?" },
             ],
             correctOptionId: "3B",
+            audioUrl: "/assets/exercises/video-exercise/comment-vas-tu-charlie.mp3",
             video: {
                pauseTime: 32.125,
             },
@@ -136,6 +146,7 @@ const role_play_game = [
                { id: "4B", text: "Ça bien merci." },
             ],
             correctOptionId: "4A",
+            audioUrl: "/assets/exercises/video-exercise/ca-va-bien-merci.mp3",
             video: {
                pauseTime: 44.458,
             },
@@ -148,6 +159,7 @@ const role_play_game = [
                { id: "5B", text: "Tu es ici avec tes parents ?" },
             ],
             correctOptionId: "5B",
+            audioUrl: "/assets/exercises/video-exercise/tu-es-ici-avec-tes-parents.mp3",
             video: {
                pauseTime: 49.417,
             },
@@ -160,6 +172,7 @@ const role_play_game = [
                { id: "6B", text: "Vous êtes nés ici ?" },
             ],
             correctOptionId: "6B",
+            audioUrl: "/assets/exercises/video-exercise/vous-etes-nes-ici.mp3",
             video: {
                pauseTime: 65.083,
             },
@@ -172,6 +185,7 @@ const role_play_game = [
                { id: "7B", text: "Wow, elles ont belles." },
             ],
             correctOptionId: "7A",
+            audioUrl: "/assets/exercises/video-exercise/wow-elles-sont-belles.mp3",
             video: {
                pauseTime: 77.25,
             },
@@ -184,6 +198,7 @@ const role_play_game = [
                { id: "8B", text: "Je doit partir." },
             ],
             correctOptionId: "8A",
+            audioUrl: "/assets/exercises/video-exercise/je-dois-partir.mp3",
             video: {
                pauseTime: 82.25,
             },
@@ -196,6 +211,7 @@ const role_play_game = [
                { id: "9B", text: "Au revoir Charlie." },
             ],
             correctOptionId: "9B",
+            audioUrl: "/assets/exercises/video-exercise/au-revoir-charlie.mp3",
             video: {
                pauseTime: 87.375,
             },

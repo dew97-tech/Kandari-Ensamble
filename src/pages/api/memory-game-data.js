@@ -10,7 +10,7 @@ const memory_game_data = [
       },
       img: "/assets/exercises/memory-game/the_boy.jpg",
       no_img: "/assets/img/blur_img.jpg",
-      audioUrl: "/assets/audio/sample_1.mp3",
+      audioUrl: "/assets/exercises/memory-game/le-garçon.mp3",
 
       ct_color: "c-color-green",
       cn_color: "c-color-red",
@@ -26,7 +26,7 @@ const memory_game_data = [
       },
       img: "/assets/exercises/memory-game/hi.jpg",
       no_img: "/assets/img/blur_img.jpg",
-      audioUrl: "/assets/audio/sample_2.mp3",
+      audioUrl: "/assets/exercises/memory-game/salut.mp3",
 
       ct_color: "c-color-green",
       cn_color: "c-color-red",
@@ -42,7 +42,7 @@ const memory_game_data = [
       },
       img: "/assets/exercises/memory-game/my_name_is.jpg",
       no_img: "/assets/img/blur_img.jpg",
-      audioUrl: "/assets/audio/sample_3.mp3",
+      audioUrl: "/assets/exercises/memory-game/je-m_appelle.mp3",
 
       ct_color: "c-color-green",
       cn_color: "c-color-red",
@@ -58,7 +58,7 @@ const memory_game_data = [
       },
       img: "/assets/exercises/memory-game/it_is_going_well.jpg",
       no_img: "/assets/img/blur_img.jpg",
-      audioUrl: "/assets/audio/sample_4.mp3",
+      audioUrl: "/assets/exercises/memory-game/ca-va-bien.mp3",
 
       ct_color: "c-color-green",
       cn_color: "c-color-red",
@@ -74,7 +74,7 @@ const memory_game_data = [
       },
       img: "/assets/exercises/memory-game/the_parents.jpg",
       no_img: "/assets/img/blur_img.jpg",
-      audioUrl: "/assets/audio/sample_5.mp3",
+      audioUrl: "/assets/exercises/memory-game/les-parents.mp3",
 
       ct_color: "c-color-green",
       cn_color: "c-color-red",
@@ -90,7 +90,7 @@ const memory_game_data = [
       },
       img: "/assets/exercises/memory-game/to_live.jpg",
       no_img: "/assets/img/blur_img.jpg",
-      audioUrl: "/assets/audio/sample_6.mp3",
+      audioUrl: "/assets/exercises/memory-game/habiter.mp3",
 
       ct_color: "c-color-green",
       cn_color: "c-color-red",
@@ -106,7 +106,7 @@ const memory_game_data = [
       },
       img: "/assets/exercises/memory-game/here.jpg",
       no_img: "/assets/img/blur_img.jpg",
-      audioUrl: "/assets/audio/sample_3.mp3",
+      audioUrl: "/assets/exercises/memory-game/ici.mp3",
 
       ct_color: "c-color-green",
       cn_color: "c-color-red",
@@ -122,7 +122,7 @@ const memory_game_data = [
       },
       img: "/assets/exercises/memory-game/to_leave.jpg",
       no_img: "/assets/img/blur_img.jpg",
-      audioUrl: "/assets/audio/sample_3.mp3",
+      audioUrl: "/assets/exercises/memory-game/partir.mp3",
 
       ct_color: "c-color-green",
       cn_color: "c-color-red",
@@ -138,7 +138,7 @@ const memory_game_data = [
       },
       img: "/assets/exercises/memory-game/good_bye.jpg",
       no_img: "/assets/img/blur_img.jpg",
-      audioUrl: "/assets/audio/sample_5.mp3",
+      audioUrl: "/assets/exercises/memory-game/au-revoir.mp3",
 
       ct_color: "c-color-green",
       cn_color: "c-color-red",

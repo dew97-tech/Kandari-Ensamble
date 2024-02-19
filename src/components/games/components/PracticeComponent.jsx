@@ -4,7 +4,7 @@ import { MdOutlineCheck, MdClose, MdVolumeUp, MdOutlineMic } from "react-icons/m
 import AudioPlayer from "../memory-games/audio-player";
 import VoiceRecorder from "./VoiceRecorder";
 
-const PracticeComponent = ({ isCorrect, correctAnswer, onClickFunction, context }) => {
+const PracticeComponent = ({ isCorrect, correctAnswer, onClickFunction, context, audioUrl }) => {
    // is MicAvailable is used to check whether the user has recorded the voice or not
    const [isMicAvailable, setIsMicAvailable] = useState(false);
    const [isAudioPlaying, setIsAudioPlaying] = useState(false);
@@ -49,7 +49,7 @@ const PracticeComponent = ({ isCorrect, correctAnswer, onClickFunction, context 
                <hr className='border border-1 border-secondary opacity-25 mt-10 mx-3 mb-0 rounded' />
                <li className='mt-10 mb-10 d-flex justify-content-center'>
                   <AudioPlayer
-                     audioUrl={"/assets/audio/sample_1.mp3"}
+                     audioUrl={audioUrl ? audioUrl : "/assets/audio/audio_1.mp3"}
                      context={context}
                      setIsAudioPlaying={setIsAudioPlaying}
                   />

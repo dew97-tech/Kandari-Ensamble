@@ -237,6 +237,7 @@ const FillGapsExerciseProvider = ({ children, exerciseTitle, exerciseId }) => {
          return "No prize 🫡";
       }
    };
+   const audioUrl = currentQuestion?.audioUrl;
    // Return the Fill Gaps context provider
    return (
       <FillGapsExerciseContext.Provider
@@ -268,6 +269,7 @@ const FillGapsExerciseProvider = ({ children, exerciseTitle, exerciseId }) => {
             sentences,
             textColor,
             playingAudio,
+            audioUrl,
             // Setters
             setPlayingAudio,
             // Functions

@@ -4,11 +4,7 @@ import Swal from "sweetalert2";
 
 const RightOrderExerciseContext = React.createContext();
 
-const RightOrderExerciseProvider = ({
-   children,
-   exerciseId,
-   exerciseTitle,
-}) => {
+const RightOrderExerciseProvider = ({ children, exerciseId, exerciseTitle }) => {
    const [exerciseData, setExerciseData] = useState({});
    const [currentExerciseId, setCurrentExerciseId] = useState(exerciseId);
    const [currentIndex, setCurrentIndex] = useState(0);
@@ -115,9 +111,7 @@ const RightOrderExerciseProvider = ({
    const handleTryAgain = () => {
       setAttempts(attempts + 1);
       setUserOrder([]);
-      setWrongOrder(
-         [...currentExerciseData.wrongOrder].sort(() => Math.random() - 0.5)
-      );
+      setWrongOrder([...currentExerciseData.wrongOrder].sort(() => Math.random() - 0.5));
       handleFeedbackMessage("");
       setShowConfetti(false);
    };
@@ -125,9 +119,7 @@ const RightOrderExerciseProvider = ({
    const handleRestart = () => {
       setUserOrder([]);
       setIsFinished(false);
-      setWrongOrder(
-         [...currentExerciseData.wrongOrder].sort(() => Math.random() - 0.5)
-      );
+      setWrongOrder([...currentExerciseData.wrongOrder].sort(() => Math.random() - 0.5));
       setScore(0);
       setAttempts(0);
       handleFeedbackMessage("Game Restarted");
@@ -176,19 +168,14 @@ const RightOrderExerciseProvider = ({
 
    // Function to update or add the user's previous answer
    const updatePreviousAnswer = () => {
-      const existingAnswerIndex = previousAnswers.findIndex(
-         (answer) => answer.challengeIndex === currentIndex
-      );
+      const existingAnswerIndex = previousAnswers.findIndex((answer) => answer.challengeIndex === currentIndex);
 
       if (existingAnswerIndex !== -1) {
          const updatedPreviousAnswers = [...previousAnswers];
          updatedPreviousAnswers[existingAnswerIndex].userAnswer = userOrder;
          setPreviousAnswers(updatedPreviousAnswers);
       } else {
-         const updatedPreviousAnswers = [
-            ...previousAnswers,
-            { challengeIndex: currentIndex, userAnswer: userOrder },
-         ];
+         const updatedPreviousAnswers = [...previousAnswers, { challengeIndex: currentIndex, userAnswer: userOrder }];
          setPreviousAnswers(updatedPreviousAnswers);
       }
    };
@@ -202,10 +189,7 @@ const RightOrderExerciseProvider = ({
          setShowGame(false);
          setUserOrder([]);
          setAttempts(0);
-      } else if (
-         currentIndex < currentExercise.data.length - 1 &&
-         attempts >= 2
-      ) {
+      } else if (currentIndex < currentExercise.data.length - 1 && attempts >= 2) {
          setCurrentIndex(currentIndex + 1);
          // Incorrect! Resume the video where it was paused
          setPlaying(true);
@@ -213,19 +197,14 @@ const RightOrderExerciseProvider = ({
          setUserOrder([]);
          setAttempts(0);
          handleFeedbackMessage("Incorrect, Moving on to the next challenge.");
-      } else if (
-         currentIndex === currentExercise.data.length - 1 &&
-         attempts >= 2
-      ) {
+      } else if (currentIndex === currentExercise.data.length - 1 && attempts >= 2) {
          handleFeedbackMessage("Incorrect, Game Finished");
          setIsFinished(true);
          // When the game is finished, pause the video and don't show the game!
          setPlaying(false);
          setShowGame(false);
       } else {
-         handleFeedbackMessage(
-            "Congratulations! You Have Completed All The Challenges"
-         );
+         handleFeedbackMessage("Congratulations! You Have Completed All The Challenges");
          setShowConfetti(true);
          setIsFinished(true);
       }
@@ -235,18 +214,11 @@ const RightOrderExerciseProvider = ({
    // Exercise Progress Checker
    useEffect(() => {
       if (isFinished) {
-         const storedExercises = JSON.parse(
-            localStorage.getItem("lessons_exercises")
-         );
+         const storedExercises = JSON.parse(localStorage.getItem("lessons_exercises"));
          const updatedExercises = [...storedExercises];
-         const index = updatedExercises.findIndex(
-            (exercise) => exercise.name === exerciseTitle
-         );
+         const index = updatedExercises.findIndex((exercise) => exercise.name === exerciseTitle);
          updatedExercises[index].isFinished = true;
-         localStorage.setItem(
-            "lessons_exercises",
-            JSON.stringify(updatedExercises)
-         );
+         localStorage.setItem("lessons_exercises", JSON.stringify(updatedExercises));
       }
    }, [isFinished]);
 
@@ -279,6 +251,8 @@ const RightOrderExerciseProvider = ({
       }
    };
 
+   const audioUrl = currentExerciseData?.audioUrl;
+
    return (
       <RightOrderExerciseContext.Provider
          value={{
@@ -310,6 +284,7 @@ const RightOrderExerciseProvider = ({
             isCorrect,
             borderColor,
             playingAudio,
+            audioUrl,
             returnAchievement,
             moveToNextQuestion,
             setShowGame,

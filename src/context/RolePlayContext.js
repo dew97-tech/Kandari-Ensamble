@@ -213,6 +213,8 @@ const RolePlayProvider = ({ children, exerciseId, exerciseTitle }) => {
          return "No prize 🫡";
       }
    };
+
+   const audioUrl = currentQuestion?.audioUrl;
    return (
       <RolePlayContext.Provider
          value={{
@@ -237,6 +239,7 @@ const RolePlayProvider = ({ children, exerciseId, exerciseTitle }) => {
             showCorrectAnswer,
             isCorrect,
             playingAudio,
+            audioUrl,
             returnAchievement,
             setPlayingAudio,
             fetcher,

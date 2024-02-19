@@ -44,6 +44,7 @@ const GameContainer = ({ exerciseTitle }) => {
       moveToNextQuestion,
       isCorrect,
       correctAnswer,
+      audioUrl,
    } = useContext(RightOrderExerciseContext);
 
    // Checking if all challenges are completed
@@ -107,6 +108,7 @@ const GameContainer = ({ exerciseTitle }) => {
             isCorrect={isCorrect}
             correctAnswer={correctAnswer}
             onClickFunction={moveToNextQuestion}
+            audioUrl={audioUrl}
          />
       </motion.div>
    );

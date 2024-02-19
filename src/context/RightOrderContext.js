@@ -251,6 +251,7 @@ const RightOrderProvider = ({ children, exerciseId, exerciseTitle }) => {
          return "No prize 🫡";
       }
    };
+   const audioUrl = currentExerciseData?.audioUrl;
 
    return (
       <RightOrderContext.Provider
@@ -283,6 +284,7 @@ const RightOrderProvider = ({ children, exerciseId, exerciseTitle }) => {
             exerciseData,
             playingAudio,
             gameShown,
+            audioUrl,
             // handlePlay,
             returnAchievement,
             setPlayingAudio,

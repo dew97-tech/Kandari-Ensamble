@@ -35,6 +35,7 @@ const Game = ({ exerciseTitle }) => {
       sentences,
       correctAnswer,
       score,
+      audioUrl,
    } = context;
 
    // Game action functions
@@ -64,6 +65,7 @@ const Game = ({ exerciseTitle }) => {
             isCorrect={isCorrect}
             correctAnswer={correctAnswer}
             onClickFunction={moveToNextQuestion}
+            audioUrl={audioUrl}
          />
       </motion.div>
    );

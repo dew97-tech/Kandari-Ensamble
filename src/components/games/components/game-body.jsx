@@ -40,6 +40,7 @@ const GameBody = ({
    checkedItems,
    handlePrompt,
    showGame,
+   audioUrl,
 }) => {
    // Common Section for some specific Video Lesson games which includes Dutch Sentence and Instruction Sentence
    const renderCommonSections = (instructionText) => (
@@ -70,6 +71,7 @@ const GameBody = ({
          isCorrect={isCorrect}
          correctAnswer={correctAnswer}
          onClickFunction={moveToNextQuestion}
+         audioUrl={audioUrl}
       />
    );
 
