@@ -8,6 +8,7 @@ const sentences = [
             question: "Sacha ___ en France, à Marans.",
             options: ["suis", "es", "est", "sommes", "êtes", "sont"],
             correctAns: "est",
+            audioUrl:"/assets/exercises/video-exercise/sacha-est-en-france-a-marans.mp3",
             video: {
                pauseTime: 5.917,
             },
@@ -18,6 +19,7 @@ const sentences = [
             question: "Bonjour, je ___ Sacha.",
             options: ["suis", "es", "est", "sommes", "êtes", "sont"],
             correctAns: "suis",
+            audioUrl: "/assets/exercises/video-exercise/bonjour-je-suis-sacha.mp3",
             video: {
                pauseTime: 16.75,
             },
@@ -28,6 +30,7 @@ const sentences = [
             question: "Tu ___ ici avec tes parents ?",
             options: ["suis", "es", "est", "sommes", "êtes", "sont"],
             correctAns: "es",
+            audioUrl: "/assets/exercises/video-exercise/tu-es-ici-avec-tes-parents.mp3",
             video: {
                pauseTime: 49.417,
             },
@@ -38,6 +41,7 @@ const sentences = [
             question: "Nous ___ Marandais !",
             options: ["suis", "es", "est", "sommes", "êtes", "sont"],
             correctAns: "sommes",
+            audioUrl: "/assets/exercises/video-exercise/nous-sommes-marandais.mp3",
             video: {
                pauseTime: 60.875,
             },
@@ -48,6 +52,7 @@ const sentences = [
             question: "Vous ___ nés ici?",
             options: ["suis", "es", "est", "sommes", "êtes", "sont"],
             correctAns: "êtes",
+            audioUrl: "/assets/exercises/video-exercise/vous-etes-nes-ici.mp3",
             video: {
                pauseTime: 65.083,
             },
@@ -58,6 +63,7 @@ const sentences = [
             question: "Wow, elles ___ belles!",
             options: ["suis", "es", "est", "sommes", "êtes", "sont"],
             correctAns: "sont",
+            audioUrl: "/assets/exercises/video-exercise/wow-elles-sont-belles.mp3",
             video: {
                pauseTime: 77.25,
             },

@@ -228,6 +228,7 @@ const FillGapsProvider = ({ children, exerciseTitle, exerciseId }) => {
          return "No prize 🫡";
       }
    };
+   const audioUrl = currentQuestion?.audioUrl;
    return (
       <FillGapsContext.Provider
          value={{
@@ -262,6 +263,7 @@ const FillGapsProvider = ({ children, exerciseTitle, exerciseId }) => {
             textColor,
             gameShown,
             setIsFinished,
+            audioUrl,
             // Functions
             fetcher,
             moveToNextQuestion,

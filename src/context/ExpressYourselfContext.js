@@ -171,6 +171,7 @@ const ExpressYourselfProvider = ({ children, exerciseId, exerciseTitle }) => {
          return "No prize 🫡";
       }
    };
+   const audioUrl = currentQuestion?.audioUrl;
    return (
       <ExpressYourselfContext.Provider
          value={{
@@ -185,6 +186,7 @@ const ExpressYourselfProvider = ({ children, exerciseId, exerciseTitle }) => {
             timeStamp,
             isFinished,
             inputBorderColor,
+            audioUrl,
             // src,
             showVideo,
             showGame,
