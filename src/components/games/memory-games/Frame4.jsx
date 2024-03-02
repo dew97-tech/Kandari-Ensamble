@@ -15,9 +15,9 @@ const Frame4 = ({ index, guessedWord, answers, setAnswers }) => {
                     <div
                         key={index}
                         className="d-flex align-items-center justify-content-between form-group mb-0 mx-2">
-                        <label htmlFor="guessword" className="sr-only">
+                        {/* <label htmlFor="guessword" className="sr-only">
                             Enter your guess:
-                        </label>
+                        </label> */}
 
                         <input
                             name="guessword"
@@ -26,7 +26,7 @@ const Frame4 = ({ index, guessedWord, answers, setAnswers }) => {
                             onChange={(e) => setAnswers(e.target.value)}
                             className="form-control border border-secondary border-1 rounded-2 buff-text-color shadow-sm my-0 fs-5"
                             id="guessword"
-                            placeholder="Enter your guess"
+                            // placeholder="Enter your guess"
                             autoComplete="off"
                         />
                     </div>

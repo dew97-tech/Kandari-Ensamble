@@ -41,9 +41,10 @@ const RightOrderProvider = ({ children, exerciseId, exerciseTitle }) => {
          focusConfirm: false,
          returnFocus: false,
          cancelButtonColor: "#ff5c5c",
+         cancelButtonText: "Nee",
          showCancelButton: true,
          confirmButtonColor: "#82d995",
-         confirmButtonText: "Yes",
+         confirmButtonText: "Ja",
       }).then((result) => {
          if (result.isConfirmed) {
             if (promptType === "handleSubmit") {

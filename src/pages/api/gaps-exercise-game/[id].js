@@ -49,7 +49,7 @@ const sentences = [
          {
             id: 5,
             hintSentence: "Zijn jullie hier geboren?",
-            question: "Vous ___ nés ici?",
+            question: "Vous ___ nés ici ?",
             options: ["suis", "es", "est", "sommes", "êtes", "sont"],
             correctAns: "êtes",
             audioUrl: "/assets/exercises/video-exercise/vous-etes-nes-ici.mp3",
@@ -60,7 +60,7 @@ const sentences = [
          {
             id: 6,
             hintSentence: "Wow, ze zijn mooi!",
-            question: "Wow, elles ___ belles!",
+            question: "Wow, elles ___ belles !",
             options: ["suis", "es", "est", "sommes", "êtes", "sont"],
             correctAns: "sont",
             audioUrl: "/assets/exercises/video-exercise/wow-elles-sont-belles.mp3",
@@ -109,7 +109,7 @@ const sentences = [
          {
             id: 4,
             hintSentence: "Hoi, gaat het goed met je?",
-            question: "Salut, tu vas ___?",
+            question: "Salut, tu vas ___ ?",
             options: ["très", "pas mal", "ne va pas", "bien", "mal", "vais"],
             correctAns: "bien",
             audioUrl: "/assets/exercises/place-in-right-order/salut-tu-vas-bien.mp3",

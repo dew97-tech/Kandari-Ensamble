@@ -105,8 +105,8 @@ const ExpressYourselfProvider = ({ children, exerciseId, exerciseTitle }) => {
 
    // Function to check the user's answer and record it
    const checkAnswer = (evaluateAnswer) => {
-      const correctAnswer = questions?.data?.[currentQuestionIndex].correctAnswer.trim().toLowerCase();
-      if (evaluateAnswer?.trim().toLowerCase() === correctAnswer) {
+      const correctAnswer = questions?.data?.[currentQuestionIndex].correctAnswer.toLowerCase();
+      if (evaluateAnswer?.toLowerCase() === correctAnswer) {
          // User's answer is correct
          handleCorrectAnswer();
       } else {

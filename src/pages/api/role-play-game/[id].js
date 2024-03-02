@@ -18,7 +18,7 @@ const role_play_game = [
 
          {
             id: 2,
-            question: "Het gaat goed met me, dank je !",
+            question: "Het gaat goed met me, dank je!",
             options: [
                { id: "2A", text: "Je vas bien, merci !" },
                { id: "2B", text: "Je vais bien, merci !" },
@@ -31,7 +31,7 @@ const role_play_game = [
          },
          {
             id: 3,
-            question: "En jij, hoe gaat het ?",
+            question: "En jij, hoe gaat het?",
             options: [
                { id: "3A", text: "Et tu, ça va ?" },
                { id: "3B", text: "Et toi, ça va ?" },
@@ -101,7 +101,7 @@ const role_play_game = [
       data: [
          {
             id: 1,
-            question: "Hallo, ik ben Sacha",
+            question: "Hallo, ik ben Sacha.",
             options: [
                { id: "1A", text: "Bonjour, je suis Sacha." },
                { id: "1B", text: "Bonjour, je sius Sacha." },

@@ -44,9 +44,10 @@ const FillGapsProvider = ({ children, exerciseTitle, exerciseId }) => {
          focusConfirm: false,
          returnFocus: false,
          cancelButtonColor: "#ff5c5c",
+         cancelButtonText: "Nee",
          showCancelButton: true,
          confirmButtonColor: "#82d995",
-         confirmButtonText: "Yes",
+         confirmButtonText: "Ja",
          // denyButtonText: `Don't save`,
       }).then((result) => {
          /* Read more about isConfirmed, isDenied in the Docs */

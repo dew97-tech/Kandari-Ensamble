@@ -108,7 +108,7 @@ const Game = ({ exerciseTitle }) => {
                   <ul className='memory-game-color d-flex align-items-center justify-content-center'>
                      <CustomButton
                         onClick={handleGameStart}
-                        text={"Start Game"}
+                        text={"Start"}
                         placeHolder={"StartGame-Icon"}
                         colorString={"light-green py-3"}
                         borderColor={"success"}
@@ -193,7 +193,7 @@ const Game = ({ exerciseTitle }) => {
                            <CustomButton
                               onClick={() => {
                                  isStudying && frame === 1
-                                    ? handlePrompt("Ben je klaar met leren ?", "", "question", "handleBeginPlay")
+                                    ? handlePrompt("Ben je klaar met leren?", "", "question", "handleBeginPlay")
                                     : handleBeginPlay();
                               }}
                               text={"Ga door"}

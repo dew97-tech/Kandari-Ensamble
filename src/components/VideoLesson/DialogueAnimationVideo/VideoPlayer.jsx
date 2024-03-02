@@ -14,8 +14,8 @@ const StudyDialogueVideoPlayer = ({ exerciseTitle }) => {
    const { data, error } = useSWR("VideoSrc", FetchVideoSrc, {
       revalidateOnFocus: false,
       revalidateOnReconnect: false,
-      refreshWhenOffline: false,
-      refreshWhenHidden: false,
+      refreshWhenOffline: true,
+      refreshWhenHidden: true,
       refreshInterval: 0,
       shouldRetryOnError: true,
    });

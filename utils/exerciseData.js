@@ -10,7 +10,7 @@
  * @type {Exercise[]}
  */
 export const initialExercises = [
-   { name: "Dialogue Animation", isFinished: false },
+   { name: "Video", isFinished: false },
    { name: "Geheugenspel", isFinished: false },
    { name: "Plaats in de juiste volgorde 1", isFinished: false },
    { name: "Oefen de dialoog 1", isFinished: false },

@@ -17,7 +17,7 @@ const Right_Order_Game_Questions = [
          {
             id: 2,
             gameLanguage: "French",
-            hintSentence: "Het gaat goed met me, dank je!",
+            hintSentence: "Het gaat goed met me, dank je !",
             wrongOrder: ["vais", "je", "bien", "merci"],
             correctOrder: ["Je,", "vais", "bien", "merci"],
             audioUrl: "/assets/exercises/video-exercise/je-vais-bien-merci.mp3",
@@ -28,7 +28,7 @@ const Right_Order_Game_Questions = [
          {
             id: 3,
             gameLanguage: "French",
-            hintSentence: "En jij, hoe gaat het?",
+            hintSentence: "En jij, hoe gaat het ?",
             wrongOrder: ["toi", "et", "va", "ça"],
             correctOrder: ["Et", "toi", "ça", "va"],
             audioUrl: "/assets/exercises/video-exercise/et-toi-ca-va.mp3",

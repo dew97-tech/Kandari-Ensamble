@@ -119,7 +119,7 @@ const GameBody = ({
                      renderPracticeComponent()
                   ) : (
                      <>
-                        {renderCommonSections("Fill the gap with the correct options below")}
+                        {renderCommonSections("Klik het juiste woord aan")}
                         <Questions context={context} />
                         <hr className='border border-1 border-secondary opacity-25 mt-10 mx-2 mb-0 rounded' />
                         {/* Gap-Exercise Options */}

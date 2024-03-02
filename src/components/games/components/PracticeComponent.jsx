@@ -42,9 +42,7 @@ const PracticeComponent = ({ isCorrect, correctAnswer, onClickFunction, context,
                </span>
             )}
             <div className='mb-10 text-center'>
-               <span className='buff-text-color text-center px-3 py-2 mb-10 h3 rounded-3'>
-                  {correctAnswer && correctAnswer.replace(/,/g, "")}
-               </span>
+               <span className='buff-text-color text-center px-3 py-2 mb-10 h3 rounded-3'>{correctAnswer}</span>
 
                <hr className='border border-1 border-secondary opacity-25 mt-10 mx-3 mb-0 rounded' />
                <li className='mt-10 mb-10 d-flex justify-content-center'>

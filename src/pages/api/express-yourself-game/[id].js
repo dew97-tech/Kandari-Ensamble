@@ -5,7 +5,7 @@ const express_yourself_exercise = [
          {
             id: 1,
             question: "Hoi, ik heet Charlie.",
-            correctAnswer: "Salut, je m'appelle Charlie.",
+            correctAnswer: "Salut, je m'appelle charlie.",
             audioUrl: "/assets/exercises/video-exercise/salut-je-mappelle-charlie.mp3",
             video: {
                pauseTime: 26.375,
@@ -13,7 +13,7 @@ const express_yourself_exercise = [
          },
          {
             id: 2,
-            question: "Het gaat goed met me, dank je !",
+            question: "Het gaat goed met me, dank je!",
             correctAnswer: "Je vais bien, merci !",
             audioUrl: "/assets/exercises/video-exercise/je-vais-bien-merci.mp3",
             video: {
@@ -22,7 +22,7 @@ const express_yourself_exercise = [
          },
          {
             id: 3,
-            question: "En jij, hoe gaat het ?",
+            question: "En jij, hoe gaat het?",
             correctAnswer: "Et toi, ça va ?",
             audioUrl: "/assets/exercises/video-exercise/et-toi-ca-va.mp3",
             video: {
@@ -41,7 +41,7 @@ const express_yourself_exercise = [
          {
             id: 5,
             question: "We zijn Marandais!",
-            correctAnswer: "Nous sommes Marandais !",
+            correctAnswer: "Nous sommes marandais !",
             audioUrl: "/assets/exercises/video-exercise/nous-sommes-marandais.mp3",
             video: {
                pauseTime: 60.875,
@@ -73,7 +73,7 @@ const express_yourself_exercise = [
          {
             id: 1,
             question: "Hallo, ik ben Sacha",
-            correctAnswer: "Bonjour, je suis Sacha.",
+            correctAnswer: "Bonjour, je suis sacha.",
             audioUrl: "/assets/exercises/video-exercise/bonjour-je-suis-sacha.mp3",
             video: {
                pauseTime: 16.75,
@@ -91,7 +91,7 @@ const express_yourself_exercise = [
          {
             id: 3,
             question: "Hoe gaat het met je Charlie?",
-            correctAnswer: "Comment vas-tu Charlie ?",
+            correctAnswer: "Comment vas-tu charlie ?",
             audioUrl: "/assets/exercises/video-exercise/comment-vas-tu-charlie.mp3",
             video: {
                pauseTime: 32.125,

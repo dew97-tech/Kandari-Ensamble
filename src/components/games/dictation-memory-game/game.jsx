@@ -35,12 +35,7 @@ const DictationMemoryGame = ({ exerciseTitle }) => {
    } = useContext(DictationGameContext);
    // Handles Submit Alert Button Props
    const handleSubmitAll = () => {
-      handlePrompt(
-         "Do you want to submit the answers ?",
-         "You won't be able to revert this!",
-         "question",
-         "handleSubmitAll"
-      );
+      handlePrompt("Wil je je antwoorden opsturen?", "Dit kun je niet ongedaan maken!", "question", "handleSubmitAll");
    };
    // Card Style
    const cardStyle = {
@@ -123,7 +118,7 @@ const DictationMemoryGame = ({ exerciseTitle }) => {
          <ul className='memory-game-color d-flex align-items-center justify-content-center'>
             <CustomButton
                onClick={handleGameStart}
-               text={"Start Game"}
+               text={"Start"}
                placeHolder={"StartGame-Icon"}
                colorString={"light-green py-3"}
                borderColor={"success"}

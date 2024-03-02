@@ -10,12 +10,12 @@ const GameOption = ({ gameName, optionsArray, context }) => {
       case "gap-exercise":
          return (
             <div className='d-flex flex-column mt-10 mb-20 text-start'>
-               <h5
+               {/* <h5
                   className='buff-text-color mt-10 mb-5'
                   style={{ fontSize: "18px" }}
                >
                   Word Options :
-               </h5>
+               </h5> */}
                <div className='d-flex justify-content-center flex-wrap'>
                   {randomizedOptions?.map((option, index) => (
                      <FillGapsOptions

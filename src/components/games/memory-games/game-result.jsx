@@ -25,7 +25,7 @@ const GameResult = ({ index, result, answers, audioUrl, guessedWord }) => {
                            <li className='text-success text-center h4 px-2'>
                               {/* &#10003; {answers} */}
                               <MdOutlineCheck className='mx-1 mt-0 mb-1' />
-                              {frame === 2 && guessedWord?.charAt(0).toUpperCase()}
+                              {frame === 2 && guessedWord?.charAt(0).toLowerCase()}
                               {answers}
                               <hr className='mt-0 mb-0 rounded-2 border-2 text-success' />
                            </li>
@@ -54,7 +54,7 @@ const GameResult = ({ index, result, answers, audioUrl, guessedWord }) => {
                            <li className='text-danger text-center h4 px-2'>
                               {/* &#10003; {answers} */}
                               <MdClose className='mx-1 mt-0 mb-1' />
-                              {frame === 2 && guessedWord?.charAt(0).toUpperCase()}
+                              {frame === 2 && guessedWord?.charAt(0).toLowerCase()}
                               {answers}
                               <hr className='mt-1 mb-0 rounded-2 border-2 text-danger' />
                            </li>

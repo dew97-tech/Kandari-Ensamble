@@ -43,7 +43,7 @@ const OffCanvas = () => {
    }, [resetSignal]);
    return (
       <>
-         <Button className='buff border border-secondary text-dark px-3 py-2 mb-30' onClick={handleShow}>
+         <Button className='buff border border-secondary text-dark m-3 px-3 py-2 mb-30' onClick={handleShow}>
             Oefeningen
          </Button>
          <div>
@@ -52,6 +52,7 @@ const OffCanvas = () => {
                   <Offcanvas.Title className='buff-text-color'>LEÇON 1 : BONJOUR !</Offcanvas.Title>
                </Offcanvas.Header>
                <Offcanvas.Body>
+                  {/* This is a test purpose button for Reseting the Game progress */}
                   {/* <div className='text-end mb-3'>
                      <Button variant='danger' onClick={resetProgress}>
                         <i className='fa-light fa-rotate-right'></i> <span>Reset Progress</span>

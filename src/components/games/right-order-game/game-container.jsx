@@ -70,7 +70,7 @@ const GameContainer = ({ exerciseTitle }) => {
    const renderSubmitButton = () => (
       <CustomButton
          onClick={handleSubmit}
-         text={"Ga Door"}
+         text={"Ga door"}
          borderColor={"success"}
          placeHolder={"Submit-Icon"}
          margin={"mx-2"}
@@ -182,7 +182,7 @@ const GameContainer = ({ exerciseTitle }) => {
       <ul className='memory-game-color d-flex align-items-center justify-content-center'>
          <CustomButton
             onClick={handleGameStart}
-            text={"Start Game"}
+            text={"Start"}
             placeHolder={"StartGame-Icon"}
             colorString={"light-green py-3"}
             borderColor={"success"}

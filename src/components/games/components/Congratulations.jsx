@@ -12,7 +12,7 @@ const CongratulationsComponent = ({ showOffCanvas, showScore, returnAchievement,
                </div>
             )} */}
             <div className='text-center'>
-               <h1 className='buff-text-color display-4'>🎉Congratulations🎊</h1>
+               <h1 className='buff-text-color display-4'>🎉Gefeliciteerd!🎊</h1>
                {showScore && (
                   <h3 className='text-center buff-text-color display-6 mb-50'>Jouw Score: {returnAchievement()}</h3>
                )}
@@ -24,7 +24,7 @@ const CongratulationsComponent = ({ showOffCanvas, showScore, returnAchievement,
                   <CustomButton
                      onClick={() => {
                         handlePrompt(
-                           "Do you want to Restart the Game?",
+                           "Wil je de oefening opnieuw maken?",
                            "Your all progress will be lost !!",
                            "warning",
                            "handleRestart"

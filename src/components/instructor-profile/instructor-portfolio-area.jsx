@@ -76,9 +76,9 @@ const instructor_portfolio_data = [
 const InstructorPortfolioArea = () => {
    return (
       <>
-         <section className='instructor-portfolio bone pb-50'>
+         <section className='bone p-5'>
             <div className='container '>
-               <div className='row d-flex align-items-center justify-content-center' style={{ height:'100vh' }}>
+               <div className='row d-flex align-items-center justify-content-center'>
                   <div className='col-xl-4 col-lg-5 col-md-8 col-sm-9 card-color rounded-3'>
                      <div className='instruc-sidebar mb-40'>
                         <div className='isntruc-side-thumb mb-30'>
