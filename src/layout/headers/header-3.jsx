@@ -32,21 +32,19 @@ const HeaderThree = () => {
       <>
          <header className='bone'>
             <div className='pt-10' id='header-sticky'>
-               <div className='container col-lg-10'>
+               <div className='mx-4'>
                   <div className='d-flex justify-content-between align-items-center'>
                      <div className='text-center'>
                         <div className='logo-area d-flex align-items-center'>
-                           <div className=''>
-                              <Link href='/'>
-                                 <Image
-                                    src='/assets/img/logo/brand_logo_2.png'
-                                    alt='Maison Ensemble'
-                                    placeholder={true}
-                                    width={200}
-                                    height={100}
-                                 />
-                              </Link>
-                           </div>
+                           <Link href='/'>
+                              <Image
+                                 src='/assets/img/logo/brand_logo_2.png'
+                                 alt='Maison Ensemble'
+                                 placeholder={true}
+                                 width={200}
+                                 height={100}
+                              />
+                           </Link>
                         </div>
                      </div>
                      <div className='d-flex align-items-center justify-content-center'>
@@ -60,7 +58,7 @@ const HeaderThree = () => {
                         {isLoggedIn ? (
                            <div className='main-menu main-menu-black'>
                               <nav id='mobile-menu' className='d-none d-xl-block'>
-                                 <div className='d-flex '>
+                                 <div className='d-flex'>
                                     <NavMenu />
                                     <ProfileMenu handleLogout={handleLogout} />
                                  </div>

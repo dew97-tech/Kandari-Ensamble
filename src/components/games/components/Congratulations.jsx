@@ -25,7 +25,7 @@ const CongratulationsComponent = ({ showOffCanvas, showScore, returnAchievement,
                      onClick={() => {
                         handlePrompt(
                            "Wil je de oefening opnieuw maken?",
-                           "Your all progress will be lost !!",
+                           "",
                            "warning",
                            "handleRestart"
                         );

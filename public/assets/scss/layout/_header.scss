@@ -338,8 +338,8 @@
             }
             & .submenu {
                 position: absolute;
-                top: 120%;
-                left: 0;
+                top: 100%;
+                right: 0;
                 // Previous Width was 200px changed to 160px to prevent text overflow and margin collapse
                 width: 160px;
                 background: var(--tp-common-white);

@@ -50,19 +50,13 @@ function CustomButton({
                         className='mr-5 mb-1 text-black'
                      />
                   ) : null}
-                  <span
-                     className={`buff-text-color text-capitalize ${fontSize ? fontSize : "h5"}`}
-                     style={{ fontSize: "18px" }}
-                  >
+                  <span className={`buff-text-color ${fontSize ? fontSize : "h5"}`} style={{ fontSize: "18px" }}>
                      {text}
                   </span>
                </>
             ) : (
                <>
-                  <span
-                     className={`buff-text-color text-capitalize ${fontSize ? fontSize : "h5"}`}
-                     style={{ fontSize: "18px" }}
-                  >
+                  <span className={`buff-text-color ${fontSize ? fontSize : "h5"}`} style={{ fontSize: "18px" }}>
                      {text}
                   </span>
                   {isImageAvailable ? (

@@ -105,7 +105,7 @@ const Game = ({ exerciseTitle }) => {
          <InstructionSentence
             marginTop='mt-15'
             marginBottom='mb-15'
-            InstructionText='Fill the gap with the correct options below'
+            InstructionText='Klik het juiste woord aan'
          />
          <Questions context={FillGapsExerciseContext} />
          <hr className='border border-1 border-secondary opacity-25 mt-10 mx-2 mb-0 rounded' />
