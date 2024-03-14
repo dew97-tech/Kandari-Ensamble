@@ -87,7 +87,7 @@ const sentences = [
          {
             id: 2,
             hintSentence: "Hoe gaat het? Niet slecht.",
-            question: "Ça va ? ___ ",
+            question: "Ça va ? ___ .",
             options: ["très", "pas mal", "ne va pas", "bien", "mal", "vais"],
             correctAns: "pas mal",
             audioUrl: "/assets/exercises/place-in-right-order/ca-va-pas-mal.mp3",
@@ -131,7 +131,7 @@ const sentences = [
          {
             id: 6,
             hintSentence: "Het gaat heel goed met me. En jij?",
-            question: "Je elles ___ très bien.Et toi ?",
+            question: "Je elles ___ très bien. Et toi ?",
             options: ["très", "pas mal", "ne va pas", "bien", "mal", "vais"],
             correctAns: "vais",
             audioUrl: "/assets/exercises/place-in-right-order/je-vais-tres-bien-et-toi.mp3",

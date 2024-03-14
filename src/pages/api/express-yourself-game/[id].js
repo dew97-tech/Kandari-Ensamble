@@ -5,7 +5,7 @@ const express_yourself_exercise = [
          {
             id: 1,
             question: "Hoi, ik heet Charlie.",
-            correctAnswer: "Salut, je m'appelle charlie.",
+            correctAnswer: "Salut, je m'appelle Charlie.",
             audioUrl: "/assets/exercises/video-exercise/salut-je-mappelle-charlie.mp3",
             video: {
                pauseTime: 26.375,
@@ -14,7 +14,7 @@ const express_yourself_exercise = [
          {
             id: 2,
             question: "Het gaat goed met me, dank je!",
-            correctAnswer: "Je vais bien, merci !",
+            correctAnswer: "Je vais bien, merci ! Et toi, ça va ?",
             audioUrl: "/assets/exercises/video-exercise/je-vais-bien-merci.mp3",
             video: {
                pauseTime: 36.125,
@@ -41,7 +41,7 @@ const express_yourself_exercise = [
          {
             id: 5,
             question: "We zijn Marandais!",
-            correctAnswer: "Nous sommes marandais !",
+            correctAnswer: "Nous sommes Marandais !",
             audioUrl: "/assets/exercises/video-exercise/nous-sommes-marandais.mp3",
             video: {
                pauseTime: 60.875,
@@ -49,7 +49,7 @@ const express_yourself_exercise = [
          },
          {
             id: 6,
-            question: "Ja! Kijk, hier zijn foto`s van Marans.",
+            question: "Ja! Kijk, hier zijn foto's van Marans.",
             correctAnswer: "Oui ! Regarde, voici des photos de Marans.",
             audioUrl: "/assets/exercises/video-exercise/oui-regarde-voici-des-photos-de-marans.mp3",
             video: {
@@ -72,8 +72,8 @@ const express_yourself_exercise = [
       data: [
          {
             id: 1,
-            question: "Hallo, ik ben Sacha",
-            correctAnswer: "Bonjour, je suis sacha.",
+            question: "Hallo, ik ben Sacha.",
+            correctAnswer: "Bonjour, je suis Sacha.",
             audioUrl: "/assets/exercises/video-exercise/bonjour-je-suis-sacha.mp3",
             video: {
                pauseTime: 16.75,
@@ -91,7 +91,7 @@ const express_yourself_exercise = [
          {
             id: 3,
             question: "Hoe gaat het met je Charlie?",
-            correctAnswer: "Comment vas-tu charlie ?",
+            correctAnswer: "Comment vas-tu Charlie ?",
             audioUrl: "/assets/exercises/video-exercise/comment-vas-tu-charlie.mp3",
             video: {
                pauseTime: 32.125,
@@ -126,7 +126,7 @@ const express_yourself_exercise = [
          },
          {
             id: 7,
-            question: "Wow, ze zijn mooi",
+            question: "Wow, ze zijn mooi!",
             correctAnswer: "Wow, elles sont belles.",
             audioUrl: "/assets/exercises/video-exercise/wow-elles-sont-belles.mp3",
             video: {
@@ -135,8 +135,8 @@ const express_yourself_exercise = [
          },
          {
             id: 8,
-            question: "Ik moet gaan.",
-            correctAnswer: "Je dois partir.",
+            question: "Oh, ik moet gaan.",
+            correctAnswer: "Oh, je dois partir.",
             audioUrl: "/assets/exercises/video-exercise/oh-je-dois-partir.mp3",
             video: {
                pauseTime: 82.25,

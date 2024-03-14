@@ -142,13 +142,13 @@ const RightOrderExerciseProvider = ({ children, exerciseId, exerciseTitle }) => 
 
    // Function to handle correct user input
    const handleCorrectAnswer = () => {
-      if (score < currentExercise.data.length) {
+      if (score <= currentExercise.data.length) {
          setScore(score + 1);
-         setShowCorrectAnswer(true);
          // Correct! Resume the video where it was paused
          // setPlaying(true);
          // setShowGame(false);
       }
+      // setShowCorrectAnswer(true);
       handleFeedbackMessage("Correct, Good Job!");
    };
 
@@ -229,6 +229,7 @@ const RightOrderExerciseProvider = ({ children, exerciseId, exerciseTitle }) => 
       if (arraysAreEqual(userOrder, item.correctOrder)) {
          handleCorrectAnswer();
          // moveToNextQuestion();
+         setShowCorrectAnswer(true);
          setIsCorrect(true);
       } else {
          handleIncorrectAnswer();
@@ -253,7 +254,8 @@ const RightOrderExerciseProvider = ({ children, exerciseId, exerciseTitle }) => 
    };
 
    const audioUrl = currentExerciseData?.audioUrl;
-
+   // console.log("currentIndex", currentIndex);
+   // console.log("currentExerciseData", currentExercise?.data?.length - 1);
    return (
       <RightOrderExerciseContext.Provider
          value={{

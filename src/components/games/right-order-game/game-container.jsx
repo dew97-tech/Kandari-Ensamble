@@ -142,38 +142,7 @@ const GameContainer = ({ exerciseTitle }) => {
                showScore={true}
                handlePrompt={handlePrompt}
             />
-            {/* <h3 className='text-center buff-text-color'>Jouw Score: {returnAchievement()}</h3> */}
-            {/* <PreviousAnswers
-               game={"RightOrderGame"}
-               {...{
-                  previousAnswers,
-                  score,
-                  sentenceLength,
-                  sentences,
-                  currentExercise,
-               }}
-            /> */}
          </div>
-         {/* <div className='d-flex justify-content-between'>
-            <CustomButton
-               onClick={() => {
-                  handlePrompt(
-                     "Do you want to Restart the Game?",
-                     "Your all progress will be lost !!",
-                     "warning",
-                     "handleRestart"
-                  );
-               }}
-               text={"Restart"}
-               placeHolder={"Restart-Icon"}
-               iconText={"/assets/icons/restart.gif"}
-               colorString={"bittersweet"}
-               borderColor={"danger"}
-               isImageAvailable={true}
-            />
-
-            <NavLinks />
-         </div> */}
       </>
    );
 
@@ -194,7 +163,7 @@ const GameContainer = ({ exerciseTitle }) => {
    // Function to render the game content based on the game state
    const renderGameContent = () => {
       if (isGameStarted) {
-         if (!challengesCompleted && !isFinished) {
+         if (!challengesCompleted && !isFinished && !showConfetti) {
             return renderGameInProgress();
          } else {
             return renderGameFinished();

@@ -21,7 +21,7 @@ const role_play_game = [
             question: "Het gaat goed met me, dank je!",
             options: [
                { id: "2A", text: "Je vas bien, merci !" },
-               { id: "2B", text: "Je vais bien, merci !" },
+               { id: "2B", text: "Je vais bien, merci ! Et toi, ça va ?" },
             ],
             correctOptionId: "2B",
             audioUrl: "/assets/exercises/video-exercise/je-vais-bien-merci.mp3",
@@ -39,7 +39,7 @@ const role_play_game = [
             correctOptionId: "3B",
             audioUrl: "/assets/exercises/video-exercise/et-toi-ca-va.mp3",
             video: {
-               pauseTime: 40.417,
+               pauseTime: 40.292,
             },
          },
          {
@@ -192,10 +192,10 @@ const role_play_game = [
          },
          {
             id: 8,
-            question: "Ik moet gaan.",
+            question: "Oh, ik moet gaan.",
             options: [
-               { id: "8A", text: "Je dois partir." },
-               { id: "8B", text: "Je doit partir." },
+               { id: "8A", text: "Oh, je dois partir." },
+               { id: "8B", text: "Oh, je doit partir." },
             ],
             correctOptionId: "8A",
             audioUrl: "/assets/exercises/video-exercise/je-dois-partir.mp3",
