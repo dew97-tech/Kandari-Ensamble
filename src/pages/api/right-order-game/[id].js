@@ -7,8 +7,8 @@ const Right_Order_Game_Questions = [
             id: 1,
             gameLanguage: "French",
             hintSentence: "Hoi, ik heet Charlie.",
-            wrongOrder: ["Charlie ", "m`appelle", "je", "salut"],
-            correctOrder: ["Salut,", "je", "m`appelle", "Charlie."],
+            wrongOrder: ["charlie", "m'appelle", "je", "salut"],
+            correctOrder: ["Salut,", "je", "m'appelle", "Charlie."],
             audioUrl: "/assets/exercises/video-exercise/salut-je-mappelle-charlie.mp3",
             video: {
                pauseTime: 26.375,
@@ -51,7 +51,7 @@ const Right_Order_Game_Questions = [
             id: 5,
             gameLanguage: "French",
             hintSentence: "Wij zijn Marandais.",
-            wrongOrder: ["sommes", "Marandais", "nous"],
+            wrongOrder: ["sommes", "marandais", "nous"],
             correctOrder: ["Nous", "sommes", "Marandais !"],
             audioUrl: "/assets/exercises/video-exercise/nous-sommes-marandais.mp3",
             video: {
@@ -78,7 +78,7 @@ const Right_Order_Game_Questions = [
             id: 1,
             gameLanguage: "French",
             hintSentence: "Hallo, ik ben Sacha.",
-            wrongOrder: ["suis", "bonjour", "Sacha", "je"],
+            wrongOrder: ["suis", "bonjour", "sacha", "je"],
             correctOrder: ["Bonjour,", "je", "suis", "Sacha."],
             audioUrl: "/assets/exercises/video-exercise/bonjour-je-suis-sacha.mp3",
             video: {
@@ -100,7 +100,7 @@ const Right_Order_Game_Questions = [
             id: 3,
             gameLanguage: "French",
             hintSentence: "Hoe gaat het met je Charlie?",
-            wrongOrder: ["vas-tu", "Charlie", "comment"],
+            wrongOrder: ["vas-tu", "charlie", "comment"],
             correctOrder: ["Comment", "vas-tu", "Charlie ?"],
             audioUrl: "/assets/exercises/video-exercise/comment-vas-tu-charlie.mp3",
             video: {
@@ -166,7 +166,7 @@ const Right_Order_Game_Questions = [
             id: 9,
             gameLanguage: "Dutch",
             hintSentence: "Tot ziens Charlie.",
-            wrongOrder: ["revoir", "au", "Charlie"],
+            wrongOrder: ["revoir", "au", "charlie"],
             correctOrder: ["Au", "revoir", "Charlie."],
             audioUrl: "/assets/exercises/video-exercise/au-revoir-charlie.mp3",
             video: {

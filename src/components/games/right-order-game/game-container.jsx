@@ -163,7 +163,7 @@ const GameContainer = ({ exerciseTitle }) => {
    // Function to render the game content based on the game state
    const renderGameContent = () => {
       if (isGameStarted) {
-         if (!challengesCompleted && !isFinished && !showConfetti) {
+         if (!challengesCompleted && !isFinished) {
             return renderGameInProgress();
          } else {
             return renderGameFinished();

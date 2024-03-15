@@ -190,6 +190,7 @@ const RightOrderExerciseProvider = ({ children, exerciseId, exerciseTitle }) => 
          setShowGame(false);
          setUserOrder([]);
          setAttempts(0);
+         console.log("i am in the if statement");
       } else if (currentIndex < currentExercise.data.length - 1 && attempts >= 2) {
          setCurrentIndex(currentIndex + 1);
          // Incorrect! Resume the video where it was paused
@@ -198,16 +199,19 @@ const RightOrderExerciseProvider = ({ children, exerciseId, exerciseTitle }) => 
          setUserOrder([]);
          setAttempts(0);
          handleFeedbackMessage("Incorrect, Moving on to the next challenge.");
+         console.log("i am in the else if 1 statement");
       } else if (currentIndex === currentExercise.data.length - 1 && attempts >= 2) {
          handleFeedbackMessage("Incorrect, Game Finished");
          setIsFinished(true);
          // When the game is finished, pause the video and don't show the game!
          setPlaying(false);
          setShowGame(false);
+         console.log("i am in the else if 2 statement");
       } else {
          handleFeedbackMessage("Congratulations! You Have Completed All The Challenges");
          setShowConfetti(true);
          setIsFinished(true);
+         console.log("i am in the else  statement");
       }
       setShowCorrectAnswer(false);
    };
@@ -271,7 +275,8 @@ const RightOrderExerciseProvider = ({ children, exerciseId, exerciseTitle }) => 
             previousAnswers,
             isFinished,
             isGameStarted,
-            sentenceLength: currentExercise?.data?.length,
+            // length of the sentence + 1 to avoid the last word being cut off
+            sentenceLength: currentExercise?.data?.length + 1,
             // this is options array for the CommonVideoPlayer Component
             optionsArray: wrongOrder,
             // currentVideo,

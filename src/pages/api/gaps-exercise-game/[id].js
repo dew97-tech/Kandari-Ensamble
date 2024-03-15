@@ -88,8 +88,8 @@ const sentences = [
             id: 2,
             hintSentence: "Hoe gaat het? Niet slecht.",
             question: "Ça va ? ___ .",
-            options: ["très", "pas mal", "ne va pas", "bien", "mal", "vais"],
-            correctAns: "pas mal",
+            options: ["très", "Pas mal", "ne va pas", "bien", "mal", "vais"],
+            correctAns: "Pas mal",
             audioUrl: "/assets/exercises/place-in-right-order/ca-va-pas-mal.mp3",
             video: {
                pauseTime: 16.75,
